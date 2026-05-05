@@ -1,0 +1,147 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+.solutions {
+  background: $color-white;
+  color: $color-white;
+}
+
+.solutions__stage {
+  --copy-left: max(156px, calc((100vw - 1128px) / 2));
+  --copy-width: 648px;
+
+  position: relative;
+  width: 100%;
+  height: 780px;
+  overflow: hidden;
+  background: $color-white;
+}
+
+.solutions__media {
+  position: relative;
+  width: 100%;
+  height: 780px;
+  overflow: hidden;
+}
+
+.solutions__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba($color-primary, 0.4);
+}
+
+.solutions__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.solutions__copy {
+  position: absolute;
+  top: 314px;
+  left: var(--copy-left);
+  width: var(--copy-width);
+}
+
+.solutions__title,
+.solutions__text {
+  margin: 0;
+  font-family: $font-primary;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: $letter-spacing-base;
+}
+
+.solutions__title {
+  font-size: 48px;
+  font-weight: $font-weight-medium;
+}
+
+.solutions__text {
+  margin-top: 8px;
+  font-size: 24px;
+  font-weight: $font-weight-normal;
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .solutions__stage {
+    --copy-left: #{$layout-padding-tablet};
+    --copy-width: min(648px, calc(100% - (#{$layout-padding-tablet} * 2)));
+
+    height: 654px;
+  }
+
+  .solutions__media {
+    height: 654px;
+  }
+
+  .solutions__copy {
+    top: 264px;
+  }
+
+  .solutions__title {
+    font-size: 32px;
+  }
+
+  .solutions__text {
+    margin-top: 16px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: $bp-tablet-compact) and (min-width: ($bp-md + 1px)) {
+  .solutions__stage {
+    --copy-left: #{$layout-padding-tablet-compact};
+    --copy-width: min(648px, calc(100% - (#{$layout-padding-tablet-compact} * 2)));
+  }
+}
+
+@media (max-width: $bp-md) {
+  .solutions__stage {
+    --copy-left: #{$layout-padding-mobile};
+    --copy-width: calc(100% - (#{$layout-padding-mobile} * 2));
+
+    height: 469px;
+  }
+
+  .solutions__media {
+    height: 469px;
+  }
+
+  .solutions__copy {
+    top: 181px;
+  }
+
+  .solutions__title {
+    font-size: 32px;
+  }
+
+  .solutions__text {
+    margin-top: 16px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: $bp-mobile-small) {
+  .solutions__stage {
+    --copy-left: #{$layout-padding-mobile-small};
+    --copy-width: calc(100% - (#{$layout-padding-mobile-small} * 2));
+  }
+}
+
+:host-context([dir='rtl']) {
+  .solutions {
+    direction: rtl;
+  }
+
+  .solutions__copy {
+    left: auto;
+    right: var(--copy-left);
+  }
+}

@@ -1,0 +1,249 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+.solution {
+  background: $color-white;
+  color: $color-primary;
+}
+
+.solution__inner {
+  width: 100%;
+  padding: 100px $layout-padding-desktop 80px;
+}
+
+.solution__canvas {
+  position: relative;
+  width: 100%;
+  height: 355px;
+}
+
+.solution__canvas--tablet,
+.solution__canvas--mobile {
+  display: none;
+}
+
+.solution__kicker,
+.solution__title,
+.solution__quote,
+.solution__body {
+  position: absolute;
+  margin: 0;
+  font-family: $font-primary;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+.solution__kicker,
+.solution__title {
+  left: 0;
+  width: 40.426%;
+  color: $color-primary;
+  font-size: 40px;
+  letter-spacing: $letter-spacing-base;
+}
+
+.solution__kicker {
+  top: 251px;
+  font-weight: $font-weight-normal;
+}
+
+.solution__title {
+  top: 307px;
+  font-weight: 600;
+}
+
+.solution__quote,
+.solution__body {
+  left: 42.553%;
+  width: 57.447%;
+}
+
+.solution__quote {
+  top: 0;
+  color: $color-muted;
+  font-size: 24px;
+  font-weight: $font-weight-normal;
+  letter-spacing: 1px;
+}
+
+.solution__body {
+  color: $color-primary;
+  font-size: 16px;
+  font-weight: $font-weight-normal;
+  letter-spacing: 1px;
+}
+
+.solution__body--first {
+  top: 119px;
+}
+
+.solution__body--second {
+  top: 241px;
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .solution__inner {
+    padding: 80px $layout-padding-tablet;
+  }
+
+  .solution__canvas--desktop {
+    display: none;
+  }
+
+  .solution__canvas--tablet {
+    display: block;
+    height: 400px;
+  }
+
+  .solution__canvas--tablet .solution__quote,
+  .solution__canvas--tablet .solution__body {
+    left: 51.485%;
+    width: 48.515%;
+  }
+
+  .solution__canvas--tablet .solution__quote {
+    top: 0;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .solution__canvas--tablet .solution__body {
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+
+  .solution__canvas--tablet .solution__body--first {
+    top: 120px;
+  }
+
+  .solution__canvas--tablet .solution__body--second {
+    top: 264px;
+  }
+
+  .solution__canvas--tablet .solution__kicker,
+  .solution__canvas--tablet .solution__title {
+    left: 0;
+    width: 48.515%;
+    font-size: 32px;
+  }
+
+  .solution__canvas--tablet .solution__kicker {
+    top: 316px;
+  }
+
+  .solution__canvas--tablet .solution__title {
+    top: 362px;
+  }
+}
+
+@media (max-width: $bp-tablet-compact) and (min-width: ($bp-md + 1px)) {
+  .solution__inner {
+    padding-inline: $layout-padding-tablet-compact;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .solution__inner {
+    padding: 80px $layout-padding-mobile;
+  }
+
+  .solution__canvas--desktop,
+  .solution__canvas--tablet {
+    display: none;
+  }
+
+  .solution__canvas--mobile {
+    display: block;
+    height: 575px;
+  }
+
+  .solution__canvas--mobile .solution__kicker,
+  .solution__canvas--mobile .solution__title,
+  .solution__canvas--mobile .solution__quote,
+  .solution__canvas--mobile .solution__body {
+    left: 0;
+    width: 100%;
+  }
+
+  .solution__canvas--mobile .solution__kicker,
+  .solution__canvas--mobile .solution__title {
+    font-size: 32px;
+    letter-spacing: $letter-spacing-base;
+  }
+
+  .solution__canvas--mobile .solution__kicker {
+    top: 0;
+  }
+
+  .solution__canvas--mobile .solution__title {
+    top: 46px;
+  }
+
+  .solution__canvas--mobile .solution__quote {
+    top: 116px;
+    font-size: 20px;
+    letter-spacing: 0;
+  }
+
+  .solution__canvas--mobile .solution__body {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  .solution__canvas--mobile .solution__body--first {
+    top: 228px;
+  }
+
+  .solution__canvas--mobile .solution__body--second {
+    top: 406px;
+  }
+}
+
+@media (max-width: $bp-mobile-small) {
+  .solution__inner {
+    padding-inline: $layout-padding-mobile-small;
+  }
+}
+
+:host-context([dir='rtl']) {
+  .solution {
+    direction: rtl;
+  }
+
+  .solution__kicker,
+  .solution__title {
+    left: auto;
+    right: 0;
+  }
+
+  .solution__quote,
+  .solution__body {
+    left: auto;
+    right: 42.553%;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  :host-context([dir='rtl']) {
+    .solution__canvas--tablet .solution__quote,
+    .solution__canvas--tablet .solution__body {
+      left: auto;
+      right: 51.485%;
+    }
+  }
+}
+
+@media (max-width: $bp-md) {
+  :host-context([dir='rtl']) {
+    .solution__canvas--mobile .solution__kicker,
+    .solution__canvas--mobile .solution__title,
+    .solution__canvas--mobile .solution__quote,
+    .solution__canvas--mobile .solution__body {
+      left: auto;
+      right: 0;
+    }
+  }
+}

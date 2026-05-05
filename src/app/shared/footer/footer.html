@@ -1,0 +1,86 @@
+<footer class="x-footer layout-container">
+  <div class="x-footer__top">
+    <div class="x-footer__brand">
+      <a routerLink="/" class="x-footer__logo-link" aria-label="LINE-X Home">
+        <img
+          class="x-footer__logo"
+          src="assets/images/figma2/footer-logo.svg"
+          alt="LINE-X"
+        />
+      </a>
+
+      <p class="x-footer__desc">
+        Museums, markets, reindeer observatories, landscapes and dollhouses get
+        the same care and attention to purpose.
+      </p>
+
+      <form class="x-footer__subscribe" (submit)="$event.preventDefault()">
+        <input
+          class="x-footer__input"
+          type="email"
+          placeholder="Enter Your Email"
+          aria-label="Enter your email"
+        />
+
+        <button class="x-footer__submit" type="submit" aria-label="Submit email">
+          <img src="assets/images/figma2/footer-submit-arrow.svg" alt="" />
+        </button>
+      </form>
+    </div>
+
+    <div class="x-footer__columns">
+      <div class="x-footer__column x-footer__column--contact">
+        <h3 class="x-footer__heading">CONTACT US</h3>
+
+        <div class="x-footer__links">
+          <p class="x-footer__text">Monday - Friday: 08am - 09pm</p>
+
+          <a href="tel:+1123456789" class="x-footer__link x-footer__link--strong">
+            +(1) 123 456 789
+          </a>
+
+          <div class="x-footer__space"></div>
+
+          <p class="x-footer__text">Have a project in mind?</p>
+
+          <a href="mailto:X-line@example.com" class="x-footer__link x-footer__link--strong">
+            X-line@example.com
+          </a>
+        </div>
+      </div>
+
+      <div class="x-footer__column x-footer__column--sitemap">
+        <h3 class="x-footer__heading">SITEMAP</h3>
+
+        <nav class="x-footer__links" aria-label="Footer sitemap">
+          <a routerLink="/projects" class="x-footer__link">Projects</a>
+          <a routerLink="/services" class="x-footer__link">Services</a>
+          <a routerLink="/about" class="x-footer__link">About</a>
+          <a routerLink="/contact" class="x-footer__link">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="x-footer__bottom">
+    <p class="x-footer__copyright">@ 2026 X-Line. All rights reserved.</p>
+
+    <div class="x-footer__socials">
+      <a href="#" class="x-footer__social" aria-label="Facebook">
+        <img src="assets/images/figma2/facebook.svg" alt="" />
+      </a>
+
+      <a href="#" class="x-footer__social" aria-label="Twitter">
+        <img src="assets/images/figma2/twitter.svg" alt="" />
+      </a>
+
+      <a href="#" class="x-footer__social" aria-label="Instagram">
+        <img src="assets/images/figma2/instagram.svg" alt="" />
+      </a>
+
+      <a href="#" class="x-footer__social" aria-label="Pinterest">
+        <img src="assets/images/figma2/pinterest.svg" alt="" />
+      </a>
+    </div>
+  </div>
+</footer>

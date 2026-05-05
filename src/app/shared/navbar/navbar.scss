@@ -1,0 +1,400 @@
+@use 'variables' as *;
+
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: $z-navbar;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $color-white;
+  border: 1px solid #e7e7e7;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  &__logo {
+    width: 96px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2px;
+    text-decoration: none;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  &__logo-icon {
+    width: 26.474px;
+    height: 19.53px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  &__logo-text {
+    position: relative;
+    width: 48.951px;
+    height: 16.35px;
+    flex-shrink: 0;
+  }
+
+  &__logo-wordmark-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48.951px;
+    height: 9.969px;
+    object-fit: contain;
+  }
+
+  &__logo-wordmark-bottom {
+    position: absolute;
+    top: 12.15px;
+    left: 0;
+    width: 48.838px;
+    height: 4.197px;
+    object-fit: contain;
+  }
+
+  &__desktop {
+    display: flex;
+    align-items: center;
+    gap: $gap-sm;
+  }
+
+  &__links,
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $gap-sm;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    height: $height-action;
+    padding: 12px $gap-xs;
+    font-family: $font-primary;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-sm;
+    line-height: $line-height-action;
+    letter-spacing: $letter-spacing-base;
+    color: $color-primary;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: $transition-opacity;
+
+    &:hover,
+    &--active {
+      opacity: 0.6;
+    }
+  }
+
+  &__divider {
+    display: inline-flex;
+    align-items: center;
+    height: $height-action;
+    padding: 12px $gap-xs;
+    font-family: $font-primary;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-xs;
+    line-height: $line-height-action;
+    letter-spacing: $letter-spacing-base;
+    color: $color-primary;
+    user-select: none;
+  }
+
+  &__lang-group {
+    display: inline-flex;
+    align-items: center;
+    height: $height-action;
+    padding: 12px $gap-xs;
+  }
+
+  &__lang {
+    font-family: $font-primary;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-xs;
+    line-height: $line-height-action;
+    letter-spacing: $letter-spacing-base;
+    color: $color-primary;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  &__lang--active {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+  }
+
+  &__lang-sep {
+    font-family: $font-primary;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-xs;
+    line-height: $line-height-action;
+    letter-spacing: $letter-spacing-base;
+    color: $color-primary;
+    user-select: none;
+  }
+
+  &__theme-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  &__mobile-actions {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+  }
+
+  &__theme-btn--mobile {
+    width: 32px;
+    height: 32px;
+
+    img {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+
+    span {
+      position: absolute;
+      left: 3px;
+      width: 26px;
+      height: 2.5px;
+      border-radius: 999px;
+      background: #111;
+      transition: 0.25s ease;
+    }
+
+    span:nth-child(1) {
+      top: 8px;
+    }
+
+    span:nth-child(2) {
+      top: 15px;
+    }
+
+    span:nth-child(3) {
+      top: 22px;
+    }
+  }
+
+  &--menu-open {
+    .navbar__toggle {
+      span:nth-child(1) {
+        top: 15px;
+        transform: rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        top: 15px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-navbar - 1;
+  display: none;
+  background: $color-white;
+  overflow: auto;
+
+  &--open {
+    display: block;
+  }
+
+  &__links {
+    margin-top: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    a {
+      font-family: $font-primary;
+      font-weight: $font-weight-medium;
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: 0.5px;
+      color: #000;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+  }
+
+  &__link--active {
+    opacity: 0.6;
+  }
+
+  &__lang {
+    margin-top: 70px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    button,
+    span {
+      font-family: $font-primary;
+      font-weight: $font-weight-medium;
+      font-size: 20px;
+      line-height: 24px;
+      color: #000;
+    }
+
+    button {
+      border: 0;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .active {
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+    }
+  }
+}
+
+/* Tablet: same padding behavior like footer */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .navbar {
+    &__desktop {
+      display: none;
+    }
+
+    &__mobile-actions {
+      display: flex;
+    }
+
+    &__toggle {
+      display: block;
+    }
+  }
+}
+
+/* Mobile: same padding behavior like footer */
+@media (max-width: 767px) {
+  .navbar {
+    &__desktop {
+      display: none;
+    }
+
+    &__mobile-actions {
+      display: flex;
+    }
+
+    &__toggle {
+      display: block;
+    }
+  }
+
+  .mobile-menu {
+    &__links {
+      margin-top: 120px;
+      gap: 32px;
+
+      a {
+        font-size: 28px;
+        line-height: 36px;
+      }
+    }
+
+    &__lang {
+      margin-top: 56px;
+    }
+  }
+}
+
+/* iPhone X / small mobile safety: same as footer */
+@media (max-width: 390px) {
+  .navbar {
+    &__mobile-actions {
+      gap: 18px;
+    }
+
+    &__logo {
+      width: 90px;
+    }
+
+    &__theme-btn--mobile {
+      width: 28px;
+      height: 28px;
+
+      img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    &__toggle {
+      width: 30px;
+      height: 30px;
+
+      span {
+        left: 3px;
+        width: 24px;
+      }
+    }
+  }
+
+  .mobile-menu {
+    &__links {
+      margin-top: 110px;
+      gap: 28px;
+
+      a {
+        font-size: 26px;
+        line-height: 34px;
+      }
+    }
+
+    &__lang {
+      margin-top: 48px;
+      gap: 14px;
+
+      button,
+      span {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+  }
+}

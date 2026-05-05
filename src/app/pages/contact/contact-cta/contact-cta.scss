@@ -1,0 +1,158 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.contact-cta {
+  min-height: 471px;
+  border: 1px solid $color-border-top;
+  background: #f9fafb;
+  color: $color-primary;
+  font-family: $font-primary;
+  text-align: center;
+}
+
+.contact-cta__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-cta__content {
+  box-sizing: border-box;
+  width: min(100%, 552px);
+  padding-top: 99px;
+}
+
+.contact-cta__title {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+
+  span,
+  strong {
+    display: block;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+.contact-cta__text {
+  margin: 32px 0 0;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.contact-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 216px;
+  min-height: 48px;
+  margin-top: 40px;
+  padding: 12px;
+  background: $color-primary;
+  color: $color-white;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: $color-hover-dark;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+  }
+
+  span {
+    padding-inline: 16px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
+  .contact-cta {
+    min-height: 375px;
+  }
+
+  .contact-cta__content {
+    width: min(100%, 392px);
+    padding-top: 79px;
+  }
+
+  .contact-cta__title {
+    font-size: 32px;
+  }
+
+  .contact-cta__text {
+    margin-top: 24px;
+    letter-spacing: 0;
+  }
+
+  .contact-cta__button {
+    width: 232px;
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .contact-cta {
+    min-height: 295px;
+    border-inline: 0;
+    border-bottom: 0;
+  }
+
+  .contact-cta__content {
+    width: min(100%, 440px);
+    padding-top: 40px;
+  }
+
+  .contact-cta__title {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .contact-cta__text {
+    margin-top: 24px;
+    font-size: 13px;
+    line-height: 1.25;
+    letter-spacing: 0;
+  }
+
+  .contact-cta__button {
+    width: 209px;
+    margin-top: 32px;
+    font-size: 12px;
+    line-height: 1;
+  }
+}
+
+@media (max-width: $bp-mobile-small) {
+  .contact-cta__title {
+    font-size: 22px;
+  }
+
+  .contact-cta__text {
+    font-size: 12px;
+  }
+
+  .contact-cta__button {
+    font-size: 11px;
+  }
+}

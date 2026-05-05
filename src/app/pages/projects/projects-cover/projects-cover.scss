@@ -1,0 +1,169 @@
+@use 'variables' as *;
+
+:host {
+	display: block;
+}
+
+.projects-cover {
+	position: relative;
+	width: 100%;
+	height: 440px;
+	overflow: hidden;
+	background: #111111;
+}
+
+.projects-cover__media,
+.projects-cover__image {
+	position: absolute;
+	display: block;
+	max-width: none;
+}
+
+.projects-cover__image {
+	top: -22.05%;
+	left: 0;
+	width: 100%;
+	height: 184.09%;
+}
+
+.projects-cover__media {
+	pointer-events: none;
+}
+
+.projects-cover__overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.projects-cover__content {
+	position: relative;
+	z-index: 2;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $color-white;
+	text-align: center;
+}
+
+.projects-cover__stats {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: min(1120px, 100%);
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 24px;
+}
+
+.projects-cover__stat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+}
+
+.projects-cover__icon {
+	width: 64px;
+	height: 64px;
+	display: block;
+}
+
+.projects-cover__icon--diamond {
+	position: relative;
+}
+
+.projects-cover__icon--diamond img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.projects-cover__value {
+	font-size: 48px;
+	font-weight: 800;
+	line-height: 1.1;
+	letter-spacing: 0.4px;
+}
+
+.projects-cover__label {
+	font-size: 16px;
+	line-height: 1.6;
+	letter-spacing: 0.4px;
+}
+
+@media (max-width: 1199px) {
+	.projects-cover {
+        height: 321px;
+	}
+
+	.projects-cover__image {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.projects-cover__stats {
+		width: min(920px, 100%);
+	}
+
+	.projects-cover__icon {
+		width: 48px;
+		height: 48px;
+	}
+
+	.projects-cover__value {
+		font-size: 32px;
+	}
+}
+
+@media (max-width: $bp-md) {
+	.projects-cover {
+		height: 424px;
+	}
+
+	.projects-cover__image {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.projects-cover__stats {
+		width: min(360px, 100%);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 24px 16px;
+	}
+
+	.projects-cover__icon {
+		width: 48px;
+		height: 48px;
+	}
+
+	.projects-cover__value {
+		font-size: 32px;
+	}
+
+	.projects-cover__label {
+		font-size: 14px;
+	}
+
+	.projects-cover__stat--countries {
+		order: 1;
+	}
+
+	.projects-cover__stat--sustainable {
+		order: 2;
+	}
+
+	.projects-cover__stat--projects {
+		order: 3;
+	}
+
+	.projects-cover__stat--awards {
+		order: 4;
+	}
+}

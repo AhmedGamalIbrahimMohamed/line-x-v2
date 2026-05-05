@@ -1,0 +1,13 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  width: 100%;
+  background: $color-white;
+  color: $color-primary;
+}
+
+.projects-page {
+  padding-block-start: 64px;
+  background: $color-white;
+}

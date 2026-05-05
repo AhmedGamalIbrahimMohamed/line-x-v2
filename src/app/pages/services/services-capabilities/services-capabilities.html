@@ -1,0 +1,29 @@
+<section class="services-capabilities" aria-labelledby="services-capabilities-title">
+  <div class="services-capabilities__inner layout-container">
+    <div class="services-capabilities__heading">
+      <p class="services-capabilities__eyebrow">Core Pillars</p>
+      <h2 id="services-capabilities-title">Capabilities</h2>
+    </div>
+
+    <div class="services-capabilities__list">
+      @for (capability of capabilities; track capability.number) {
+        <article class="capability-card">
+          <div class="capability-card__content">
+            <p class="capability-card__number">{{ capability.number }}</p>
+            <h3>{{ capability.title }}</h3>
+            <p class="capability-card__description">{{ capability.description }}</p>
+            <ul>
+              @for (item of capability.bullets; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </div>
+
+          <div class="capability-card__media">
+            <img [src]="capability.image" [alt]="capability.imageAlt" />
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

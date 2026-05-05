@@ -1,0 +1,134 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+.services-hero {
+  width: 100%;
+  min-height: 550px;
+  overflow: hidden;
+  background: $color-white;
+  color: $color-primary;
+  font-family: $font-primary;
+}
+
+.services-hero__inner {
+  width: 100%;
+  padding-block: 80px;
+}
+
+.services-hero__eyebrow {
+  margin: 0 0 4px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.services-hero__title {
+  margin: 0;
+  color: $color-primary;
+}
+
+.services-hero__title-italic {
+  display: block;
+  margin-bottom: -3px;
+  font-size: 80px;
+  line-height: 1.2;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.services-hero__title-bold {
+  display: block;
+  font-size: 80px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.services-hero__description {
+  width: min(552px, 100%);
+  margin: 24px 0 0;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+@media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
+  .services-hero {
+    min-height: 480px;
+  }
+
+  .services-hero__inner {
+    padding-block: 64px 40px;
+  }
+
+  .services-hero__eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .services-hero__title-italic {
+    margin-bottom: 3px;
+    font-size: 64px;
+  }
+
+  .services-hero__title-bold {
+    font-size: 56px;
+  }
+
+  .services-hero__description {
+    width: min(496px, 100%);
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .services-hero {
+    min-height: 518px;
+  }
+
+  .services-hero__inner {
+    padding-block: 24px 40px;
+  }
+
+  .services-hero__eyebrow {
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
+  .services-hero__title-italic {
+    margin-bottom: 6px;
+    font-size: 64px;
+    letter-spacing: 0.5px;
+  }
+
+  .services-hero__title-bold {
+    font-size: 48px;
+    letter-spacing: -1px;
+  }
+
+  .services-hero__description {
+    width: min(368px, 100%);
+    margin-top: 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: $bp-mobile-small) {
+  .services-hero__title-italic {
+    font-size: 56px;
+  }
+
+  .services-hero__title-bold {
+    font-size: 42px;
+  }
+
+  .services-hero__description {
+    font-size: 13px;
+  }
+}

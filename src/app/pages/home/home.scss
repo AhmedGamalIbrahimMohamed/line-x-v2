@@ -1,0 +1,8 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  width: 100%;
+  background: $color-white;
+  color: $color-primary;
+}

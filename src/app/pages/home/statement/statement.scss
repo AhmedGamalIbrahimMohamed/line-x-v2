@@ -1,0 +1,123 @@
+@use 'variables' as *;
+
+$breakpoint-tablet: 1024px;
+$breakpoint-mobile: 767px;
+$breakpoint-small: 430px;
+
+:host {
+  display: block;
+}
+
+.statement-section {
+  background: $color-white;
+  padding: 28px 0 120px;
+}
+
+.statement-wrap {
+  width: 100%;
+}
+
+.statement-divider {
+  width: 72px;
+  height: 1px;
+  margin: 0 0 22px;
+  background: $color-muted;
+}
+
+.statement-block {
+  margin: 0 0 20px;
+  font-size: 56px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.statement-block span {
+  display: block;
+}
+
+.statement-block em {
+  font-style: italic;
+  color: $color-muted;
+  font-weight: 400;
+}
+
+.discover-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  font-size: $font-size-sm;
+  line-height: $line-height-action;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-base;
+  color: inherit;
+  text-decoration: none;
+}
+
+.discover-link svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Tablet: Figma node 68:8501 */
+@media (max-width: $breakpoint-tablet) {
+  .statement-section {
+    padding: 80px 0 64px;
+  }
+
+  .statement-divider {
+    margin-bottom: 24px;
+  }
+
+  .statement-block {
+    max-width: 808px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    line-height: 1.4;
+  }
+}
+
+/* Mobile: Figma node 1:3494 */
+@media (max-width: $breakpoint-mobile) {
+  .statement-section {
+    padding: 40px 0 56px;
+  }
+
+  .statement-divider {
+    margin-bottom: 24px;
+  }
+
+  .statement-block {
+    max-width: 368px;
+    margin-bottom: 24px;
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  .statement-block span:nth-child(2) {
+    display: inline;
+  }
+
+  .statement-block span:nth-child(3) {
+    display: inline;
+  }
+
+  .statement-block span:nth-child(3)::after {
+    content: '';
+    display: block;
+  }
+}
+
+/* Small mobile fix: iPhone X / narrow screens */
+@media (max-width: $breakpoint-small) {
+  .statement-block {
+    max-width: 100%;
+    font-size: clamp(34px, 9.3vw, 40px);
+  }
+}

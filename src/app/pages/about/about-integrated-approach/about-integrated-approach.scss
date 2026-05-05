@@ -1,0 +1,237 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+.about-approach {
+  width: 100%;
+  min-height: 630px;
+  background: $color-white;
+  color: $color-primary;
+  font-family: $font-primary;
+}
+
+.about-approach__inner {
+  padding-block: 100px 92px;
+}
+
+.about-approach__header {
+  width: min(936px, 100%);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.about-approach__eyebrow {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.about-approach h2 {
+  margin: 0;
+  font-size: 56px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.about-approach__intro {
+  width: min(552px, 100%);
+  margin: 16px auto 0;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.about-approach__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.approach-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  min-height: 194px;
+  padding: 24px;
+  border: 1px solid #d5d5d5;
+  background: $color-white;
+}
+
+.approach-card__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  color: $color-primary;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.approach-card__text {
+  display: grid;
+  gap: 8px;
+}
+
+.approach-card h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.approach-card p {
+  margin: 0;
+  color: #444444;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.approach-card--featured {
+  border-color: $color-primary;
+  background: $color-primary;
+  color: $color-white;
+
+  .approach-card__number {
+    background: #1f1f1f;
+    color: $color-white;
+  }
+
+  p {
+    color: $color-white;
+  }
+}
+
+@media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
+  .about-approach {
+    min-height: auto;
+  }
+
+  .about-approach__inner {
+    padding-block: 80px 72px;
+  }
+
+  .about-approach__header {
+    width: 100%;
+  }
+
+  .about-approach h2 {
+    font-size: 40px;
+    letter-spacing: 0.5px;
+  }
+
+  .about-approach__intro {
+    width: min(552px, 100%);
+    margin-top: 13px;
+    font-size: 16px;
+  }
+
+  .about-approach__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    margin-top: 36px;
+  }
+
+  .approach-card {
+    min-height: 183px;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .approach-card__number {
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+  }
+
+  .approach-card h3 {
+    font-size: 16px;
+  }
+
+  .approach-card p {
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+
+  .approach-card--featured {
+    grid-column: 1 / -1;
+    min-height: 161px;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .about-approach {
+    min-height: 1082px;
+  }
+
+  .about-approach__inner {
+    padding-block: 80px 39px;
+  }
+
+  .about-approach__header {
+    width: 100%;
+  }
+
+  .about-approach__eyebrow {
+    margin-bottom: 21px;
+  }
+
+  .about-approach h2 {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  .about-approach__intro {
+    margin-top: 21px;
+    font-size: 14px;
+  }
+
+  .about-approach__steps {
+    grid-template-columns: 1fr;
+    gap: 21px;
+    margin-top: 21px;
+  }
+
+  .approach-card {
+    min-height: 174px;
+    gap: 24px;
+    padding: 16px;
+  }
+
+  .approach-card__number {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .approach-card h3 {
+    font-size: 16px;
+  }
+
+  .approach-card p {
+    font-size: 12px;
+  }
+
+  .approach-card--featured {
+    min-height: 203px;
+
+    p {
+      font-size: 14px;
+    }
+  }
+}

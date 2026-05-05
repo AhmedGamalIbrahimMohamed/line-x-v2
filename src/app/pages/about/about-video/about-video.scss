@@ -1,0 +1,42 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+.about-video {
+  width: 100%;
+  background: $color-white;
+}
+
+.about-video__media {
+  width: 100%;
+  height: 780px;
+  overflow: hidden;
+  background: #111111;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
+  .about-video__media {
+    height: 620px;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .about-video__media {
+    height: 420px;
+  }
+}
+
+@media (max-width: $bp-mobile-small) {
+  .about-video__media {
+    height: 360px;
+  }
+}

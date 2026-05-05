@@ -1,0 +1,360 @@
+@use 'variables' as *;
+
+$breakpoint-tablet: 1024px;
+$breakpoint-mobile: 767px;
+$breakpoint-small: 479px;
+
+:host {
+  display: block;
+}
+
+.partner-section {
+  position: relative;
+  min-height: 320vh;
+}
+
+.partner-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.partner-media-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  backface-visibility: hidden;
+  contain: paint;
+  transform: translate3d(0, 0, 0);
+  will-change: width, transform;
+}
+
+.partner-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, 0, 0);
+  object-fit: cover;
+}
+
+.partner-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 0;
+  width: 50%;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 160ms linear;
+  will-change: opacity;
+}
+
+.partner-right.is-active {
+  pointer-events: auto;
+}
+
+.partner-panel {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  padding: clamp(96px, 14vh, 140px) clamp(28px, 4vw, 56px) clamp(32px, 5vh, 48px);
+}
+
+.partner-viewport {
+  width: min(100%, 552px);
+  max-height: calc(100vh - 120px);
+  overflow: hidden;
+  padding-inline-end: 18px;
+}
+
+.partner-track {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: $font-size-sm;
+  line-height: 1.2;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-base;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 24px;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -2px;
+  color: #111111;
+}
+
+.intro {
+  width: min(100%, 552px);
+  margin: 0 0 36px;
+  font-size: $font-size-base;
+  line-height: $line-height-text;
+  font-weight: $font-weight-medium;
+  letter-spacing: 1px;
+  color: #111111;
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  padding-bottom: 32px;
+}
+
+.feature-item {
+  position: relative;
+  padding-inline-start: 32px;
+}
+
+.feature-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 132px;
+  background: #dddddd;
+}
+
+.feature-item--tall::before {
+  height: 151px;
+}
+
+.feature-title {
+  margin: 0 0 16px;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #444444;
+}
+
+.feature-text {
+  margin: 0;
+  font-size: $font-size-base;
+  line-height: 1.2;
+  font-weight: $font-weight-normal;
+  letter-spacing: 0.5px;
+  color: $color-muted;
+}
+
+.progress-rail {
+  display: none;
+}
+
+// ── RTL overrides ─────────────────────────────────────────────────────────────
+:host-context([dir='rtl']) {
+  .partner-media-wrap {
+    left: auto;
+    right: 0;
+  }
+
+  .partner-right {
+    right: auto;
+    left: 0;
+  }
+
+  .partner-viewport {
+    padding-inline-end: 0;
+    padding-inline-start: 18px;
+  }
+
+  .feature-item {
+    padding-inline-start: 0;
+    padding-inline-end: 32px;
+  }
+
+  .feature-item::before {
+    left: auto;
+    right: 0;
+  }
+}
+
+@media (min-width: ($breakpoint-mobile + 1px)) and (max-width: $breakpoint-tablet) {
+  .partner-stage {
+    height: 100svh;
+  }
+
+  .partner-media-wrap {
+    height: 100svh;
+  }
+
+  .partner-right {
+    width: 50%;
+    height: 100svh;
+  }
+
+  .partner-panel {
+    padding: 96px 36px 48px;
+  }
+
+  .partner-viewport {
+    width: 100%;
+    max-height: calc(100svh - 144px);
+    padding-inline-end: 22px;
+  }
+
+  .title {
+    margin-bottom: 20px;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  .intro {
+    margin-bottom: 32px;
+    font-size: 14px;
+  }
+
+  .feature-list {
+    gap: 30px;
+  }
+
+  .feature-title {
+    font-size: 18px;
+  }
+
+  .feature-text {
+    font-size: 14px;
+  }
+
+  .progress-rail {
+    display: none;
+  }
+
+  .progress-thumb {
+    display: none;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .partner-section {
+    min-height: 0;
+  }
+
+  .partner-stage {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+
+  .partner-media-wrap {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    min-height: 100svh;
+    transform: none !important;
+  }
+
+  .partner-right {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .partner-panel {
+    padding: 24px 36px 40px;
+  }
+
+  .partner-viewport {
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+    padding-inline-end: 0;
+  }
+
+  .partner-track {
+    transform: none !important;
+  }
+
+  .progress-rail {
+    display: none;
+  }
+
+  .eyebrow {
+    margin-bottom: 6px;
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+  }
+
+  .title {
+    margin-bottom: 14px;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  .intro {
+    margin-bottom: 28px;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+  }
+
+  .feature-text {
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+  }
+
+  .feature-list {
+    gap: 24px;
+    padding-bottom: 0;
+  }
+
+  .feature-item {
+    padding-inline-start: 16px;
+  }
+
+  .feature-title {
+    margin-bottom: 6px;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+  }
+
+  .feature-item::before,
+  .feature-item--tall::before {
+    height: 100%;
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .partner-media-wrap {
+    min-height: 100svh;
+  }
+
+  .partner-right {
+    padding-inline: 0;
+  }
+
+  .partner-panel {
+    padding-inline: 20px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+}

@@ -1,0 +1,60 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  width: 100%;
+  background: $color-white;
+  color: $color-primary;
+}
+
+.contact-page {
+  font-family: $font-primary;
+  background: $color-white;
+  padding-block-start: 64px;
+}
+
+.contact-page__main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+  padding-block: 80px 48px;
+}
+
+@media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
+  .contact-page__main {
+    grid-template-columns: minmax(0, 393px) minmax(0, 392px);
+    gap: 23px;
+    justify-content: center;
+    padding-block: 72px 80px;
+  }
+}
+
+@media (max-width: $bp-tablet-compact) and (min-width: ($bp-md + 1px)) {
+  .contact-page__main {
+    grid-template-columns: minmax(0, 393px) minmax(0, 392px);
+  }
+}
+
+@media (max-width: $bp-md) {
+  .contact-page__main {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-block: 24px 40px;
+  }
+
+  app-contact-form {
+    order: 1;
+  }
+
+  app-contact-hero {
+    order: 2;
+  }
+}
+
+@media (max-width: $bp-mobile-small) {
+  .contact-page__main {
+    padding-block-start: 24px;
+  }
+}

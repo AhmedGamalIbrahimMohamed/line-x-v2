@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.contact-map {
+  position: relative;
+  width: 100%;
+  height: 451px;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.contact-map__image {
+  position: absolute;
+  top: -58.31%;
+  left: 0;
+  display: block;
+  width: 101.86%;
+  height: 172.88%;
+  max-width: none;
+}
+
+@media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
+  .contact-map {
+    height: 321px;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .contact-map {
+    height: 182px;
+  }
+
+  .contact-map__image {
+    top: -63.41%;
+    left: -20.37%;
+    width: 140.56%;
+    height: 179.58%;
+  }
+}

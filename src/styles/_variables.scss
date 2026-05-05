@@ -1,0 +1,84 @@
+// ── Shared design tokens ──────────────────────────────────────────────────────
+// Import this file in any component SCSS with: @use 'variables' as *;
+// (Works because angular.json stylePreprocessorOptions.includePaths = ["src/styles"])
+
+// ── Colors ────────────────────────────────────────────────────────────────────
+$color-primary:      #000000;   // primary text, button bg, borders
+$color-white:        #ffffff;   // page/card backgrounds
+$color-muted:        #868686;   // secondary text, headings, placeholders
+$color-hover-dark:   #333333;   // hover state for dark elements
+
+$color-border-nav:   #e7e7e7;   // navbar bottom border
+$color-border-top:   #e5e7eb;   // footer top border
+$color-border-light: #e2e8f0;   // footer internal dividers, input border
+
+// ── Typography ────────────────────────────────────────────────────────────────
+$font-primary:        'Poppins', sans-serif;
+$font-secondary:      'Roboto', sans-serif;
+
+$font-size-xs:        12px;     // lang switcher, divider
+$font-size-sm:        14px;     // nav links, footer text/headings
+$font-size-base:      16px;     // footer input, copyright
+
+$font-weight-normal:  400;
+$font-weight-medium:  500;
+
+$letter-spacing-base: 0.5px;
+$line-height-action:  24px;     // nav interactive items
+$line-height-text:    1.4;      // body-copy line-height
+
+// ── Layout ────────────────────────────────────────────────────────────────────
+$layout-padding-desktop:        105px;
+$layout-padding-tablet:         108px;
+$layout-padding-tablet-compact: 48px;
+$layout-padding-mobile:         36px;
+$layout-padding-mobile-small:   20px;
+
+$layout-max-width: none;
+$height-action:    48px;        // height for nav links, lang group, inputs, submit btn
+
+// ── Spacing (gaps) ────────────────────────────────────────────────────────────
+$gap-xs: 8px;
+$gap-sm: 16px;
+$gap-md: 24px;
+$gap-lg: 48px;
+
+// ── Z-indices ─────────────────────────────────────────────────────────────────
+$z-navbar: 100;
+
+// ── Transitions ───────────────────────────────────────────────────────────────
+$transition-opacity: opacity 0.2s;
+$transition-bg:      background 0.2s;
+
+// ── Breakpoints ───────────────────────────────────────────────────────────────
+$bp-lg: 1200px;
+$bp-md:  767px;
+$bp-tablet-compact: 950px;
+$bp-mobile-small: 390px;
+
+@mixin layout-container($max-width: $layout-max-width) {
+  width: 100%;
+  box-sizing: border-box;
+  margin-inline: auto;
+  padding-inline: $layout-padding-desktop;
+
+  @if $max-width != none {
+    max-width: $max-width;
+  }
+
+  @media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
+    padding-inline: $layout-padding-tablet;
+  }
+
+  @media (max-width: $bp-tablet-compact) and (min-width: ($bp-md + 1px)) {
+    padding-inline: $layout-padding-tablet-compact;
+  }
+
+  @media (max-width: $bp-md) {
+    padding-inline: $layout-padding-mobile;
+  }
+
+  @media (max-width: $bp-mobile-small) {
+    padding-inline: $layout-padding-mobile-small;
+  }
+}

@@ -1,0 +1,335 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+// ── Outer section: provides 4× scroll room ───────────────────────────────────
+.expertise-section {
+  position: relative;
+  min-height: 400vh;
+  background: #fff;
+}
+
+// ── Sticky viewport ───────────────────────────────────────────────────────────
+.expertise-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+// ── BEM children ─────────────────────────────────────────────────────────────
+.expertise-section {
+
+  &__media {
+    position: relative;
+    width: 50%;
+    flex: 0 0 50%;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+
+      &.is-active {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__content {
+    flex: 0 0 50%;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 56px;
+    padding: clamp(56px, 9vh, 96px) clamp(28px, 4vw, 56px);
+    background: #fff;
+  }
+
+  &__main {
+    flex: 1 1 auto;
+    max-width: 552px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 64px;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  &__eyebrow {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: $color-primary;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 56px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    color: $color-primary;
+  }
+
+  &__title-bold { font-weight: 600; }
+
+  &__title-light {
+    margin-inline-start: 8px;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  &__text-block {
+    width: 100%;
+    padding: 8px 0 8px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: $color-primary;
+  }
+
+  &__description {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: $color-muted;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 168px;
+    padding: 12px 28px;
+    background: $color-primary;
+    color: $color-white;
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      background: $color-white;
+      color: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+
+  &__steps {
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    flex: 0 0 40px;
+  }
+
+  &__step {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 40px;
+    flex: 1 1 0;
+    border-right: 2px solid #b3b3b3;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    color: #b3b3b3;
+    cursor: pointer;
+    transition: border-color 0.3s ease, color 0.3s ease;
+
+    &--active {
+      border-right-color: $color-primary;
+      color: $color-primary;
+    }
+  }
+
+  // ── Responsive ─────────────────────────────────────────────────────────────
+
+  @media (min-width: 768px) and (max-width: 1200px) {
+    &__media {
+      width: 48.828%;
+      flex-basis: 48.828%;
+    }
+
+    &__content {
+      width: 51.172%;
+      flex-basis: 51.172%;
+      justify-content: flex-start;
+      gap: 24px;
+      padding: 0 clamp(24px, 7.2vw, 74px) 0 24px;
+    }
+
+    &__main {
+      max-width: min(311px, calc(100% - 64px));
+      gap: 40px;
+    }
+
+    &__title {
+      font-size: clamp(32px, 3.2vw, 40px);
+      white-space: nowrap;
+    }
+
+    &__text-block {
+      gap: 24px;
+      padding: 8px 0 8px 16px;
+    }
+
+    &__subtitle { font-size: 24px; }
+    &__description { font-size: 16px; }
+
+    &__steps {
+      height: 298px;
+      gap: 16px;
+    }
+
+    &__step {
+      font-size: 24px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    min-height: auto;
+  }
+
+  @media (max-width: 767px) {
+    min-height: auto;
+
+    &__media {
+      width: 100%;
+      flex-basis: auto;
+      height: 480px;
+      min-height: 0;
+    }
+
+    &__content {
+      width: 100%;
+      height: auto;
+      min-height: 476px;
+      position: relative;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 0;
+      padding: 89px 36px 88px;
+    }
+
+    &__main {
+      max-width: calc(100% - 96px);
+      gap: 32px;
+    }
+
+    &__title {
+      font-size: 32px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    &__text-block {
+      gap: 16px;
+      padding: 8px 0;
+    }
+
+    &__subtitle { font-size: 24px; }
+
+    &__description {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    &__steps {
+      position: absolute;
+      top: 89px;
+      right: 36px;
+      width: 32px;
+      height: 298px;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &__step {
+      width: 32px;
+      min-height: 0;
+      border-right: 2px solid #b3b3b3;
+      border-bottom: 0;
+      align-items: flex-end;
+      padding-bottom: 0;
+      font-size: 16px;
+
+      &--active {
+        border-right-color: $color-primary;
+        color: $color-primary;
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    &__media {
+      height: 109vw;
+      min-height: 360px;
+      max-height: 480px;
+    }
+
+    &__content {
+      padding-inline: 24px;
+    }
+
+    &__main {
+      max-width: calc(100% - 76px);
+    }
+
+    &__title { font-size: 28px; }
+
+    &__steps {
+      right: 24px;
+    }
+  }
+}
+
+// Tablet and mobile: unstick the stage because scroll-driven slide changes are desktop-only.
+@media (min-width: 768px) and (max-width: 991px) {
+  .expertise-stage {
+    position: relative;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 767px) {
+  .expertise-stage {
+    position: relative;
+    height: auto;
+    flex-direction: column;
+  }
+}
+

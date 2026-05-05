@@ -1,0 +1,21 @@
+<section class="about-vision" aria-labelledby="about-vision-title">
+  <div class="about-vision__inner layout-container">
+    <div class="about-vision__header">
+      <p class="about-vision__eyebrow">Our Vision</p>
+      <h2 id="about-vision-title">
+        To be the definitive leader in architectural and construction integration, setting new
+        benchmarks for infrastructure in Libya and expanding our footprint globally.
+      </h2>
+    </div>
+
+    <div class="about-vision__cards">
+      @for (card of cards; track card.title) {
+        <article class="vision-card" [class.vision-card--tablet-hidden]="card.tabletHidden">
+          <h3>{{ card.title }}</h3>
+          <span class="vision-card__line" aria-hidden="true"></span>
+          <p>{{ card.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

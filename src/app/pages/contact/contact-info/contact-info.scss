@@ -1,0 +1,116 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+.contact-info {
+  border: 1px solid $color-border-top;
+  background: #f9fafb;
+}
+
+.contact-info__inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  min-height: 348px;
+  align-items: center;
+}
+
+.contact-method {
+  max-width: 361px;
+}
+
+.contact-method__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  border: 1px solid $color-primary;
+  border-radius: 50%;
+  color: $color-primary;
+  font-size: 18px;
+}
+
+.contact-method h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.contact-method p {
+  margin: 0 0 8px;
+  color: $color-muted;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.contact-method a,
+.contact-method strong {
+  color: #444444;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
+  .contact-info__inner {
+    grid-template-columns: repeat(2, minmax(0, 392px));
+    gap: 44px 24px;
+    justify-content: center;
+    min-height: 0;
+    padding-block: 48px 49px;
+  }
+
+  .contact-method {
+    max-width: 392px;
+  }
+
+  .contact-method h2 {
+    font-size: 16px;
+  }
+
+  .contact-method p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .contact-info__inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    min-height: 0;
+    padding-block: 40px;
+  }
+
+  .contact-method {
+    max-width: 100%;
+  }
+
+  .contact-method__icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .contact-method h2 {
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+
+  .contact-method p {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .contact-method a,
+  .contact-method strong {
+    font-size: 14px;
+  }
+}

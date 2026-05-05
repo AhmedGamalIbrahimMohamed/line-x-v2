@@ -1,0 +1,152 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+.about-vision {
+  width: 100%;
+  background: $color-white;
+  color: $color-primary;
+  font-family: $font-primary;
+}
+
+.about-vision__inner {
+  padding-block: 100px;
+}
+
+.about-vision__header {
+  width: min(552px, 100%);
+}
+
+.about-vision__eyebrow {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.about-vision h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.about-vision__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.vision-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 236px;
+  padding: 24px;
+  border: 1px solid #d5d5d5;
+  background: $color-white;
+}
+
+.vision-card h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.vision-card__line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 16px 0;
+  background: #d5d5d5;
+}
+
+.vision-card p {
+  margin: 0;
+  color: #444444;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+@media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
+  .about-vision__inner {
+    padding-block: 80px;
+  }
+
+  .about-vision__header {
+    width: min(496px, 100%);
+  }
+
+  .about-vision h2 {
+    font-size: 20px;
+  }
+
+  .about-vision__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 34px;
+  }
+
+  .vision-card {
+    min-height: 163px;
+    padding: 16px;
+  }
+
+  .vision-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .vision-card h3 {
+    font-size: 16px;
+  }
+
+  .vision-card__line {
+    width: min(312px, 100%);
+  }
+
+  .vision-card p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .about-vision__inner {
+    padding-block: 64px;
+  }
+
+  .about-vision h2 {
+    font-size: 24px;
+  }
+
+  .about-vision__cards {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .vision-card {
+    min-height: 0;
+    padding: 24px;
+  }
+}
+
+@media (max-width: $bp-mobile-small) {
+  .about-vision h2 {
+    font-size: 22px;
+  }
+
+  .vision-card h3 {
+    font-size: 18px;
+  }
+
+  .vision-card p {
+    font-size: 14px;
+  }
+}

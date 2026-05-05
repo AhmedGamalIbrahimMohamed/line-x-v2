@@ -1,0 +1,72 @@
+<nav class="navbar layout-container" [class.navbar--menu-open]="isMenuOpen">
+  <a class="navbar__logo" routerLink="/" (click)="closeMenu()">
+    <img src="assets/images/logo-vector.svg" alt="X" class="navbar__logo-icon" />
+
+    <span class="navbar__logo-text">
+      <img src="assets/images/logo-group-1.svg" alt="X-Line" class="navbar__logo-wordmark-top" />
+      <img src="assets/images/logo-group-2.svg" alt="" class="navbar__logo-wordmark-bottom" />
+    </span>
+  </a>
+
+  <div class="navbar__desktop">
+    <div class="navbar__links">
+      <a class="navbar__link" routerLink="/projects" routerLinkActive="navbar__link--active">Projects</a>
+      <a class="navbar__link" routerLink="/services" routerLinkActive="navbar__link--active">Services</a>
+      <a class="navbar__link" routerLink="/about" routerLinkActive="navbar__link--active">About</a>
+      <a class="navbar__link" routerLink="/contact" routerLinkActive="navbar__link--active">Contact</a>
+    </div>
+
+    <span class="navbar__divider">|</span>
+
+    <div class="navbar__actions">
+      <div class="navbar__lang-group">
+        <button class="navbar__lang" type="button" (click)="setLanguage('en')" [class.navbar__lang--active]="currentLang === 'en'">EN</button>
+        <span class="navbar__lang-sep"> / </span>
+        <button class="navbar__lang" type="button" (click)="setLanguage('ar')" [class.navbar__lang--active]="currentLang === 'ar'">AR</button>
+      </div>
+
+      <button class="navbar__theme-btn" type="button" aria-label="Toggle theme">
+        <img src="assets/images/moon-icon.svg" alt="" width="24" height="24" />
+      </button>
+    </div>
+  </div>
+
+  <div class="navbar__mobile-actions">
+    <button
+      *ngIf="isMenuOpen"
+      class="navbar__theme-btn navbar__theme-btn--mobile"
+      type="button"
+      aria-label="Toggle theme"
+    >
+      <img src="assets/images/moon-icon.svg" alt="" width="32" height="32" />
+    </button>
+
+    <button
+      class="navbar__toggle"
+      type="button"
+      [attr.aria-label]="isMenuOpen ? 'Close navigation' : 'Open navigation'"
+      [attr.aria-expanded]="isMenuOpen"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" [class.mobile-menu--open]="isMenuOpen">
+  <div class="mobile-menu__links">
+    <a routerLink="/" routerLinkActive="mobile-menu__link--active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+    <a routerLink="/projects" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">Projects</a>
+    <a routerLink="/services" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">Services</a>
+    <a routerLink="/about" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">About</a>
+    <a routerLink="/contact" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">Contact</a>
+  </div>
+
+  <div class="mobile-menu__lang">
+    <button type="button" (click)="setLanguage('en')" [class.active]="currentLang === 'en'">EN</button>
+    <span>/</span>
+    <button type="button" (click)="setLanguage('ar')" [class.active]="currentLang === 'ar'">AR</button>
+  </div>
+</div>

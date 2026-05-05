@@ -1,0 +1,24 @@
+<section class="about-approach" aria-labelledby="about-approach-title">
+  <div class="about-approach__inner layout-container">
+    <div class="about-approach__header">
+      <p class="about-approach__eyebrow">One Integrated Approach</p>
+      <h2 id="about-approach-title">Bridging Design &amp; Construction</h2>
+      <p class="about-approach__intro">
+        We eliminate the friction between conceptualization and realization by housing both
+        disciplines under one roof.
+      </p>
+    </div>
+
+    <div class="about-approach__steps">
+      @for (step of steps; track step.number) {
+        <article class="approach-card" [class.approach-card--featured]="step.featured">
+          <div class="approach-card__number">{{ step.number }}</div>
+          <div class="approach-card__text">
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

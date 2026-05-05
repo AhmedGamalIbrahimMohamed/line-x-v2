@@ -1,0 +1,126 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+.projects-hero {
+  width: 100%;
+  min-height: auto;
+  overflow: hidden;
+  background: $color-white;
+  color: $color-primary;
+  font-family: $font-primary;
+}
+
+.projects-hero__inner {
+  width: 100%;
+  padding-block: 80px 24px;
+}
+
+.projects-hero__eyebrow {
+  margin: 0 0 4px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.projects-hero__title {
+  margin: 0;
+  color: $color-primary;
+}
+
+.projects-hero__title-italic {
+  display: block;
+  margin-bottom: -3px;
+  font-size: 80px;
+  line-height: 1.2;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.projects-hero__title-bold {
+  display: block;
+  font-size: 80px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.projects-hero__description {
+  width: min(552px, 100%);
+  margin: 24px 0 0;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+@media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
+  .projects-hero__inner {
+    padding-block: 64px 20px;
+  }
+
+  .projects-hero__eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .projects-hero__title-italic {
+    margin-bottom: 3px;
+    font-size: 64px;
+  }
+
+  .projects-hero__title-bold {
+    font-size: 56px;
+  }
+
+  .projects-hero__description {
+    width: min(496px, 100%);
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .projects-hero__inner {
+    padding-block: 24px 4px;
+  }
+
+  .projects-hero__eyebrow {
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
+  .projects-hero__title-italic {
+    margin-bottom: 6px;
+    font-size: 64px;
+    letter-spacing: 0.5px;
+  }
+
+  .projects-hero__title-bold {
+    font-size: 48px;
+    letter-spacing: -1px;
+  }
+
+  .projects-hero__description {
+    width: min(368px, 100%);
+    margin-top: 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: $bp-mobile-small) {
+  .projects-hero__title-italic {
+    font-size: 56px;
+  }
+
+  .projects-hero__title-bold {
+    font-size: 42px;
+  }
+
+  .projects-hero__description {
+    font-size: 13px;
+  }
+}

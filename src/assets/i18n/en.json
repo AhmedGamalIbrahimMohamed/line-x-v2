@@ -1,0 +1,14 @@
+{
+  "APP": {
+    "TITLE": "X-Line",
+    "WELCOME": "Welcome, {{name}}!"
+  },
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About"
+  },
+  "BUTTON": {
+    "SAVE": "Save",
+    "CANCEL": "Cancel"
+  }
+}

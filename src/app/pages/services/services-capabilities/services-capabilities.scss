@@ -1,0 +1,232 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+.services-capabilities {
+  background: #f5f5f5;
+  color: $color-primary;
+  font-family: $font-primary;
+}
+
+.services-capabilities__inner {
+  padding-block: 100px 131px;
+}
+
+.services-capabilities__heading {
+  margin-bottom: 53px;
+}
+
+.services-capabilities__eyebrow {
+  margin: 0 0 7px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.services-capabilities h2 {
+  margin: 0;
+  font-size: 56px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.services-capabilities__list {
+  display: grid;
+  gap: 24px;
+}
+
+.capability-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.capability-card:nth-child(even) {
+  .capability-card__content {
+    order: 2;
+  }
+
+  .capability-card__media {
+    order: 1;
+  }
+}
+
+.capability-card__content,
+.capability-card__media {
+  height: 446px;
+}
+
+.capability-card__content {
+  padding-block-start: 85px;
+}
+
+.capability-card__number {
+  margin: 0 0 8px;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.capability-card h3 {
+  margin: 0 0 24px;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.capability-card__description {
+  width: min(552px, 100%);
+  margin: 0 0 24px;
+  color: $color-muted;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.capability-card ul {
+  margin: 0;
+  padding-inline-start: 24px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.capability-card__media {
+  overflow: hidden;
+  background: #16191d;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
+  .services-capabilities__inner {
+    padding-block: 80px;
+  }
+
+  .services-capabilities__heading {
+    margin-bottom: 42px;
+  }
+
+  .services-capabilities h2 {
+    font-size: 40px;
+  }
+
+  .services-capabilities__list {
+    gap: 24px;
+  }
+
+  .capability-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .capability-card__content {
+    height: 340px;
+    padding-block-start: 46px;
+  }
+
+  .capability-card__media {
+    height: 340px;
+  }
+
+  .capability-card__number {
+    margin-bottom: 16px;
+    font-size: 28px;
+  }
+
+  .capability-card h3 {
+    margin-bottom: 24px;
+    font-size: 28px;
+  }
+
+  .capability-card__description {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .capability-card ul {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .services-capabilities__inner {
+    padding-block: 40px 28px;
+  }
+
+  .services-capabilities__heading {
+    margin-bottom: 32px;
+  }
+
+  .services-capabilities__eyebrow {
+    margin-bottom: 7px;
+  }
+
+  .services-capabilities h2 {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  .services-capabilities__list {
+    gap: 32px;
+  }
+
+  .capability-card,
+  .capability-card:nth-child(even) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .capability-card__content,
+    .capability-card__media {
+      order: initial;
+    }
+  }
+
+  .capability-card__content {
+    height: auto;
+    min-height: 0;
+    padding-block-start: 0;
+  }
+
+  .capability-card__media {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 368 / 280;
+  }
+
+  .capability-card__number {
+    margin-bottom: 8px;
+    font-size: 24px;
+  }
+
+  .capability-card h3 {
+    margin-bottom: 16px;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+  }
+
+  .capability-card__description {
+    margin-bottom: 16px;
+    font-size: 20px;
+  }
+
+  .capability-card ul {
+    padding-inline-start: 21px;
+    font-size: 14px;
+  }
+}

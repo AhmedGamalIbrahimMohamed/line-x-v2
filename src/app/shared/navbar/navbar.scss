@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   background: $color-white;
-  border: 1px solid #e7e7e7;
+  border: 1px solid $color-border-nav;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
@@ -188,7 +188,7 @@
       width: 26px;
       height: 2.5px;
       border-radius: 999px;
-      background: #111;
+      background: $color-text-strong;
       transition: 0.25s ease;
     }
 

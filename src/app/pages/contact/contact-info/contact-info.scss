@@ -6,7 +6,7 @@
 
 .contact-info {
   border: 1px solid $color-border-top;
-  background: #f9fafb;
+  background: $color-surface-muted;
 }
 
 .contact-info__inner {
@@ -51,7 +51,7 @@
 
 .contact-method a,
 .contact-method strong {
-  color: #444444;
+  color: $color-text-soft;
   font-size: 16px;
   line-height: 1.4;
   font-weight: 600;

@@ -95,7 +95,7 @@ $breakpoint-small: 479px;
   line-height: 1.1;
   font-weight: 600;
   letter-spacing: -2px;
-  color: #111111;
+  color: $color-text-strong;
 }
 
 .intro {
@@ -105,7 +105,7 @@ $breakpoint-small: 479px;
   line-height: $line-height-text;
   font-weight: $font-weight-medium;
   letter-spacing: 1px;
-  color: #111111;
+  color: $color-text-strong;
 }
 
 .feature-list {
@@ -127,7 +127,7 @@ $breakpoint-small: 479px;
   top: 0;
   width: 1px;
   height: 132px;
-  background: #dddddd;
+  background: $color-border-muted;
 }
 
 .feature-item--tall::before {
@@ -140,7 +140,7 @@ $breakpoint-small: 479px;
   line-height: 1.2;
   font-weight: 600;
   letter-spacing: 0.5px;
-  color: #444444;
+  color: $color-text-soft;
 }
 
 .feature-text {

@@ -10,7 +10,7 @@
   height: 100%;
   min-height: 0;
   overflow: hidden;
-  background: #111111;
+  background: $color-surface-dark;
 }
 
 .contact-hero__image {
@@ -29,9 +29,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.12) 0%,
-    rgba(0, 0, 0, 0.16) 42%,
-    rgba(0, 0, 0, 0.45) 100%
+    $color-overlay-dark-mid 0%,
+    $color-overlay-dark-mild 42%,
+    $color-overlay-dark-shade 100%
   );
 }
 

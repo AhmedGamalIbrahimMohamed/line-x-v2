@@ -9,7 +9,7 @@
 	width: 100%;
 	height: 440px;
 	overflow: hidden;
-	background: #111111;
+	background: $color-surface-dark;
 }
 
 .projects-cover__media,
@@ -33,7 +33,7 @@
 .projects-cover__overlay {
 	position: absolute;
 	inset: 0;
-	background: rgba(0, 0, 0, 0.6);
+	background: $color-overlay-dark-cover;
 }
 
 .projects-cover__content {

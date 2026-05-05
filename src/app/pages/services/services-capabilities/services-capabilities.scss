@@ -5,7 +5,7 @@
 }
 
 .services-capabilities {
-  background: #f5f5f5;
+  background: $color-surface-soft;
   color: $color-primary;
   font-family: $font-primary;
 }
@@ -101,7 +101,7 @@
 
 .capability-card__media {
   overflow: hidden;
-  background: #16191d;
+  background: $color-surface-media;
 
   img {
     display: block;

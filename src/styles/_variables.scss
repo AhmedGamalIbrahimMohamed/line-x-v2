@@ -5,12 +5,40 @@
 // ── Colors ────────────────────────────────────────────────────────────────────
 $color-primary:      #000000;   // primary text, button bg, borders
 $color-white:        #ffffff;   // page/card backgrounds
+$color-surface-soft: #f5f5f5;   // subtle cards and section backgrounds
+$color-surface-muted:#f9fafb;   // muted callout section backgrounds
+$color-surface-map:  #f2f2f2;   // map/media placeholder background
 $color-muted:        #868686;   // secondary text, headings, placeholders
+$color-text-strong:  #111111;   // strong section headings/body copy
+$color-text-soft:    #444444;   // softer headings and readable body text
 $color-hover-dark:   #333333;   // hover state for dark elements
+$color-surface-raised:#d9d9d9;  // raised neutral markers and badges
+$color-surface-dark: #111111;   // dark media placeholders
+$color-surface-darker:#1f1f1f;  // featured dark markers
+$color-surface-media:#16191d;   // image/media fallback background
+$color-hero-surface: #07111d;   // fallback hero media background
+$color-step-muted:   #b3b3b3;   // inactive step indicators
+$color-overlay-dark-start:  rgba($color-primary, 0.02);
+$color-overlay-dark-mid:    rgba($color-primary, 0.12);
+$color-overlay-dark-mild:   rgba($color-primary, 0.16);
+$color-overlay-dark-strong: rgba($color-primary, 0.62);
+$color-overlay-dark-shade:  rgba($color-primary, 0.45);
+$color-overlay-dark-tint:   rgba($color-primary, 0.4);
+$color-overlay-dark-soft:   rgba($color-primary, 0.205);
+$color-overlay-dark-panel:  rgba($color-primary, 0.448);
+$color-overlay-dark-deep:   rgba($color-primary, 0.64);
+$color-overlay-dark-heavy:  rgba($color-primary, 0.8);
+$color-overlay-dark-half:   rgba($color-primary, 0.5);
+$color-overlay-dark-cover:  rgba($color-primary, 0.6);
+$color-overlay-light-line:  rgba($color-white, 0.85);
+$color-overlay-light-text:  rgba($color-white, 0.95);
+$color-overlay-light-half:  rgba($color-white, 0.5);
 
 $color-border-nav:   #e7e7e7;   // navbar bottom border
 $color-border-top:   #e5e7eb;   // footer top border
 $color-border-light: #e2e8f0;   // footer internal dividers, input border
+$color-border-card:  #d5d5d5;   // card outlines and interior dividers
+$color-border-muted: #dddddd;   // subtle vertical rails and separators
 
 // ── Typography ────────────────────────────────────────────────────────────────
 $font-primary:        'Poppins', sans-serif;

@@ -58,7 +58,7 @@
     display: block;
     width: 100%;
     min-width: 0;
-    border: 1px solid #d5d5d5;
+    border: 1px solid $color-border-card;
     border-radius: 8px;
     background: $color-white;
     color: $color-primary;
@@ -67,7 +67,7 @@
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
     &::placeholder {
-      color: #b3b3b3;
+      color: $color-step-muted;
       opacity: 1;
     }
 

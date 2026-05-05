@@ -5,7 +5,7 @@
 }
 
 .our-team {
-	background: #f5f5f5;
+	background: $color-surface-soft;
 	padding: 100px 0;
 }
 
@@ -171,7 +171,7 @@
 	flex-direction: column;
 	justify-content: flex-end;
 	padding: 24px;
-	background: rgba(0, 0, 0, 0.5);
+	background: $color-overlay-dark-half;
 	color: $color-white;
 	opacity: 0;
 	transform: translateY(8px);
@@ -325,7 +325,7 @@
 		opacity: 1;
 		transform: none;
 		padding: 16px;
-		background: rgba(0, 0, 0, 0.5);
+		background: $color-overlay-dark-half;
 		justify-content: flex-end;
 	}
 
@@ -354,7 +354,7 @@
 @media (max-width: 767px) {
 	.our-team {
 		padding: 40px 0 36px;
-		background: #f5f5f5;
+		background: $color-surface-soft;
 		overflow: hidden;
 	}
 
@@ -466,7 +466,7 @@
 		opacity: 1;
 		transform: none;
 		padding: 16px;
-		background: rgba(0, 0, 0, 0.5);
+		background: $color-overlay-dark-half;
 		justify-content: flex-end;
 	}
 

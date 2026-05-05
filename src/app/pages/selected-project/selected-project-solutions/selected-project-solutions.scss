@@ -31,7 +31,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba($color-primary, 0.4);
+  background: $color-overlay-dark-tint;
 }
 
 .solutions__media img {

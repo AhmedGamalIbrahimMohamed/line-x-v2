@@ -1,14 +1,8 @@
 {
-  "APP": {
-    "TITLE": "X-Line",
-    "WELCOME": "مرحباً، {{name}}!"
-  },
-  "NAV": {
-    "HOME": "الرئيسية",
-    "ABOUT": "عن التطبيق"
-  },
-  "BUTTON": {
-    "SAVE": "حفظ",
-    "CANCEL": "إلغاء"
+  "Home": {
+    "heroSection": {
+      "Architectural Excellence": "تميز معماري",
+      "Shaping": "تشكيل"
+    }
   }
 }

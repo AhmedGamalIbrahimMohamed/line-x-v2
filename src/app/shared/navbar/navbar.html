@@ -10,10 +10,10 @@
 
   <div class="navbar__desktop">
     <div class="navbar__links">
-      <a class="navbar__link" routerLink="/projects" routerLinkActive="navbar__link--active">Projects</a>
-      <a class="navbar__link" routerLink="/services" routerLinkActive="navbar__link--active">Services</a>
-      <a class="navbar__link" routerLink="/about" routerLinkActive="navbar__link--active">About</a>
-      <a class="navbar__link" routerLink="/contact" routerLinkActive="navbar__link--active">Contact</a>
+      <a class="navbar__link" routerLink="/projects" routerLinkActive="navbar__link--active">{{ 'Navbar.Projects' | translate }}</a>
+      <a class="navbar__link" routerLink="/services" routerLinkActive="navbar__link--active">{{ 'Navbar.Services' | translate }}</a>
+      <a class="navbar__link" routerLink="/about" routerLinkActive="navbar__link--active">{{ 'Navbar.About' | translate }}</a>
+      <a class="navbar__link" routerLink="/contact" routerLinkActive="navbar__link--active">{{ 'Navbar.Contact' | translate }}</a>
     </div>
 
     <span class="navbar__divider">|</span>
@@ -57,11 +57,11 @@
 
 <div class="mobile-menu" [class.mobile-menu--open]="isMenuOpen">
   <div class="mobile-menu__links">
-    <a routerLink="/" routerLinkActive="mobile-menu__link--active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
-    <a routerLink="/projects" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">Projects</a>
-    <a routerLink="/services" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">Services</a>
-    <a routerLink="/about" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">About</a>
-    <a routerLink="/contact" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">Contact</a>
+    <a routerLink="/" routerLinkActive="mobile-menu__link--active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">{{ 'Navbar.Home' | translate }}</a>
+    <a routerLink="/projects" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">{{ 'Navbar.Projects' | translate }}</a>
+    <a routerLink="/services" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">{{ 'Navbar.Services' | translate }}</a>
+    <a routerLink="/about" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">{{ 'Navbar.About' | translate }}</a>
+    <a routerLink="/contact" routerLinkActive="mobile-menu__link--active" (click)="closeMenu()">{{ 'Navbar.Contact' | translate }}</a>
   </div>
 
   <div class="mobile-menu__lang">

@@ -4,15 +4,15 @@
     <!-- HEADER -->
     <div class="projects__header">
       <div class="projects__title-wrap">
-        <p class="projects__eyebrow">Selected Projects</p>
+        <p class="projects__eyebrow">{{ 'Home.projects.eyebrow' | translate }}</p>
         <h2 class="projects__headline">
-          <strong>Architectural</strong><em>Excellence</em>
+          <strong>{{ 'Home.projects.headlineBold' | translate }}</strong><em>{{ 'Home.projects.headlineItalic' | translate }}</em>
         </h2>
       </div>
 
       <!-- Desktop / Tablet button -->
       <a routerLink="/projects" class="projects__view-all projects__view-all--desktop">
-        View all Projects
+        {{ 'Home.projects.View all Projects' | translate }}
       </a>
     </div>
 
@@ -95,7 +95,7 @@
 
     <!-- Mobile button -->
     <a routerLink="/projects" class="projects__view-all projects__view-all--mobile">
-      View all Projects
+      {{ 'Home.projects.View all Projects' | translate }}
     </a>
 
   </div>

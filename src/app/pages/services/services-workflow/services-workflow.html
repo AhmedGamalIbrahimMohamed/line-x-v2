@@ -1,13 +1,13 @@
 <section class="services-workflow" aria-labelledby="services-workflow-title">
   <div class="services-workflow__inner layout-container">
-    <p class="services-workflow__eyebrow">Workflow</p>
-    <h2 id="services-workflow-title">How We Work</h2>
+    <p class="services-workflow__eyebrow">{{ 'Services.workflow.eyebrow' | translate }}</p>
+    <h2 id="services-workflow-title">{{ 'Services.workflow.title' | translate }}</h2>
 
     <div class="services-workflow__steps">
       @for (step of steps; track step.number) {
         <article class="workflow-step">
           <span class="workflow-step__number">{{ step.number }}</span>
-          <h3>{{ step.label }}</h3>
+          <h3>{{ step.label | translate }}</h3>
         </article>
       }
     </div>

@@ -1,8 +1,8 @@
 <section class="services-capabilities" aria-labelledby="services-capabilities-title">
   <div class="services-capabilities__inner layout-container">
     <div class="services-capabilities__heading">
-      <p class="services-capabilities__eyebrow">Core Pillars</p>
-      <h2 id="services-capabilities-title">Capabilities</h2>
+      <p class="services-capabilities__eyebrow">{{ 'Services.capabilities.eyebrow' | translate }}</p>
+      <h2 id="services-capabilities-title">{{ 'Services.capabilities.title' | translate }}</h2>
     </div>
 
     <div class="services-capabilities__list">
@@ -10,11 +10,11 @@
         <article class="capability-card">
           <div class="capability-card__content">
             <p class="capability-card__number">{{ capability.number }}</p>
-            <h3>{{ capability.title }}</h3>
-            <p class="capability-card__description">{{ capability.description }}</p>
+            <h3>{{ capability.title | translate }}</h3>
+            <p class="capability-card__description">{{ capability.description | translate }}</p>
             <ul>
               @for (item of capability.bullets; track item) {
-                <li>{{ item }}</li>
+                <li>{{ item | translate }}</li>
               }
             </ul>
           </div>

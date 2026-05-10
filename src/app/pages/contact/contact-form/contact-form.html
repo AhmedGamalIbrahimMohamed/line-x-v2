@@ -1,49 +1,49 @@
 <form class="contact-form" aria-label="Project inquiry form">
-  <p class="contact-form__eyebrow">Project Inquiry</p>
+  <p class="contact-form__eyebrow">{{ 'Contact.form.eyebrow' | translate }}</p>
   <p class="contact-form__intro">
-    Fill out the form below and our team will get back to you within 24 hours.
+    {{ 'Contact.form.intro' | translate }}
   </p>
 
   <div class="contact-form__grid">
     <label class="field">
-      <span>Full Name</span>
-      <input type="text" name="fullName" placeholder="Enter Full Name" autocomplete="name" />
+      <span>{{ 'Contact.form.Full Name' | translate }}</span>
+      <input type="text" name="fullName" [placeholder]="'Contact.form.Enter Full Name' | translate" autocomplete="name" />
     </label>
 
     <label class="field">
-      <span>Company</span>
-      <input type="text" name="company" placeholder="Enter Company" autocomplete="organization" />
+      <span>{{ 'Contact.form.Company' | translate }}</span>
+      <input type="text" name="company" [placeholder]="'Contact.form.Enter Company' | translate" autocomplete="organization" />
     </label>
 
     <label class="field">
-      <span>Email Address</span>
-      <input type="email" name="email" placeholder="Enter Email Address" autocomplete="email" />
+      <span>{{ 'Contact.form.Email Address' | translate }}</span>
+      <input type="email" name="email" [placeholder]="'Contact.form.Enter Email Address' | translate" autocomplete="email" />
     </label>
 
     <label class="field">
-      <span>Phone Number</span>
-      <input type="tel" name="phone" placeholder="Enter Phone Number" autocomplete="tel" />
+      <span>{{ 'Contact.form.Phone Number' | translate }}</span>
+      <input type="tel" name="phone" [placeholder]="'Contact.form.Enter Phone Number' | translate" autocomplete="tel" />
     </label>
 
     <label class="field field--full field--select">
-      <span>Project Type</span>
-      <select name="projectType" aria-label="Project Type">
-        <option value="">Select Project Type</option>
-        <option value="residential">Residential</option>
-        <option value="commercial">Commercial</option>
-        <option value="hospitality">Hospitality</option>
-        <option value="masterplan">Masterplan</option>
+      <span>{{ 'Contact.form.Project Type' | translate }}</span>
+      <select name="projectType" [attr.aria-label]="'Contact.form.Project Type' | translate">
+        <option value="">{{ 'Contact.form.Select Project Type' | translate }}</option>
+        <option value="residential">{{ 'Contact.form.Residential' | translate }}</option>
+        <option value="commercial">{{ 'Contact.form.Commercial' | translate }}</option>
+        <option value="hospitality">{{ 'Contact.form.Hospitality' | translate }}</option>
+        <option value="masterplan">{{ 'Contact.form.Masterplan' | translate }}</option>
       </select>
     </label>
 
     <label class="field field--full field--textarea">
-      <span>Project Details</span>
+      <span>{{ 'Contact.form.Project Details' | translate }}</span>
       <textarea
         name="projectDetails"
-        placeholder="Tell Us About Your Vision, Timeline, Budget....."
+        [placeholder]="'Contact.form.Project Details Placeholder' | translate"
       ></textarea>
     </label>
   </div>
 
-  <button class="contact-form__submit" type="submit">Start a Conversation</button>
+  <button class="contact-form__submit" type="submit">{{ 'Contact.form.Start a Conversation' | translate }}</button>
 </form>

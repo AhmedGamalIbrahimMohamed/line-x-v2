@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 type Capability = {
   number: string;
@@ -12,6 +13,7 @@ type Capability = {
 @Component({
   selector: 'app-services-capabilities',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './services-capabilities.html',
   styleUrl: './services-capabilities.scss',
 })
@@ -19,50 +21,55 @@ export class ServicesCapabilities {
   readonly capabilities: Capability[] = [
     {
       number: '01',
-      title: 'Architectural Design',
-      description: 'Designing functional, aesthetic, and context-driven architectural solutions.',
+      title: 'Services.capabilities.items.0.title',
+      description: 'Services.capabilities.items.0.description',
       image: 'assets/images/figma2/services-capability-1.jpg',
       imageAlt: 'Architectural desk with plans and materials',
       bullets: [
-        'Site study & concept development',
-        'Architectural planning',
-        'Exterior & Interior design',
-        'Project visualization & Licensing support',
+        'Services.capabilities.items.0.bullets.0',
+        'Services.capabilities.items.0.bullets.1',
+        'Services.capabilities.items.0.bullets.2',
+        'Services.capabilities.items.0.bullets.3',
       ],
     },
     {
       number: '02',
-      title: 'Technical Engineering',
-      description: 'Providing precise technical documentation to ensure accurate and efficient execution.',
+      title: 'Services.capabilities.items.1.title',
+      description: 'Services.capabilities.items.1.description',
       image: 'assets/images/figma2/services-capability-2.jpg',
       imageAlt: 'Technical architectural model and drawings',
       bullets: [
-        'Architectural & Structural drawings',
-        'Electrical, Plumbing & Drainage plans',
-        'HVAC systems',
-        'Bill of Quantities (BOQ)',
+        'Services.capabilities.items.1.bullets.0',
+        'Services.capabilities.items.1.bullets.1',
+        'Services.capabilities.items.1.bullets.2',
+        'Services.capabilities.items.1.bullets.3',
       ],
     },
     {
       number: '03',
-      title: 'Construction & Contracting',
-      description: 'Delivering projects with high standards, efficiency, and full execution control.',
+      title: 'Services.capabilities.items.2.title',
+      description: 'Services.capabilities.items.2.description',
       image: 'assets/images/figma2/services-capability-3.jpg',
       imageAlt: 'Construction site structure in progress',
       bullets: [
-        'Structural works',
-        'Electrical & mechanical works',
-        'Finishing, detailing, flooring & ceilings',
-        'Full construction execution',
+        'Services.capabilities.items.2.bullets.0',
+        'Services.capabilities.items.2.bullets.1',
+        'Services.capabilities.items.2.bullets.2',
+        'Services.capabilities.items.2.bullets.3',
       ],
     },
     {
       number: '04',
-      title: 'Maintenance & Restoration',
-      description: 'Ensuring long-term performance and sustainability of built environments.',
+      title: 'Services.capabilities.items.3.title',
+      description: 'Services.capabilities.items.3.description',
       image: 'assets/images/figma2/services-capability-4.jpg',
       imageAlt: 'Building facade restoration detail',
-      bullets: ['Maintenance services', 'Restoration works', 'System upgrades', 'Ongoing support'],
+      bullets: [
+        'Services.capabilities.items.3.bullets.0',
+        'Services.capabilities.items.3.bullets.1',
+        'Services.capabilities.items.3.bullets.2',
+        'Services.capabilities.items.3.bullets.3',
+      ],
     },
   ];
 }

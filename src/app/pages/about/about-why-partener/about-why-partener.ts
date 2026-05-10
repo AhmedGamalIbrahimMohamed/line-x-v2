@@ -6,10 +6,12 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about-why-partener',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './about-why-partener.html',
   styleUrl: './about-why-partener.scss',
 })

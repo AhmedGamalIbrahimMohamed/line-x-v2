@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 type FlowStep = {
   number: string;
@@ -10,6 +11,7 @@ type FlowStep = {
 @Component({
   selector: 'app-about-integrated-approach',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './about-integrated-approach.html',
   styleUrl: './about-integrated-approach.scss',
 })
@@ -17,21 +19,18 @@ export class AboutIntegratedApproach {
   readonly steps: FlowStep[] = [
     {
       number: '01',
-      title: 'Strategic Planning',
-      description:
-        'Rigorous analysis and feasibility studies to ensure project viability and align with client objectives from day one.',
+      title: 'About.integratedApproach.steps.0.title',
+      description: 'About.integratedApproach.steps.0.description',
     },
     {
       number: '02',
-      title: 'Architectural Design',
-      description:
-        'Creating innovative, functional, and sustainable spaces that reflect modern architectural principles and client identity.',
+      title: 'About.integratedApproach.steps.1.title',
+      description: 'About.integratedApproach.steps.1.description',
     },
     {
       number: '03',
-      title: 'Flawless Execution',
-      description:
-        'Translating blueprints into reality with meticulous construction management, ensuring quality control at every phase.',
+      title: 'About.integratedApproach.steps.2.title',
+      description: 'About.integratedApproach.steps.2.description',
       featured: true,
     },
   ];

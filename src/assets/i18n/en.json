@@ -1,8 +1,411 @@
 {
+  "Navbar": {
+    "Projects": "Projects",
+    "Services": "Services",
+    "About": "About",
+    "Contact": "Contact",
+    "Home": "Home"
+  },
   "Home": {
     "heroSection": {
       "Architectural Excellence": "Architectural Excellence",
-      "Shaping": "Shaping"
+      "Shaping": "Shaping",
+      "Tomorrows": "Tomorrow's",
+      "Skyline": "Skyline",
+      "Description": "Line X delivers business-driven architectural solutions through immersive visual storytelling for forward-thinking clients.",
+      "Explore Projects": "Explore Projects",
+      "Start a Project": "Start a Project"
+    },
+    "statement": {
+      "line1": "We do not just design spaces;",
+      "line2": "we engineer",
+      "ROI-driven": "ROI-driven",
+      "line3": "solutions",
+      "line4": "for visionaries.",
+      "Discover Us": "Discover Us"
+    },
+    "expertise": {
+      "eyebrow": "OUR EXPERTIES",
+      "titleBold": "Design",
+      "titleLight": "& Build",
+      "Explore Projects": "Explore Projects",
+      "slides": {
+        "0": {
+          "subtitle": "Architectural Design",
+          "description": "Designing functional, aesthetic, and context-driven architectural solutions."
+        },
+        "1": {
+          "subtitle": "Technical Engineering",
+          "description": "Providing precise technical documentation to ensure accurate and efficient execution."
+        },
+        "2": {
+          "subtitle": "Construction & Contracting",
+          "description": "Delivering projects with high standards, efficiency, and full execution control."
+        },
+        "3": {
+          "subtitle": "Maintenance & Restoration",
+          "description": "Ensuring long-term performance and sustainability of built environments."
+        }
+      }
+    },
+    "projects": {
+      "eyebrow": "Selected Projects",
+      "headlineBold": "Architectural",
+      "headlineItalic": "Excellence",
+      "View all Projects": "View all Projects"
+    },
+    "whyPartner": {
+      "eyebrow": "OUR APPROACH",
+      "title": "Why Partner With Us",
+      "intro": "We believe that true architectural excellence requires more than just visionary design. It demands a rigorous, integrated approach to delivery and a relentless commitment to quality.",
+      "integratedDelivery": {
+        "title": "Integrated Delivery",
+        "text": "Our seamless process unifies design, engineering, and construction from day one. By breaking down silos, we eliminate inefficiencies and ensure that the original vision is preserved through every phase of realization."
+      },
+      "provenExpertise": {
+        "title": "Proven Expertise",
+        "text": "With a portfolio of landmark projects across the globe, our team brings decades of specialized knowledge to complex challenges. We navigate regulatory landscapes, technical constraints, and ambitious structural demands with quiet confidence."
+      },
+      "efficiencyControl": {
+        "title": "Efficiency & Control",
+        "text": "Through advanced modeling and meticulous project management, we maintain absolute control over timelines and budgets. Our proactive approach anticipates issues before they arise, ensuring a smooth trajectory from concept to completion."
+      },
+      "qualityWithoutCompromise": {
+        "title": "Quality Without Compromise",
+        "text": "We specify only the finest materials and collaborate with master craftsmen who share our exacting standards. Every detail, from the grandest structural gesture to the smallest tactile finish, is scrutinized for perfection."
+      },
+      "longTermPartnership": {
+        "title": "Long-Term Partnership",
+        "text": "We view our clients as true partners. Our commitment extends beyond the ribbon-cutting, ensuring that our buildings perform flawlessly and adapt gracefully to future needs over their lifespan."
+      }
+    },
+    "ourTeam": {
+      "eyebrow": "THE MINDS BEHIND LINE X",
+      "lead": "A multidisciplinary team shaping architectural solutions for complex business challenges.",
+      "View all team": "View all team",
+      "founderRole": "FOUNDER",
+      "founderName": "Eng. Ahmed ElShiekh",
+      "founderPosition": "CHAIRMAN OF THE BOARD CEO",
+      "founderQuote": "\"Architecture is not just design - it is strategy, impact, and long-term value.\"",
+      "founderSummary": "25+ YEARS TRANSFORMING COMPLEX BUSINESS CHALLENGES INTO LANDMARK ARCHITECTURAL SOLUTIONS ACROSS THE MENA REGION.",
+      "members": {
+        "0": {
+          "role": "Interior Arch. Lead",
+          "summary": "Luxury hospitality designed with commercial efficiency."
+        },
+        "1": {
+          "role": "Interior Arch. Lead",
+          "summary": "Luxury hospitality designed with commercial efficiency."
+        },
+        "2": {
+          "role": "Interior Arch. Lead",
+          "summary": "Luxury hospitality designed with commercial efficiency."
+        },
+        "3": {
+          "role": "Interior Arch. Lead",
+          "summary": "Luxury hospitality designed with commercial efficiency."
+        }
+      }
+    },
+    "cta": {
+      "titleLight": "Let's Build Something",
+      "titleBold": "Exceptional",
+      "description": "Ready to transform your vision into a landmark? We are looking for partners who want to redefine their industry through architecture.",
+      "Explore Projects": "Explore Projects",
+      "Contact Us": "Contact Us"
     }
+  },
+  "About": {
+    "hero": {
+      "eyebrow": "About The Studio",
+      "titleItalic": "Shaping",
+      "titleBold": "Architecture Through Expertise & Integration",
+      "description": "A multidisciplinary team delivering design and construction excellence under one unified vision."
+    },
+    "whoWeAre": {
+      "eyebrow": "Who We Are",
+      "titleLine1": "Precision in every line.",
+      "titleLine2": "Excellence in every build.",
+      "paragraph1": "Line X is a premier architecture and construction firm specializing in B2B and B2G solutions. We bridge the gap between visionary design and flawless execution, ensuring that every project meets the highest standards of structural integrity and aesthetic brilliance.",
+      "paragraph2": "Our credibility is built on decades of combined experience, a relentless pursuit of quality, and a commitment to delivering complex projects on time and within scope."
+    },
+    "vision": {
+      "eyebrow": "Our Vision",
+      "title": "To be the definitive leader in architectural and construction integration, setting new benchmarks for infrastructure in Libya and expanding our footprint globally.",
+      "cards": {
+        "0": {
+          "title": "Construction",
+          "description": "Executing complex structures with absolute precision, utilizing advanced engineering practices to ensure durability, safety, and operational excellence for commercial and government entities."
+        },
+        "1": {
+          "title": "Design",
+          "description": "Conceptualizing spaces that harmonize form and function. We deliver innovative architectural blueprints that reflect modern aesthetics while solving complex spatial challenges."
+        },
+        "2": {
+          "title": "Maintenance",
+          "description": "Providing comprehensive lifecycle management and facility maintenance to preserve asset value, ensure ongoing operational efficiency, and extend the lifespan of infrastructure."
+        }
+      }
+    },
+    "integratedApproach": {
+      "eyebrow": "One Integrated Approach",
+      "title": "Bridging Design & Construction",
+      "intro": "We eliminate the friction between conceptualization and realization by housing both disciplines under one roof.",
+      "steps": {
+        "0": {
+          "title": "Strategic Planning",
+          "description": "Rigorous analysis and feasibility studies to ensure project viability and align with client objectives from day one."
+        },
+        "1": {
+          "title": "Architectural Design",
+          "description": "Creating innovative, functional, and sustainable spaces that reflect modern architectural principles and client identity."
+        },
+        "2": {
+          "title": "Flawless Execution",
+          "description": "Translating blueprints into reality with meticulous construction management, ensuring quality control at every phase."
+        }
+      }
+    },
+    "team": {
+      "eyebrow": "THE MINDS BEHIND LINE X",
+      "lead": "A multidisciplinary team shaping architectural solutions for complex business challenges.",
+      "founderRole": "FOUNDER",
+      "founderName": "Eng. Ahmed ElShiekh",
+      "founderPosition": "CHAIRMAN OF THE BOARD CEO",
+      "founderQuote": "\"Architecture is not just design - it is strategy, impact, and long-term value.\"",
+      "founderSummary": "25+ YEARS TRANSFORMING COMPLEX BUSINESS CHALLENGES INTO LANDMARK ARCHITECTURAL SOLUTIONS ACROSS THE MENA REGION.",
+      "members": {
+        "0": {
+          "role": "Interior Arch. Lead",
+          "summary": "Luxury hospitality designed with commercial efficiency."
+        },
+        "1": {
+          "role": "Interior Arch. Lead",
+          "summary": "Luxury hospitality designed with commercial efficiency."
+        },
+        "2": {
+          "role": "Interior Arch. Lead",
+          "summary": "Luxury hospitality designed with commercial efficiency."
+        },
+        "3": {
+          "role": "Interior Arch. Lead",
+          "summary": "Luxury hospitality designed with commercial efficiency."
+        }
+      }
+    },
+    "whyPartner": {
+      "eyebrow": "OUR APPROACH",
+      "title": "Why Partner With Us",
+      "intro": "We believe that true architectural excellence requires more than just visionary design. It demands a rigorous, integrated approach to delivery and a relentless commitment to quality.",
+      "integratedDelivery": {
+        "title": "Integrated Delivery",
+        "text": "Our seamless process unifies design, engineering, and construction from day one. By breaking down silos, we eliminate inefficiencies and ensure that the original vision is preserved through every phase of realization."
+      },
+      "provenExpertise": {
+        "title": "Proven Expertise",
+        "text": "With a portfolio of landmark projects across the globe, our team brings decades of specialized knowledge to complex challenges. We navigate regulatory landscapes, technical constraints, and ambitious structural demands with quiet confidence."
+      },
+      "efficiencyControl": {
+        "title": "Efficiency & Control",
+        "text": "Through advanced modeling and meticulous project management, we maintain absolute control over timelines and budgets. Our proactive approach anticipates issues before they arise, ensuring a smooth trajectory from concept to completion."
+      },
+      "qualityWithoutCompromise": {
+        "title": "Quality Without Compromise",
+        "text": "We specify only the finest materials and collaborate with master craftsmen who share our exacting standards. Every detail, from the grandest structural gesture to the smallest tactile finish, is scrutinized for perfection."
+      },
+      "longTermPartnership": {
+        "title": "Long-Term Partnership",
+        "text": "We view our clients as true partners. Our commitment extends beyond the ribbon-cutting, ensuring that our buildings perform flawlessly and adapt gracefully to future needs over their lifespan."
+      }
+    }
+  },
+  "Services": {
+    "hero": {
+      "eyebrow": "Services & Capabilities",
+      "titleItalic": "Integrated",
+      "titleBold": "Architectural & Construction Services",
+      "description": "From concept to execution. We deliver uncompromising quality through a unified approach to design, engineering, and construction management."
+    },
+    "capabilities": {
+      "eyebrow": "Core Pillars",
+      "title": "Capabilities",
+      "items": {
+        "0": {
+          "title": "Architectural Design",
+          "description": "Designing functional, aesthetic, and context-driven architectural solutions.",
+          "bullets": {
+            "0": "Site study & concept development",
+            "1": "Architectural planning",
+            "2": "Exterior & Interior design",
+            "3": "Project visualization & Licensing support"
+          }
+        },
+        "1": {
+          "title": "Technical Engineering",
+          "description": "Providing precise technical documentation to ensure accurate and efficient execution.",
+          "bullets": {
+            "0": "Architectural & Structural drawings",
+            "1": "Electrical, Plumbing & Drainage plans",
+            "2": "HVAC systems",
+            "3": "Bill of Quantities (BOQ)"
+          }
+        },
+        "2": {
+          "title": "Construction & Contracting",
+          "description": "Delivering projects with high standards, efficiency, and full execution control.",
+          "bullets": {
+            "0": "Structural works",
+            "1": "Electrical & mechanical works",
+            "2": "Finishing, detailing, flooring & ceilings",
+            "3": "Full construction execution"
+          }
+        },
+        "3": {
+          "title": "Maintenance & Restoration",
+          "description": "Ensuring long-term performance and sustainability of built environments.",
+          "bullets": {
+            "0": "Maintenance services",
+            "1": "Restoration works",
+            "2": "System upgrades",
+            "3": "Ongoing support"
+          }
+        }
+      }
+    },
+    "workflow": {
+      "eyebrow": "Workflow",
+      "title": "How We Work",
+      "steps": {
+        "0": "Concept",
+        "1": "Design",
+        "2": "Engineering",
+        "3": "Construction",
+        "4": "Delivery",
+        "5": "Maintenance"
+      }
+    }
+  },
+  "Projects": {
+    "hero": {
+      "eyebrow": "Modern Landmarks",
+      "titleItalic": "Selected",
+      "titleBold": "Projects",
+      "description": "A curated exhibition of our architectural endeavors, showcasing the intersection of form, function, and futuristic design across diverse landscapes."
+    },
+    "cover": {
+      "Projects Completed": "Projects Completed",
+      "Global Awards": "Global Awards",
+      "Countries": "Countries",
+      "Sustainable Focus": "Sustainable Focus"
+    },
+    "section": {
+      "All Projects": "All Projects",
+      "Administrative": "Administrative",
+      "Commercial": "Commercial",
+      "Interior Design": "Interior Design",
+      "Entertainment": "Entertainment",
+      "Landscape": "Landscape",
+      "Residential": "Residential",
+      "Load More": "Load More"
+    }
+  },
+  "Contact": {
+    "hero": {
+      "title": "Every great project starts with a conversation."
+    },
+    "form": {
+      "eyebrow": "Project Inquiry",
+      "intro": "Fill out the form below and our team will get back to you within 24 hours.",
+      "Full Name": "Full Name",
+      "Enter Full Name": "Enter Full Name",
+      "Company": "Company",
+      "Enter Company": "Enter Company",
+      "Email Address": "Email Address",
+      "Enter Email Address": "Enter Email Address",
+      "Phone Number": "Phone Number",
+      "Enter Phone Number": "Enter Phone Number",
+      "Project Type": "Project Type",
+      "Select Project Type": "Select Project Type",
+      "Residential": "Residential",
+      "Commercial": "Commercial",
+      "Hospitality": "Hospitality",
+      "Masterplan": "Masterplan",
+      "Project Details": "Project Details",
+      "Project Details Placeholder": "Tell Us About Your Vision, Timeline, Budget.....",
+      "Start a Conversation": "Start a Conversation"
+    },
+    "info": {
+      "Email Us": "Email Us",
+      "emailDescription": "For general inquiries and project proposals.",
+      "Call Us": "Call Us",
+      "callDescription": "Mon-Fri from 8am to 6pm EST.",
+      "Office Location": "Office Location",
+      "locationDescription": "Visit our headquarters for a consultation.",
+      "Saudi Arabia": "Saudi Arabia"
+    },
+    "cta": {
+      "titleLine1": "We're Ready",
+      "titleLine2": "When You Are.",
+      "text": "Let's turn your vision into a built reality.",
+      "Chat With Us": "Chat With Us"
+    }
+  },
+  "SelectedProject": {
+    "hero": {
+      "eyebrow": "Architecture Case study",
+      "title": "The Ramllah Hotel",
+      "subtitle": "Strategic Architecture for Modern Business",
+      "Location": "Location",
+      "Total Area": "Total Area",
+      "Year": "Year",
+      "Scope": "Scope",
+      "scopeValue": "Architecture & Interior"
+    },
+    "overview": {
+      "challenge": {
+        "number": "01",
+        "title": "The Challenge",
+        "quote": "\"Designing a hospitality destination that balances modern luxury with the cultural identity of Jeddah's urban landscape.\"",
+        "paragraph1": "The client envisioned The Ramllah Hotel as more than just a place to stay - it needed to function as a refined hospitality experience that reflects the character of Jeddah, Saudi Arabia, while meeting the expectations of modern travelers.",
+        "paragraph2": "The primary challenge was to create a cohesive architectural and interior design concept that maximizes spatial efficiency, natural light, and guest comfort, while delivering a distinctive visual identity. The project required integrating contemporary hospitality standards with elegant design elements that respond to the local climate, urban context, and the dynamic lifestyle of the city."
+      },
+      "concept": {
+        "number": "02",
+        "title": "The Concept",
+        "quote": "\"A contemporary hospitality experience shaped by elegance, functionality, and the spirit of Jeddah.\"",
+        "paragraph1": "The design concept for The Ramllah Hotel was developed around the idea of creating a refined urban retreat that reflects both modern architectural clarity and the cultural character of Jeddah. The vision focused on combining clean architectural lines with warm interior elements to create a welcoming and memorable guest experience.",
+        "paragraph2": "The architectural approach emphasizes balanced proportions, natural light, and a strong visual identity, while the interior design introduces carefully selected materials, textures, and lighting to establish a sense of comfort and sophistication. Public spaces were designed to encourage social interaction and fluid movement, while guest rooms provide calm, private environments that prioritize relaxation and functionality."
+      }
+    },
+    "designProcess": {
+      "label": "Design Process"
+    },
+    "solution": {
+      "number": "03",
+      "title": "The Solution",
+      "quote": "\"A seamless integration of architecture and interior design that delivers a refined and memorable hospitality experience.",
+      "paragraph1": "The final design for The Ramllah Hotel brings together architecture and interior design in a cohesive approach that responds to both the functional demands of hospitality and the aesthetic expectations of modern travelers. The architectural layout was carefully planned to optimize circulation, natural light, and spatial efficiency, creating open and welcoming environments throughout the hotel.",
+      "paragraph2": "Inside, the interior design introduces a balanced palette of materials, textures, and lighting that enhances the overall atmosphere of comfort and elegance. Public areas such as the lobby and lounge spaces were designed to create strong first impressions while encouraging social interaction, while the guest rooms offer calm, thoughtfully designed environments that prioritize privacy and relaxation."
+    },
+    "solutions": {
+      "title": "Spatial Experience",
+      "text": "The interior volumes are sculpted to guide natural light deep into the core, creating dramatic shadow play that evolves throughout the day."
+    },
+    "visualJourney": {
+      "label": "Visual Journey"
+    }
+  },
+  "Footer": {
+    "description": "Museums, markets, reindeer observatories, landscapes and dollhouses get the same care and attention to purpose.",
+    "Enter Your Email": "Enter Your Email",
+    "CONTACT US": "CONTACT US",
+    "workingHours": "Monday - Friday: 08am - 09pm",
+    "Have a project in mind?": "Have a project in mind?",
+    "SITEMAP": "SITEMAP",
+    "Projects": "Projects",
+    "Services": "Services",
+    "About": "About",
+    "Contact": "Contact",
+    "copyright": "@ 2026 X-Line. All rights reserved."
   }
 }

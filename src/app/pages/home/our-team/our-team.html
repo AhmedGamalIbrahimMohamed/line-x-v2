@@ -2,14 +2,14 @@
 	<div class="our-team__container layout-container">
 		<div class="our-team__header">
 			<div class="our-team__intro">
-				<p class="our-team__eyebrow">THE MINDS BEHIND LINE X</p>
+				<p class="our-team__eyebrow">{{ 'Home.ourTeam.eyebrow' | translate }}</p>
 				<h2 class="our-team__lead">
-					A multidisciplinary team shaping architectural solutions for complex business challenges.
+					{{ 'Home.ourTeam.lead' | translate }}
 				</h2>
 			</div>
 
 			@if (showViewAll) {
-				<a href="#" class="our-team__view-all our-team__view-all--desktop">View all team</a>
+				<a href="#" class="our-team__view-all our-team__view-all--desktop">{{ 'Home.ourTeam.View all team' | translate }}</a>
 			}
 		</div>
 
@@ -19,17 +19,16 @@
 			</figure>
 
 			<div class="our-team__bio">
-				<p class="our-team__role">FOUNDER</p>
-				<h3 class="our-team__name">Eng. Ahmed ElShiekh</h3>
-				<p class="our-team__position">CHAIRMAN OF THE BOARD CEO</p>
+				<p class="our-team__role">{{ 'Home.ourTeam.founderRole' | translate }}</p>
+				<h3 class="our-team__name">{{ 'Home.ourTeam.founderName' | translate }}</h3>
+				<p class="our-team__position">{{ 'Home.ourTeam.founderPosition' | translate }}</p>
 
 				<blockquote class="our-team__quote">
-					"Architecture is not just design - it is strategy, impact, and long-term value."
+					{{ 'Home.ourTeam.founderQuote' | translate }}
 				</blockquote>
 
 				<p class="our-team__summary">
-					25+ YEARS TRANSFORMING COMPLEX BUSINESS CHALLENGES INTO LANDMARK ARCHITECTURAL
-					SOLUTIONS ACROSS THE MENA REGION.
+					{{ 'Home.ourTeam.founderSummary' | translate }}
 				</p>
 			</div>
 		</div>
@@ -41,15 +40,15 @@
 
 					<div class="our-team__member-overlay">
 						<p class="our-team__member-name">{{ card.name }}</p>
-						<p class="our-team__member-role">{{ card.role }}</p>
-						<p class="our-team__member-summary">{{ card.summary }}</p>
+						<p class="our-team__member-role">{{ card.role | translate }}</p>
+						<p class="our-team__member-summary">{{ card.summary | translate }}</p>
 					</div>
 				</figure>
 			}
 		</div>
 
 		@if (showViewAll) {
-			<a href="#" class="our-team__view-all our-team__view-all--mobile">View all team</a>
+			<a href="#" class="our-team__view-all our-team__view-all--mobile">{{ 'Home.ourTeam.View all team' | translate }}</a>
 		}
 	</div>
 </section>

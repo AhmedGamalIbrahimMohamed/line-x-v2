@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface TeamCard {
   image: string;
@@ -10,7 +11,7 @@ interface TeamCard {
 @Component({
   selector: 'app-our-team',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './our-team.html',
   styleUrl: './our-team.scss',
 })
@@ -21,26 +22,26 @@ export class OurTeam {
     {
       image: 'assets/images/figma2/our-team-hover-1.jpg',
       name: 'Ahmed Amir',
-      role: 'Interior Arch. Lead',
-      summary: 'Luxury hospitality designed with commercial efficiency.',
+      role: 'Home.ourTeam.members.0.role',
+      summary: 'Home.ourTeam.members.0.summary',
     },
     {
       image: 'assets/images/figma2/our-team-hover-2.jpg',
       name: 'Ahmed Amir',
-      role: 'Interior Arch. Lead',
-      summary: 'Luxury hospitality designed with commercial efficiency.',
+      role: 'Home.ourTeam.members.1.role',
+      summary: 'Home.ourTeam.members.1.summary',
     },
     {
       image: 'assets/images/figma2/our-team-hover-3.jpg',
       name: 'Ahmed Amir',
-      role: 'Interior Arch. Lead',
-      summary: 'Luxury hospitality designed with commercial efficiency.',
+      role: 'Home.ourTeam.members.2.role',
+      summary: 'Home.ourTeam.members.2.summary',
     },
     {
       image: 'assets/images/figma2/our-team-hover-4.jpg',
       name: 'Ahmed Amir',
-      role: 'Interior Arch. Lead',
-      summary: 'Luxury hospitality designed with commercial efficiency.',
+      role: 'Home.ourTeam.members.3.role',
+      summary: 'Home.ourTeam.members.3.summary',
     },
   ];
 }

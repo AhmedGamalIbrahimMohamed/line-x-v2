@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 type VisionCard = {
   title: string;
@@ -9,26 +10,24 @@ type VisionCard = {
 @Component({
   selector: 'app-about-vision',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './about-vision.html',
   styleUrl: './about-vision.scss',
 })
 export class AboutVision {
   readonly cards: VisionCard[] = [
     {
-      title: 'Construction',
-      description:
-        'Executing complex structures with absolute precision, utilizing advanced engineering practices to ensure durability, safety, and operational excellence for commercial and government entities.',
+      title: 'About.vision.cards.0.title',
+      description: 'About.vision.cards.0.description',
       tabletHidden: true,
     },
     {
-      title: 'Design',
-      description:
-        'Conceptualizing spaces that harmonize form and function. We deliver innovative architectural blueprints that reflect modern aesthetics while solving complex spatial challenges.',
+      title: 'About.vision.cards.1.title',
+      description: 'About.vision.cards.1.description',
     },
     {
-      title: 'Maintenance',
-      description:
-        'Providing comprehensive lifecycle management and facility maintenance to preserve asset value, ensure ongoing operational efficiency, and extend the lifespan of infrastructure.',
+      title: 'About.vision.cards.2.title',
+      description: 'About.vision.cards.2.description',
     },
   ];
 }

@@ -9,6 +9,7 @@ import {
   inject,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface Slide {
   subtitle: string;
@@ -19,7 +20,7 @@ interface Slide {
 @Component({
   selector: 'app-expertise-section',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, TranslateModule],
   templateUrl: './expertise-section.html',
   styleUrl: './expertise-section.scss',
 })
@@ -30,23 +31,23 @@ export class ExpertiseSectionComponent implements AfterViewInit, OnDestroy {
 
   readonly slides: Slide[] = [
     {
-      subtitle: 'Architectural Design',
-      description: 'Designing functional, aesthetic, and context-driven architectural solutions.',
+      subtitle: 'Home.expertise.slides.0.subtitle',
+      description: 'Home.expertise.slides.0.description',
       image: 'assets/images/figma2/expertise-1.jpg',
     },
     {
-      subtitle: 'Technical Engineering',
-      description: 'Providing precise technical documentation to ensure accurate and efficient execution.',
+      subtitle: 'Home.expertise.slides.1.subtitle',
+      description: 'Home.expertise.slides.1.description',
       image: 'assets/images/figma2/expertise-2.jpg',
     },
     {
-      subtitle: 'Construction & Contracting',
-      description: 'Delivering projects with high standards, efficiency, and full execution control.',
+      subtitle: 'Home.expertise.slides.2.subtitle',
+      description: 'Home.expertise.slides.2.description',
       image: 'assets/images/figma2/expertise-3.jpg',
     },
     {
-      subtitle: 'Maintenance & Restoration',
-      description: 'Ensuring long-term performance and sustainability of built environments.',
+      subtitle: 'Home.expertise.slides.3.subtitle',
+      description: 'Home.expertise.slides.3.description',
       image: 'assets/images/figma2/expertise-4.jpg',
     },
   ];

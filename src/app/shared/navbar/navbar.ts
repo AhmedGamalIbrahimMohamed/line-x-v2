@@ -1,12 +1,12 @@
 import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgIf, RouterLink, RouterLinkActive],
+  imports: [NgIf, RouterLink, RouterLinkActive, TranslateModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })

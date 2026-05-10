@@ -10,15 +10,14 @@
       </a>
 
       <p class="x-footer__desc">
-        Museums, markets, reindeer observatories, landscapes and dollhouses get
-        the same care and attention to purpose.
+        {{ 'Footer.description' | translate }}
       </p>
 
       <form class="x-footer__subscribe" (submit)="$event.preventDefault()">
         <input
           class="x-footer__input"
           type="email"
-          placeholder="Enter Your Email"
+          [placeholder]="'Footer.Enter Your Email' | translate"
           aria-label="Enter your email"
         />
 
@@ -30,10 +29,10 @@
 
     <div class="x-footer__columns">
       <div class="x-footer__column x-footer__column--contact">
-        <h3 class="x-footer__heading">CONTACT US</h3>
+        <h3 class="x-footer__heading">{{ 'Footer.CONTACT US' | translate }}</h3>
 
         <div class="x-footer__links">
-          <p class="x-footer__text">Monday - Friday: 08am - 09pm</p>
+          <p class="x-footer__text">{{ 'Footer.workingHours' | translate }}</p>
 
           <a href="tel:+1123456789" class="x-footer__link x-footer__link--strong">
             +(1) 123 456 789
@@ -41,7 +40,7 @@
 
           <div class="x-footer__space"></div>
 
-          <p class="x-footer__text">Have a project in mind?</p>
+          <p class="x-footer__text">{{ 'Footer.Have a project in mind?' | translate }}</p>
 
           <a href="mailto:X-line@example.com" class="x-footer__link x-footer__link--strong">
             X-line@example.com
@@ -50,20 +49,20 @@
       </div>
 
       <div class="x-footer__column x-footer__column--sitemap">
-        <h3 class="x-footer__heading">SITEMAP</h3>
+        <h3 class="x-footer__heading">{{ 'Footer.SITEMAP' | translate }}</h3>
 
         <nav class="x-footer__links" aria-label="Footer sitemap">
-          <a routerLink="/projects" class="x-footer__link">Projects</a>
-          <a routerLink="/services" class="x-footer__link">Services</a>
-          <a routerLink="/about" class="x-footer__link">About</a>
-          <a routerLink="/contact" class="x-footer__link">Contact</a>
+          <a routerLink="/projects" class="x-footer__link">{{ 'Footer.Projects' | translate }}</a>
+          <a routerLink="/services" class="x-footer__link">{{ 'Footer.Services' | translate }}</a>
+          <a routerLink="/about" class="x-footer__link">{{ 'Footer.About' | translate }}</a>
+          <a routerLink="/contact" class="x-footer__link">{{ 'Footer.Contact' | translate }}</a>
         </nav>
       </div>
     </div>
   </div>
 
   <div class="x-footer__bottom">
-    <p class="x-footer__copyright">@ 2026 X-Line. All rights reserved.</p>
+    <p class="x-footer__copyright">{{ 'Footer.copyright' | translate }}</p>
 
     <div class="x-footer__socials">
       <a href="#" class="x-footer__social" aria-label="Facebook">

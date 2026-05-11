@@ -9,8 +9,12 @@ $breakpoint-small: 430px;
 }
 
 .statement-section {
-  background: $color-white;
+  background: var(--theme-home-section-bg);
+  color: var(--theme-home-section-text);
   padding: 28px 0 120px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .statement-wrap {
@@ -21,7 +25,7 @@ $breakpoint-small: 430px;
   width: 72px;
   height: 1px;
   margin: 0 0 22px;
-  background: $color-muted;
+  background: var(--theme-home-section-muted);
 }
 
 .statement-block {
@@ -38,21 +42,39 @@ $breakpoint-small: 430px;
 
 .statement-block em {
   font-style: italic;
-  color: $color-muted;
+  color: var(--theme-home-section-muted);
   font-weight: 400;
 }
 
 .discover-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
-  padding: 12px 0;
+  min-width: 168px;
+  min-height: 48px;
+  padding: 12px 28px;
+  border: 1px solid transparent;
+  background: var(--theme-home-statement-button-bg);
   font-size: $font-size-sm;
   line-height: $line-height-action;
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-base;
-  color: inherit;
+  color: var(--theme-home-statement-button-text);
   text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--theme-home-statement-button-hover-bg);
+    border-color: var(--theme-home-statement-button-hover-border);
+    color: var(--theme-home-statement-button-hover-text);
+    transform: translateY(-1px);
+  }
 }
 
 .discover-link svg {
@@ -63,6 +85,12 @@ $breakpoint-small: 430px;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+:host-context([dir='rtl']) {
+  .discover-link svg {
+    transform: scaleX(-1);
+  }
 }
 
 /* Tablet: Figma node 68:8501 */

@@ -11,6 +11,11 @@ $breakpoint-small: 479px;
 .partner-section {
   position: relative;
   min-height: 320vh;
+  background: var(--theme-about-section-bg);
+  color: var(--theme-about-section-text);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .partner-stage {
@@ -18,6 +23,7 @@ $breakpoint-small: 479px;
   top: 0;
   height: 100vh;
   overflow: hidden;
+  background: var(--theme-about-section-bg);
 }
 
 .partner-media-wrap {
@@ -95,7 +101,7 @@ $breakpoint-small: 479px;
   line-height: 1.1;
   font-weight: 600;
   letter-spacing: -2px;
-  color: $color-text-strong;
+  color: var(--theme-about-section-text);
 }
 
 .intro {
@@ -105,7 +111,7 @@ $breakpoint-small: 479px;
   line-height: $line-height-text;
   font-weight: $font-weight-medium;
   letter-spacing: 1px;
-  color: $color-text-strong;
+  color: var(--theme-about-section-text);
 }
 
 .feature-list {
@@ -123,11 +129,11 @@ $breakpoint-small: 479px;
 .feature-item::before {
   content: '';
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 0;
   width: 1px;
   height: 132px;
-  background: $color-border-muted;
+  background: var(--theme-about-card-border);
 }
 
 .feature-item--tall::before {
@@ -140,7 +146,7 @@ $breakpoint-small: 479px;
   line-height: 1.2;
   font-weight: 600;
   letter-spacing: 0.5px;
-  color: $color-text-soft;
+  color: var(--theme-about-section-text);
 }
 
 .feature-text {
@@ -149,7 +155,7 @@ $breakpoint-small: 479px;
   line-height: 1.2;
   font-weight: $font-weight-normal;
   letter-spacing: 0.5px;
-  color: $color-muted;
+  color: var(--theme-about-section-muted);
 }
 
 .progress-rail {
@@ -173,14 +179,14 @@ $breakpoint-small: 479px;
     padding-inline-start: 18px;
   }
 
-  .feature-item {
-    padding-inline-start: 0;
-    padding-inline-end: 32px;
+  .feature-item::before {
+    right: 0;
+    left: auto;
+    height: 100%;
   }
 
-  .feature-item::before {
-    left: auto;
-    right: 0;
+  .feature-item--tall::before {
+    height: 100%;
   }
 }
 
@@ -338,6 +344,18 @@ $breakpoint-small: 479px;
   .feature-item::before,
   .feature-item--tall::before {
     height: 100%;
+  }
+
+  :host-context([dir='rtl']) {
+    .feature-item {
+      padding-inline-start: 16px;
+      padding-inline-end: 0;
+    }
+
+    .feature-item::before,
+    .feature-item--tall::before {
+      height: 100%;
+    }
   }
 }
 

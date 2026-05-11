@@ -5,9 +5,12 @@
 }
 
 .services-workflow {
-  background: $color-white;
-  color: $color-primary;
+  background: var(--theme-services-workflow-bg);
+  color: var(--theme-services-workflow-text);
   font-family: $font-primary;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .services-workflow__inner {
@@ -53,13 +56,16 @@
   justify-content: center;
   width: 72px;
   height: 72px;
-  border: 1px solid $color-border-card;
+  border: 1px solid var(--theme-services-workflow-step-border);
   border-radius: 50%;
-  color: $color-muted;
+  color: var(--theme-services-workflow-step-number);
   font-size: 32px;
   line-height: 1.2;
   font-weight: 400;
   letter-spacing: 0.5px;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .workflow-step h3 {
@@ -119,7 +125,7 @@
   .workflow-step__number {
     width: 48px;
     height: 48px;
-    color: $color-primary;
+    color: var(--theme-services-workflow-step-number);
     font-size: 24px;
   }
 

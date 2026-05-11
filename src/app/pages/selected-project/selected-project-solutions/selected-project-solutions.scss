@@ -5,8 +5,9 @@
 }
 
 .solutions {
-  background: $color-white;
+  background: var(--theme-selected-section-bg);
   color: $color-white;
+  transition: background 0.2s ease;
 }
 
 .solutions__stage {
@@ -17,7 +18,7 @@
   width: 100%;
   height: 780px;
   overflow: hidden;
-  background: $color-white;
+  background: var(--theme-selected-media-bg);
 }
 
 .solutions__media {

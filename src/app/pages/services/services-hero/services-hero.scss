@@ -8,9 +8,12 @@
   width: 100%;
   min-height: 550px;
   overflow: hidden;
-  background: $color-white;
-  color: $color-primary;
+  background: var(--theme-services-hero-bg);
+  color: var(--theme-services-hero-text);
   font-family: $font-primary;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .services-hero__inner {
@@ -29,7 +32,7 @@
 
 .services-hero__title {
   margin: 0;
-  color: $color-primary;
+  color: inherit;
 }
 
 .services-hero__title-italic {

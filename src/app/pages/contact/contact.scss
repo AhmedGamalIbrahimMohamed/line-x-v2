@@ -3,14 +3,18 @@
 :host {
   display: block;
   width: 100%;
-  background: $color-white;
-  color: $color-primary;
+  background: var(--theme-contact-page-bg);
+  color: var(--theme-contact-text);
 }
 
 .contact-page {
   font-family: $font-primary;
-  background: $color-white;
+  background: var(--theme-contact-page-bg);
+  color: var(--theme-contact-text);
   padding-block-start: 64px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .contact-page__main {

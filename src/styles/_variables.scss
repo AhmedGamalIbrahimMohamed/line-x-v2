@@ -14,6 +14,7 @@ $color-text-soft:    #444444;   // softer headings and readable body text
 $color-hover-dark:   #333333;   // hover state for dark elements
 $color-surface-raised:#d9d9d9;  // raised neutral markers and badges
 $color-surface-dark: #111111;   // dark media placeholders
+$color-surface-charcoal:#1a1a1a; // dark section backgrounds
 $color-surface-darker:#1f1f1f;  // featured dark markers
 $color-surface-media:#16191d;   // image/media fallback background
 $color-hero-surface: #07111d;   // fallback hero media background
@@ -39,6 +40,7 @@ $color-border-top:   #e5e7eb;   // footer top border
 $color-border-light: #e2e8f0;   // footer internal dividers, input border
 $color-border-card:  #d5d5d5;   // card outlines and interior dividers
 $color-border-muted: #dddddd;   // subtle vertical rails and separators
+$color-border-dark:  #373737;   // dark section outlines
 
 // ── Typography ────────────────────────────────────────────────────────────────
 $font-primary:        'Poppins', sans-serif;

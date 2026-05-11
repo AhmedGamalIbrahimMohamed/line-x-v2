@@ -8,7 +8,11 @@
 .expertise-section {
   position: relative;
   min-height: 400vh;
-  background: $color-white;
+  background: var(--theme-home-section-bg);
+  color: var(--theme-home-section-text);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 // ── Sticky viewport ───────────────────────────────────────────────────────────
@@ -54,7 +58,7 @@
     justify-content: flex-start;
     gap: 56px;
     padding: clamp(56px, 9vh, 96px) clamp(28px, 4vw, 56px);
-    background: $color-white;
+    background: var(--theme-home-section-bg);
   }
 
   &__main {
@@ -80,7 +84,7 @@
     line-height: 1.2;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    color: $color-primary;
+    color: var(--theme-home-section-text);
   }
 
   &__title {
@@ -88,7 +92,7 @@
     font-size: 56px;
     line-height: 1.2;
     letter-spacing: 0.5px;
-    color: $color-primary;
+    color: var(--theme-home-section-text);
   }
 
   &__title-bold { font-weight: 600; }
@@ -112,7 +116,7 @@
     font-size: 32px;
     font-weight: 600;
     line-height: 1.2;
-    color: $color-primary;
+    color: var(--theme-home-section-text);
   }
 
   &__description {
@@ -120,7 +124,7 @@
     font-size: 24px;
     font-weight: 400;
     line-height: 1.6;
-    color: $color-muted;
+    color: var(--theme-home-section-muted);
   }
 
   &__button {
@@ -129,8 +133,8 @@
     justify-content: center;
     min-width: 168px;
     padding: 12px 28px;
-    background: $color-primary;
-    color: $color-white;
+    background: var(--theme-home-button-bg);
+    color: var(--theme-home-button-text);
     border: 1px solid transparent;
     text-decoration: none;
     font-size: 14px;
@@ -140,9 +144,9 @@
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 
     &:hover {
-      background: $color-white;
-      color: $color-primary;
-      border-color: $color-primary;
+      background: var(--theme-home-button-hover-bg);
+      color: var(--theme-home-button-hover-text);
+      border-color: var(--theme-home-button-border);
     }
   }
 
@@ -161,19 +165,26 @@
     justify-content: flex-start;
     width: 40px;
     flex: 1 1 0;
-    border-right: 2px solid $color-step-muted;
+    padding-inline-end: 8px;
+    border-inline-end: 2px solid var(--theme-home-step-muted);
     font-size: 24px;
     font-weight: 400;
     line-height: 1.2;
     letter-spacing: 0.5px;
-    color: $color-step-muted;
+    color: var(--theme-home-step-muted);
     cursor: pointer;
     transition: border-color 0.3s ease, color 0.3s ease;
 
     &--active {
-      border-right-color: $color-primary;
-      color: $color-primary;
+      border-inline-end-color: var(--theme-home-section-text);
+      color: var(--theme-home-section-text);
     }
+  }
+
+  :host-context([dir='rtl']) &__step {
+    justify-content: flex-end;
+    padding-inline-end: 8px;
+    padding-inline-start: 0;
   }
 
   // ── Responsive ─────────────────────────────────────────────────────────────
@@ -281,15 +292,15 @@
     &__step {
       width: 32px;
       min-height: 0;
-      border-right: 2px solid $color-step-muted;
+      border-inline-end: 2px solid var(--theme-home-step-muted);
       border-bottom: 0;
       align-items: flex-end;
       padding-bottom: 0;
       font-size: 16px;
 
       &--active {
-        border-right-color: $color-primary;
-        color: $color-primary;
+        border-inline-end-color: var(--theme-home-section-text);
+        color: var(--theme-home-section-text);
       }
     }
   }

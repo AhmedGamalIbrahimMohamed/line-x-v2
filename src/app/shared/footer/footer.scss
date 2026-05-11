@@ -2,10 +2,14 @@
 
 .x-footer {
   width: 100%;
-  background: $color-white;
-  border-top: 1px solid $color-border-top;
+  background: var(--theme-footer-bg);
+  border-top: 1px solid var(--theme-footer-border);
   font-family: $font-primary;
-  color: $color-primary;
+  color: var(--theme-footer-text);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 
   * {
     box-sizing: border-box;
@@ -17,7 +21,8 @@
     align-items: flex-start;
     gap: 48px;
     padding: 48px 0 24px;
-    border-bottom: 1px solid $color-border-light;
+    border-bottom: 1px solid var(--theme-footer-divider);
+    transition: border-color 0.2s ease;
   }
 
   &__brand {
@@ -41,6 +46,8 @@
     height: 100%;
     display: block;
     object-fit: contain;
+    filter: var(--theme-footer-logo-filter);
+    transition: filter 0.2s ease;
   }
 
   &__desc {
@@ -49,7 +56,8 @@
     font-size: $font-size-sm;
     line-height: 1.2;
     font-weight: $font-weight-normal;
-    color: $color-primary;
+    color: var(--theme-footer-text);
+    transition: color 0.2s ease;
   }
 
   &__subscribe {
@@ -62,18 +70,22 @@
   &__input {
     width: 100%;
     height: 100%;
-    border: 1px solid $color-border-light;
-    background: $color-white;
+    border: 1px solid var(--theme-footer-input-border);
+    background: var(--theme-footer-input-bg);
     padding-block: 0;
     padding-inline: 16px 64px;
     font-family: inherit;
     font-size: $font-size-base;
     font-weight: $font-weight-normal;
-    color: $color-primary;
+    color: var(--theme-footer-text);
     outline: none;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
 
     &::placeholder {
-      color: $color-muted;
+      color: var(--theme-footer-muted);
     }
   }
 
@@ -85,11 +97,12 @@
     height: 48px;
     border: 0;
     padding: 0;
-    background: $color-primary;
+    background: var(--theme-footer-submit-bg);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: background 0.2s ease;
 
     img {
       width: 14px;
@@ -129,8 +142,9 @@
     font-size: $font-size-sm;
     line-height: 1.1;
     font-weight: $font-weight-medium;
-    color: $color-muted;
+    color: var(--theme-footer-muted);
     white-space: nowrap;
+    transition: color 0.2s ease;
   }
 
   &__links {
@@ -146,9 +160,10 @@
     font-size: $font-size-sm;
     line-height: $line-height-text;
     font-weight: $font-weight-normal;
-    color: $color-primary;
+    color: var(--theme-footer-text);
     text-decoration: none;
     white-space: nowrap;
+    transition: color 0.2s ease, opacity 0.2s ease;
   }
 
   &__link {
@@ -184,7 +199,8 @@
     font-size: $font-size-base;
     line-height: $line-height-text;
     font-weight: $font-weight-normal;
-    color: $color-primary;
+    color: var(--theme-footer-text);
+    transition: color 0.2s ease;
   }
 
   &__socials {
@@ -205,6 +221,8 @@
       width: 24px;
       height: 24px;
       display: block;
+      filter: var(--theme-footer-social-filter);
+      transition: filter 0.2s ease;
     }
 
     &:hover {

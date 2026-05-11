@@ -3,11 +3,12 @@
 :host {
   display: block;
   width: 100%;
-  background: $color-white;
-  color: $color-primary;
+  background: var(--theme-page-bg);
+  color: var(--theme-text);
 }
 
 .services-page {
   padding-block-start: 64px;
-  background: $color-white;
+  background: var(--theme-page-bg);
+  transition: background 0.2s ease;
 }

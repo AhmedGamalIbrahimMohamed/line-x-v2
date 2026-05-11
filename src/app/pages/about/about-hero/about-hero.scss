@@ -8,9 +8,12 @@
   width: 100%;
   min-height: 550px;
   overflow: hidden;
-  background: $color-white;
-  color: $color-primary;
+  background: var(--theme-about-hero-bg);
+  color: var(--theme-about-hero-text);
   font-family: $font-primary;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .about-hero__inner {
@@ -29,7 +32,8 @@
 
 .about-hero__title {
   margin: 0;
-  color: $color-primary;
+  color: var(--theme-about-hero-text);
+  transition: color 0.2s ease;
 }
 
 .about-hero__title-italic {

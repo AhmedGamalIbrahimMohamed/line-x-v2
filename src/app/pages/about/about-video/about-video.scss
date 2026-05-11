@@ -6,7 +6,8 @@
 
 .about-video {
   width: 100%;
-  background: $color-white;
+  background: var(--theme-about-section-bg);
+  transition: background 0.2s ease;
 }
 
 .about-video__media {

@@ -5,12 +5,16 @@
 }
 
 .visual-journey {
-  background: $color-white;
-  color: $color-primary;
+  background: var(--theme-selected-section-bg);
+  color: var(--theme-selected-section-text);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .visual-journey__inner {
   width: 100%;
+  padding-block-start: 100px;
   padding-inline: $layout-padding-desktop;
 }
 
@@ -47,7 +51,7 @@
   position: absolute;
   margin: 0;
   overflow: hidden;
-  background: $color-white;
+  background: var(--theme-selected-media-bg);
 }
 
 .visual-journey__image img {
@@ -116,6 +120,7 @@
 
 @media (max-width: 1199px) and (min-width: 768px) {
   .visual-journey__inner {
+    padding-block-start: 80px;
     padding-inline: $layout-padding-tablet;
   }
 
@@ -189,6 +194,7 @@
 
 @media (max-width: $bp-md) {
   .visual-journey__inner {
+    padding-block-start: 56px;
     padding-inline: $layout-padding-mobile;
   }
 

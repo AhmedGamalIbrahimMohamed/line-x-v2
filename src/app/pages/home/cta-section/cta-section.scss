@@ -5,9 +5,9 @@
 }
 
 .cta-section {
-  background: $color-surface-muted;
-  border-top: 1px solid $color-border-top;
-  border-bottom: 1px solid $color-border-top;
+  background: var(--theme-cta-bg);
+  border-top: 1px solid var(--theme-cta-border);
+  border-bottom: 1px solid var(--theme-cta-border);
   width: 100%;
   min-height: 509px;
   display: flex;
@@ -15,6 +15,9 @@
   justify-content: center;
   padding-block: 99px 100px;
   box-sizing: border-box;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 
   &__content {
     width: 100%;
@@ -40,7 +43,8 @@
     display: block;
     font-family: $font-primary;
     font-size: 48px;
-    color: $color-primary;
+    color: var(--theme-cta-text);
+    transition: color 0.2s ease;
   }
 
   &__title-light {
@@ -59,7 +63,8 @@
     font-weight: $font-weight-normal;
     line-height: 1.2;
     letter-spacing: $letter-spacing-base;
-    color: $color-primary;
+    color: var(--theme-cta-text);
+    transition: color 0.2s ease;
   }
 
   &__actions {
@@ -77,32 +82,38 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid $color-primary;
+    border: 1px solid var(--theme-cta-secondary-border);
     font-family: $font-primary;
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
     line-height: $line-height-action;
     letter-spacing: $letter-spacing-base;
     cursor: pointer;
-    transition: $transition-bg, $transition-opacity;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      opacity 0.2s;
     box-sizing: border-box;
 
     &--primary {
-      background: $color-primary;
-      color: $color-white;
+      background: var(--theme-cta-primary-bg);
+      border-color: var(--theme-cta-primary-bg);
+      color: var(--theme-cta-primary-text);
 
       &:hover {
-        background: $color-hover-dark;
-        border-color: $color-hover-dark;
+        background: var(--theme-cta-primary-hover-bg);
+        border-color: var(--theme-cta-primary-hover-border);
       }
     }
 
     &--secondary {
-      background: $color-white;
-      color: $color-primary;
+      background: var(--theme-cta-secondary-bg);
+      border-color: var(--theme-cta-secondary-border);
+      color: var(--theme-cta-secondary-text);
 
       &:hover {
-        background: $color-surface-soft;
+        background: var(--theme-cta-secondary-hover-bg);
       }
     }
   }

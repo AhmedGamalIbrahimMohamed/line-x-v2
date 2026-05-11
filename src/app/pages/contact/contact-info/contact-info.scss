@@ -5,8 +5,13 @@
 }
 
 .contact-info {
-  border: 1px solid $color-border-top;
-  background: $color-surface-muted;
+  border: 1px solid var(--theme-contact-border);
+  background: var(--theme-contact-soft-bg);
+  color: var(--theme-contact-text);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .contact-info__inner {
@@ -28,9 +33,9 @@
   width: 48px;
   height: 48px;
   margin-bottom: 16px;
-  border: 1px solid $color-primary;
+  border: 1px solid var(--theme-contact-text);
   border-radius: 50%;
-  color: $color-primary;
+  color: var(--theme-contact-text);
   font-size: 18px;
 }
 
@@ -43,7 +48,7 @@
 
 .contact-method p {
   margin: 0 0 8px;
-  color: $color-muted;
+  color: var(--theme-contact-muted);
   font-size: 16px;
   line-height: 1.4;
   font-weight: 400;
@@ -51,7 +56,7 @@
 
 .contact-method a,
 .contact-method strong {
-  color: $color-text-soft;
+  color: var(--theme-contact-text);
   font-size: 16px;
   line-height: 1.4;
   font-weight: 600;

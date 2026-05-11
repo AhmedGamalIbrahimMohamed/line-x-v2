@@ -7,9 +7,12 @@
 .about-approach {
   width: 100%;
   min-height: 630px;
-  background: $color-white;
-  color: $color-primary;
+  background: var(--theme-about-section-bg);
+  color: var(--theme-about-section-text);
   font-family: $font-primary;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .about-approach__inner {
@@ -62,8 +65,12 @@
   gap: 24px;
   min-height: 194px;
   padding: 24px;
-  border: 1px solid $color-border-card;
-  background: $color-white;
+  border: 1px solid var(--theme-about-card-border);
+  background: var(--theme-about-card-bg);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .approach-card__number {
@@ -73,8 +80,8 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: $color-surface-raised;
-  color: $color-primary;
+  background: var(--theme-about-marker-bg);
+  color: var(--theme-about-section-text);
   font-size: 16px;
   line-height: 1.2;
   font-weight: 400;
@@ -94,7 +101,7 @@
 
 .approach-card p {
   margin: 0;
-  color: $color-text-soft;
+  color: var(--theme-about-card-muted);
   font-size: 16px;
   line-height: 1.4;
   font-weight: 500;
@@ -102,17 +109,17 @@
 }
 
 .approach-card--featured {
-  border-color: $color-primary;
-  background: $color-primary;
-  color: $color-white;
+  border-color: var(--theme-about-featured-bg);
+  background: var(--theme-about-featured-bg);
+  color: var(--theme-about-featured-text);
 
   .approach-card__number {
-    background: $color-surface-darker;
-    color: $color-white;
+    background: var(--theme-about-featured-marker-bg);
+    color: var(--theme-about-featured-text);
   }
 
   p {
-    color: $color-white;
+    color: var(--theme-about-featured-text);
   }
 }
 

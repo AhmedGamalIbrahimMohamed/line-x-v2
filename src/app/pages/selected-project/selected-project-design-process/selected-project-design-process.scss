@@ -5,8 +5,11 @@
 }
 
 .design-process {
-  background: $color-white;
-  color: $color-primary;
+  background: var(--theme-selected-section-bg);
+  color: var(--theme-selected-section-text);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .design-process__inner {
@@ -38,7 +41,8 @@
   position: absolute;
   margin: 0;
   overflow: hidden;
-  background: $color-white;
+  background: var(--theme-selected-design-image-bg);
+  transition: background 0.2s ease;
 }
 
 .design-process__image img {

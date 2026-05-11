@@ -5,8 +5,11 @@
 }
 
 .project-overview {
-  background: $color-white;
-  color: $color-primary;
+  background: var(--theme-selected-section-bg);
+  color: var(--theme-selected-section-text);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .project-overview__inner {
@@ -92,7 +95,7 @@
 
 .project-overview__quote {
   margin-bottom: 26px !important;
-  color: $color-muted;
+  color: var(--theme-selected-section-muted);
   font-size: 24px !important;
 }
 

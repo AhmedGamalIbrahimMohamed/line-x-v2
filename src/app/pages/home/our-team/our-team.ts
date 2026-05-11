@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 interface TeamCard {
@@ -11,7 +12,7 @@ interface TeamCard {
 @Component({
   selector: 'app-our-team',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [TranslateModule , RouterLink],
   templateUrl: './our-team.html',
   styleUrl: './our-team.scss',
 })

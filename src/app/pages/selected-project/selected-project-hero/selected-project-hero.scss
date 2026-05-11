@@ -12,8 +12,9 @@
   width: 100%;
   min-height: calc(var(--hero-height) + var(--details-height));
   overflow: hidden;
-  background: $color-white;
+  background: var(--theme-selected-section-bg);
   color: $color-white;
+  transition: background 0.2s ease;
 }
 
 .selected-project__background {
@@ -167,7 +168,8 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 264px));
   justify-content: space-between;
-  background: $color-primary;
+  background: var(--theme-selected-details-bg);
+  transition: background 0.2s ease;
 }
 
 .selected-project__detail {
@@ -182,7 +184,7 @@
 }
 
 .selected-project__detail dt {
-  color: $color-muted;
+  color: var(--theme-selected-details-label);
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -190,7 +192,7 @@
 
 .selected-project__detail dd {
   margin-top: 8px;
-  color: $color-white;
+  color: var(--theme-selected-details-text);
   font-size: 20px;
   font-weight: 600;
 }

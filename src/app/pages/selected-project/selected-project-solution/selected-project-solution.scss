@@ -5,8 +5,11 @@
 }
 
 .solution {
-  background: $color-white;
-  color: $color-primary;
+  background: var(--theme-selected-section-bg);
+  color: var(--theme-selected-section-text);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .solution__inner {
@@ -40,7 +43,7 @@
 .solution__title {
   left: 0;
   width: 40.426%;
-  color: $color-primary;
+  color: var(--theme-selected-section-text);
   font-size: 40px;
   letter-spacing: $letter-spacing-base;
 }
@@ -63,14 +66,14 @@
 
 .solution__quote {
   top: 0;
-  color: $color-muted;
+  color: var(--theme-selected-section-muted);
   font-size: 24px;
   font-weight: $font-weight-normal;
   letter-spacing: 1px;
 }
 
 .solution__body {
-  color: $color-primary;
+  color: var(--theme-selected-section-text);
   font-size: 16px;
   font-weight: $font-weight-normal;
   letter-spacing: 1px;

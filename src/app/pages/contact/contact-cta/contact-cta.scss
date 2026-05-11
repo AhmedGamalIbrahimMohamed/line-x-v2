@@ -7,11 +7,15 @@
 
 .contact-cta {
   min-height: 471px;
-  border: 1px solid $color-border-top;
-  background: $color-surface-muted;
-  color: $color-primary;
+  border: 1px solid var(--theme-contact-border);
+  background: var(--theme-contact-soft-bg);
+  color: var(--theme-contact-text);
   font-family: $font-primary;
   text-align: center;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .contact-cta__inner {
@@ -60,18 +64,20 @@
   min-height: 48px;
   margin-top: 40px;
   padding: 12px;
-  background: $color-primary;
-  color: $color-white;
+  background: var(--theme-contact-button-bg);
+  color: var(--theme-contact-button-text);
   font-size: 14px;
   line-height: 24px;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 
   &:hover,
   &:focus-visible {
-    background: $color-hover-dark;
+    background: var(--theme-contact-button-hover-bg);
   }
 
   img {

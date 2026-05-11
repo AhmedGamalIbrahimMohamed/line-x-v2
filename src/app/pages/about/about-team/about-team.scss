@@ -5,8 +5,12 @@
 }
 
 .about-team {
-  background: $color-surface-soft;
+  background: var(--theme-about-section-alt-bg);
+  color: var(--theme-about-section-text);
   padding: 100px 0;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .about-team__container {
@@ -32,7 +36,7 @@
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: $color-primary;
+  color: var(--theme-about-section-text);
 }
 
 .about-team__lead {
@@ -41,7 +45,7 @@
   line-height: 1.15;
   font-weight: 400;
   letter-spacing: 0.3px;
-  color: $color-primary;
+  color: var(--theme-about-section-text);
 }
 
 .about-team__spotlight {
@@ -56,7 +60,7 @@
   margin: 0;
   width: 100%;
   height: 600px;
-  background: $color-white;
+  background: var(--theme-about-card-bg);
   overflow: hidden;
 }
 
@@ -78,7 +82,7 @@
   line-height: 1.2;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: $color-primary;
+  color: var(--theme-about-section-text);
 }
 
 .about-team__role {
@@ -91,7 +95,7 @@
   line-height: 1.15;
   font-weight: 400;
   letter-spacing: 0.5px;
-  color: $color-primary;
+  color: var(--theme-about-section-text);
 }
 
 .about-team__position {
@@ -106,8 +110,8 @@
   line-height: 1.2;
   font-weight: 400;
   letter-spacing: 0.5px;
-  color: $color-primary;
-  border-left: 2px solid $color-primary;
+  color: var(--theme-about-section-text);
+  border-inline-start: 2px solid var(--theme-about-section-text);
 }
 
 .about-team__summary {
@@ -125,7 +129,7 @@
 .about-team__member-card {
   margin: 0;
   height: 360px;
-  background: $color-white;
+  background: var(--theme-about-card-bg);
   overflow: hidden;
   cursor: pointer;
   position: relative;
@@ -320,7 +324,7 @@
 @media (max-width: 767px) {
   .about-team {
     padding: 40px 0 36px;
-    background: $color-surface-soft;
+    background: var(--theme-about-section-alt-bg);
     overflow: hidden;
   }
 

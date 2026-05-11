@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +13,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class Navbar {
   private translate = inject(TranslateService);
+  readonly theme = inject(ThemeService);
 
   isMenuOpen = false;
 
@@ -29,6 +31,10 @@ export class Navbar {
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  toggleTheme(): void {
+    this.theme.toggleTheme();
   }
 
   closeMenu(): void {

@@ -17,13 +17,13 @@ type VisionCard = {
 export class AboutVision {
   readonly cards: VisionCard[] = [
     {
+      title: 'About.vision.cards.1.title',
+      description: 'About.vision.cards.1.description',
+    },
+    {
       title: 'About.vision.cards.0.title',
       description: 'About.vision.cards.0.description',
       tabletHidden: true,
-    },
-    {
-      title: 'About.vision.cards.1.title',
-      description: 'About.vision.cards.1.description',
     },
     {
       title: 'About.vision.cards.2.title',

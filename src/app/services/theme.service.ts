@@ -28,7 +28,7 @@ export class ThemeService {
       return storedMode;
     }
 
-    return this.prefersDark() ? 'dark' : 'light';
+    return 'light';
   }
 
   private getStoredMode(): ThemeMode | null {

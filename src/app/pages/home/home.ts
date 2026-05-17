@@ -6,7 +6,7 @@ import { ProjectsSectionComponent } from './projects-section/projects-section';
 import { ExpertiseSectionComponent } from './expertise-section/expertise-section';
 import { WhyPartnerComponent } from './why-partner/why-partner';
 import { CtaSectionComponent } from './cta-section/cta-section';
-import { OurTeam } from './our-team/our-team';
+// import { OurTeam } from './our-team/our-team';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +19,7 @@ import { OurTeam } from './our-team/our-team';
     ExpertiseSectionComponent,
     WhyPartnerComponent,
     CtaSectionComponent,
-    OurTeam,
+    // OurTeam,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',

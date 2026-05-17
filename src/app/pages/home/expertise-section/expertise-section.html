@@ -22,7 +22,7 @@
           </h2>
         </div>
 
-        <div class="expertise-section__text-block">
+        <div class="expertise-section__text-block" [class.is-changing]="isChanging">
           <h3 class="expertise-section__subtitle">{{ slides[activeIndex].subtitle | translate }}</h3>
           <p class="expertise-section__description">{{ slides[activeIndex].description | translate }}</p>
         </div>

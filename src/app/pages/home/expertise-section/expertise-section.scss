@@ -41,10 +41,14 @@
       height: 100%;
       object-fit: cover;
       opacity: 0;
-      transition: opacity 0.6s ease;
+      transform: scale(1.06);
+      transition:
+        opacity 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
       &.is-active {
         opacity: 1;
+        transform: scale(1);
       }
     }
   }
@@ -109,6 +113,15 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    // Fade-in: slow spring ease (applied when .is-changing is removed)
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &.is-changing {
+      opacity: 0;
+      transform: translateY(18px);
+      // Fade-out: fast ease-in (overrides during exit)
+      transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+    }
   }
 
   &__subtitle {

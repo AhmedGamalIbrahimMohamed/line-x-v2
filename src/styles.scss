@@ -2,6 +2,38 @@
 @use 'variables' as *;
 @use 'layout';
 
+/* Custom Cursor Effect */
+.cursor-circle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: var(--theme-cursor-bg);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.5s ease, background-color 0.3s ease;
+}
+
+.cursor-circle.cursor-visible {
+  opacity: 0.7;
+}
+
+/* Hover effect */
+.cursor-circle.cursor-hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: var(--theme-cursor-bg);
+  opacity: 0.5;
+}
+
+/* Hide custom cursor on mobile/touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-circle {
+    display: none;
+  }
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Roboto:wght@400&display=swap');
 
 :root {
@@ -114,6 +146,7 @@
   --theme-footer-submit-bg: #{$color-primary};
   --theme-footer-logo-filter: none;
   --theme-footer-social-filter: none;
+  --theme-cursor-bg: #{$color-primary};
 }
 
 .theme-dark {
@@ -226,6 +259,7 @@
   --theme-footer-submit-bg: #{$color-surface-charcoal};
   --theme-footer-logo-filter: invert(1);
   --theme-footer-social-filter: brightness(1.36);
+  --theme-cursor-bg: #{$color-white};
 }
 
 *,

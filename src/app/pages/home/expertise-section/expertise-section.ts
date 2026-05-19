@@ -63,6 +63,11 @@ export class ExpertiseSectionComponent implements AfterViewInit, OnDestroy {
   private readonly TRANSITION_COOLDOWN = 950;
   private wheelHandler!: (e: WheelEvent) => void;
 
+  private scrollAccumulator = 0;
+  private scrollDirection: 'down' | 'up' | null = null;
+  private scrollDebounceTimer: ReturnType<typeof setTimeout> | null = null;
+  private readonly SCROLL_DEBOUNCE = 200;
+
   ngAfterViewInit(): void {
     this.checkMobile();
     this.syncInitialSlide();
@@ -130,20 +135,50 @@ export class ExpertiseSectionComponent implements AfterViewInit, OnDestroy {
       return;
     }
 
-    const goingDown = e.deltaY > 0;
-
     // Swallow all wheel events while a transition is in progress.
     if (this.isTransitioning) {
       e.preventDefault();
       return;
     }
 
+    e.preventDefault();
+
+    const goingDown = e.deltaY > 0;
+    const direction = goingDown ? 'down' : 'up';
+
+    // Reset accumulator when direction changes.
+    if (direction !== this.scrollDirection) {
+      this.scrollAccumulator = 0;
+      this.scrollDirection = direction;
+      if (this.scrollDebounceTimer) {
+        clearTimeout(this.scrollDebounceTimer);
+        this.scrollDebounceTimer = null;
+      }
+    }
+
+    this.scrollAccumulator++;
+
+    // Debounce: collect rapid scrolls then apply them all at once.
+    if (this.scrollDebounceTimer) clearTimeout(this.scrollDebounceTimer);
+    this.scrollDebounceTimer = setTimeout(() => {
+      this.scrollDebounceTimer = null;
+      const count = this.scrollAccumulator;
+      this.scrollAccumulator = 0;
+      this.scrollDirection = null;
+      this.applyScroll(goingDown, count);
+    }, this.SCROLL_DEBOUNCE);
+  }
+
+  private applyScroll(goingDown: boolean, count: number): void {
+    if (!this.sectionRef) return;
+    const section = this.sectionRef.nativeElement;
+    const rect = section.getBoundingClientRect();
+    const stageH = window.innerHeight;
     const sectionAbsTop = window.scrollY + rect.top;
     const scrollRange = section.offsetHeight - stageH;
 
     // Last slide scrolling down → smoothly exit the section.
     if (goingDown && this.activeIndex === this.slides.length - 1) {
-      e.preventDefault();
       this.isTransitioning = true;
       window.scrollTo({ top: sectionAbsTop + scrollRange + 10, behavior: 'smooth' });
       setTimeout(() => (this.isTransitioning = false), this.TRANSITION_COOLDOWN);
@@ -152,17 +187,17 @@ export class ExpertiseSectionComponent implements AfterViewInit, OnDestroy {
 
     // First slide scrolling up → smoothly exit the section upward.
     if (!goingDown && this.activeIndex === 0) {
-      e.preventDefault();
       this.isTransitioning = true;
       window.scrollTo({ top: Math.max(0, sectionAbsTop - 10), behavior: 'smooth' });
       setTimeout(() => (this.isTransitioning = false), this.TRANSITION_COOLDOWN);
       return;
     }
 
-    // Navigate to the adjacent slide.
-    e.preventDefault();
+    // Jump by the number of scroll events detected.
+    const newIndex = goingDown
+      ? Math.min(this.slides.length - 1, this.activeIndex + count)
+      : Math.max(0, this.activeIndex - count);
     this.isTransitioning = true;
-    const newIndex = goingDown ? this.activeIndex + 1 : this.activeIndex - 1;
     this.scrollToSlide(newIndex);
     this.zone.run(() => this.changeSlide(newIndex));
     setTimeout(() => (this.isTransitioning = false), this.TRANSITION_COOLDOWN);

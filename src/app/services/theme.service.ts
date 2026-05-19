@@ -28,7 +28,15 @@ export class ThemeService {
       return storedMode;
     }
 
-    return 'light';
+    return this.isMobileOrTablet() ? 'dark' : 'light';
+  }
+
+  private isMobileOrTablet(): boolean {
+    try {
+      return window.matchMedia?.('(max-width: 1024px)').matches ?? false;
+    } catch {
+      return false;
+    }
   }
 
   private getStoredMode(): ThemeMode | null {

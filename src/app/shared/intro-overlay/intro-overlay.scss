@@ -18,9 +18,6 @@
 .intro-overlay__video {
   position: absolute;
   inset: 0;
-}
-
-.intro-overlay__video {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -29,6 +26,20 @@
   z-index: 0;
   backface-visibility: hidden;
   will-change: opacity;
+}
+
+.intro-overlay__video--mobile {
+  display: none;
+}
+
+@media (max-width: $bp-md) {
+  .intro-overlay__video--desktop {
+    display: none;
+  }
+
+  .intro-overlay__video--mobile {
+    display: block;
+  }
 }
 
 .intro-overlay__skip {

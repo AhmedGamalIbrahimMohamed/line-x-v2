@@ -1,14 +1,28 @@
 <section *ngIf="visible" #overlay class="intro-overlay" aria-label="Loading home page">
+  <!-- Desktop & Tablet -->
   <video
     #video
-    class="intro-overlay__video"
+    class="intro-overlay__video intro-overlay__video--desktop"
     autoplay
     muted
     playsinline
     preload="auto"
     (ended)="finishIntro()"
   >
-    <source src="/assets/videos/introVideo.mp4" type="video/mp4" />
+    <source src="/assets/videos/Linex logo-50-40.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Mobile -->
+  <video
+    #videoMobile
+    class="intro-overlay__video intro-overlay__video--mobile"
+    autoplay
+    muted
+    playsinline
+    preload="auto"
+    (ended)="finishIntro()"
+  >
+    <source src="/assets/videos/Linex mobile_2.mp4" type="video/mp4" />
   </video>
 
   <button #skipButton class="intro-overlay__skip" type="button" (click)="skipIntro()">Skip</button>

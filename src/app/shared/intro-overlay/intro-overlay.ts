@@ -12,6 +12,7 @@ import { gsap } from 'gsap';
 export class IntroOverlay implements OnInit, AfterViewChecked, OnDestroy {
   @ViewChild('overlay') private overlay?: ElementRef<HTMLElement>;
   @ViewChild('video') private video?: ElementRef<HTMLVideoElement>;
+  @ViewChild('videoMobile') private videoMobile?: ElementRef<HTMLVideoElement>;
   @ViewChild('skipButton') private skipButton?: ElementRef<HTMLButtonElement>;
 
   visible = false;
@@ -25,7 +26,7 @@ export class IntroOverlay implements OnInit, AfterViewChecked, OnDestroy {
   }
 
   ngAfterViewChecked(): void {
-    if (!this.pendingAnimation || !this.overlay || !this.video || !this.skipButton) {
+    if (!this.pendingAnimation || !this.overlay || !this.video || !this.videoMobile || !this.skipButton) {
       return;
     }
 
@@ -69,12 +70,15 @@ export class IntroOverlay implements OnInit, AfterViewChecked, OnDestroy {
 
   private runIntroAnimation(): void {
     const overlay = this.overlay!.nativeElement;
-    const video = this.video!.nativeElement;
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const activeVideo = isMobile
+      ? this.videoMobile!.nativeElement
+      : this.video!.nativeElement;
     const skipButton = this.skipButton!.nativeElement;
 
-    video.muted = true;
-    video.loop = false;
-    void video.play().catch(() => undefined);
+    activeVideo.muted = true;
+    activeVideo.loop = false;
+    void activeVideo.play().catch(() => undefined);
 
     this.timeline?.kill();
     this.timeline = gsap.timeline({
@@ -83,8 +87,8 @@ export class IntroOverlay implements OnInit, AfterViewChecked, OnDestroy {
 
     this.timeline
       .set(overlay, { autoAlpha: 1, clipPath: 'inset(0% 0% 0% 0%)' })
-      .set(video, { autoAlpha: 1, scale: 1, clearProps: 'filter' })
-      .fromTo(video, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35 }, 0)
+      .set(activeVideo, { autoAlpha: 1, scale: 1, clearProps: 'filter' })
+      .fromTo(activeVideo, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35 }, 0)
       .fromTo(skipButton, { autoAlpha: 0, y: -10 }, { autoAlpha: 1, y: 0, duration: 0.55 }, 0.3);
   }
 

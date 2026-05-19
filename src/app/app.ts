@@ -5,10 +5,11 @@ import { DirectionService } from './services/direction.service';
 import { CursorService } from './services/cursor.service';
 import { Navbar } from './shared/navbar/navbar';
 import { Footer } from './shared/footer/footer';
+import { IntroOverlay } from './shared/intro-overlay/intro-overlay';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Footer],
+  imports: [RouterOutlet, Navbar, Footer, IntroOverlay],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

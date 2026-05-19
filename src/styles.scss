@@ -278,3 +278,7 @@ body {
     background 0.2s ease,
     color 0.2s ease;
 }
+
+body.intro-scroll-lock {
+  overflow: hidden;
+}

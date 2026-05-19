@@ -1,0 +1,15 @@
+<section *ngIf="visible" #overlay class="intro-overlay" aria-label="Loading home page">
+  <video
+    #video
+    class="intro-overlay__video"
+    autoplay
+    muted
+    playsinline
+    preload="auto"
+    (ended)="finishIntro()"
+  >
+    <source src="/assets/videos/introVideo.mp4" type="video/mp4" />
+  </video>
+
+  <button #skipButton class="intro-overlay__skip" type="button" (click)="skipIntro()">Skip</button>
+</section>

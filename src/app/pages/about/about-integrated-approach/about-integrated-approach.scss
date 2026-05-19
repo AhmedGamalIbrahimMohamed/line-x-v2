@@ -54,23 +54,39 @@
 .about-approach__steps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: 125px;
   margin-top: 28px;
 }
 
 .approach-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: top;
   gap: 24px;
-  min-height: 194px;
-  padding: 24px;
+  min-height: 330px;
+  padding: 48px;
   border: 1px solid var(--theme-about-card-border);
   background: var(--theme-about-card-bg);
+  cursor: pointer;
   transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    border-color: var(--theme-about-featured-bg);
+    background: var(--theme-about-featured-bg);
+    color: var(--theme-about-featured-text);
+
+    .approach-card__number {
+      background: var(--theme-about-featured-marker-bg);
+      color: var(--theme-about-featured-text);
+    }
+
+    p {
+      color: var(--theme-about-featured-text);
+    }
+  }
 }
 
 .approach-card__number {
@@ -84,7 +100,7 @@
   color: var(--theme-about-section-text);
   font-size: 16px;
   line-height: 1.2;
-  font-weight: 400;
+  font-weight: 800;
 }
 
 .approach-card__text {

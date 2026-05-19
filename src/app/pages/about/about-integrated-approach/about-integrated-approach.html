@@ -10,7 +10,7 @@
 
     <div class="about-approach__steps">
       @for (step of steps; track step.number) {
-        <article class="approach-card" [class.approach-card--featured]="step.featured">
+        <article class="approach-card">
           <div class="approach-card__number">{{ step.number }}</div>
           <div class="approach-card__text">
             <h3>{{ step.title | translate }}</h3>

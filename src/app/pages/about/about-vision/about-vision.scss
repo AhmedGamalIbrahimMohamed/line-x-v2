@@ -42,22 +42,38 @@
 .about-vision__cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: 125px;
   margin-top: 32px;
 }
 
 .vision-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-height: 236px;
-  padding: 24px;
+  justify-content: top;
+  min-height: 330px;
+  padding: 48px;
   border: 1px solid var(--theme-about-card-border);
   background: var(--theme-about-card-bg);
+  cursor: pointer;
   transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    border-color: var(--theme-about-featured-bg);
+    background: var(--theme-about-featured-bg);
+    color: var(--theme-about-featured-text);
+
+    .vision-card__line {
+      background: var(--theme-about-featured-text);
+      opacity: 0.3;
+    }
+
+    p {
+      color: var(--theme-about-featured-text);
+    }
+  }
 }
 
 .vision-card h3 {

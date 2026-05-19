@@ -31,7 +31,6 @@ export class AboutIntegratedApproach {
       number: '03',
       title: 'About.integratedApproach.steps.2.title',
       description: 'About.integratedApproach.steps.2.description',
-      featured: true,
     },
   ];
 }

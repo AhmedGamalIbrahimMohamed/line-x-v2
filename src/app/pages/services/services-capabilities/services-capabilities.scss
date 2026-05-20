@@ -18,7 +18,7 @@
 }
 
 .services-capabilities__heading {
-  margin-bottom: 53px;
+  margin-bottom: 128px;
 }
 
 .services-capabilities__eyebrow {
@@ -40,13 +40,13 @@
 
 .services-capabilities__list {
   display: grid;
-  gap: 24px;
+  gap: 256px;
 }
 
 .capability-card {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  gap: 64px;
   align-items: stretch;
 }
 
@@ -66,7 +66,7 @@
 }
 
 .capability-card__content {
-  padding-block-start: 85px;
+  padding-block-start: 64px;
 }
 
 .capability-card__number {
@@ -98,7 +98,7 @@
   margin: 0;
   padding-inline-start: 24px;
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 2;
   font-weight: 400;
   letter-spacing: 1px;
 }

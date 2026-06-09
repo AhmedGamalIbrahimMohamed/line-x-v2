@@ -52,6 +52,7 @@
   margin: 0;
   overflow: hidden;
   background: var(--theme-selected-media-bg);
+  will-change: transform, opacity;
 }
 
 .visual-journey__image img {

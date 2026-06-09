@@ -294,3 +294,67 @@ body {
 body.intro-scroll-lock {
   overflow: hidden;
 }
+
+/* ── Global animation helpers ── */
+
+/* Elements controlled by GSAP clip-path reveals need overflow:hidden on their parent */
+.clip-wrap {
+  overflow: hidden;
+}
+
+/* Reduced-motion: disable all scroll animations */
+@media (prefers-reduced-motion: reduce) {
+  [style*='clip-path'],
+  [style*='transform'],
+  [style*='opacity'] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Shimmer gradient for decorative number/stat text */
+@keyframes text-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.anim-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--theme-text) 0%,
+    var(--theme-text-muted) 40%,
+    var(--theme-text) 60%,
+    var(--theme-text-muted) 80%,
+    var(--theme-text) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 3.5s linear infinite;
+}
+
+/* Floating pulse for decorative dots / scroll indicators */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* Subtle entrance pulse for icon/badge elements */
+@keyframes pop-in {
+  0%   { transform: scale(0.6); opacity: 0; }
+  70%  { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Card hover lift (apply to interactive card containers) */
+.anim-card-hover {
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.35s ease;
+  will-change: transform;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
+  }
+}

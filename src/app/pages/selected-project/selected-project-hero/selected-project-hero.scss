@@ -35,6 +35,7 @@
 .selected-project__media {
   display: block;
   max-width: none;
+  will-change: transform;
 }
 
 .selected-project__media--layer-1 {

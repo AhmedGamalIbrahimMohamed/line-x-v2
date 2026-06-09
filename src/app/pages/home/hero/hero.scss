@@ -23,6 +23,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   pointer-events: none;
+  will-change: transform;
 }
 
 .hero-layer-1 {

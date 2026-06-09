@@ -66,6 +66,7 @@
   font-size: 40px;
   line-height: 1.2;
   letter-spacing: $letter-spacing-base;
+  will-change: transform, opacity;
 }
 
 .project-overview__heading span {
@@ -87,6 +88,7 @@
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 1px;
+  will-change: transform, opacity;
 }
 
 .project-overview__content p + p {

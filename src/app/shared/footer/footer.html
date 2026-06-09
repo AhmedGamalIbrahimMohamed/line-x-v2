@@ -8,23 +8,6 @@
           alt="LINE-X"
         />
       </a>
-
-      <p class="x-footer__desc">
-        {{ 'Footer.description' | translate }}
-      </p>
-
-      <form class="x-footer__subscribe" (submit)="$event.preventDefault()">
-        <input
-          class="x-footer__input"
-          type="email"
-          [placeholder]="'Footer.Enter Your Email' | translate"
-          aria-label="Enter your email"
-        />
-
-        <button class="x-footer__submit" type="submit" aria-label="Submit email">
-          <img src="assets/images/figma2/footer-submit-arrow.svg" alt="" />
-        </button>
-      </form>
     </div>
 
     <div class="x-footer__columns">
@@ -57,6 +40,18 @@
           <a routerLink="/about" class="x-footer__link">{{ 'Footer.About' | translate }}</a>
           <a routerLink="/contact" class="x-footer__link">{{ 'Footer.Contact' | translate }}</a>
         </nav>
+      </div>
+
+         <div class="x-footer__column x-footer__column--branches">
+        <h3 class="x-footer__heading">{{ 'Footer.OUR BRANCH' | translate }}</h3>
+
+        <div class="x-footer__links">
+          <p class="x-footer__text">{{ 'Footer.Saudi Arabia Branch' | translate }}</p>
+          <p class="x-footer__text">{{ 'Footer.Egypt Branch' | translate }}</p>
+          <p class="x-footer__text">{{ 'Footer.Libya Branch' | translate }}</p>
+          <p class="x-footer__text">{{ 'Footer.UAE Branch' | translate }}</p>
+          <p class="x-footer__text">{{ 'Footer.Oman Branch' | translate }}</p>
+        </div>
       </div>
     </div>
   </div>

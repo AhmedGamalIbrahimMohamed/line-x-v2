@@ -27,6 +27,10 @@
   opacity: 0.5;
 }
 
+.cursor-circle.cursor-footer-social {
+  opacity: 0;
+}
+
 /* Hide custom cursor on mobile/touch devices */
 @media (hover: none) and (pointer: coarse) {
   .cursor-circle {
@@ -146,6 +150,10 @@
   --theme-footer-submit-bg: #{$color-primary};
   --theme-footer-logo-filter: none;
   --theme-footer-social-filter: none;
+  --theme-footer-bottom-bg: #{$color-footer-bottom-bg};
+  --theme-footer-bottom-text: #{$color-footer-bottom-text};
+  --theme-footer-bottom-social-filter: brightness(0) invert(1);
+  --theme-footer-bottom-social-hover-filter: brightness(0) invert(1);
   --theme-cursor-bg: #{$color-primary};
 }
 
@@ -259,6 +267,10 @@
   --theme-footer-submit-bg: #{$color-surface-charcoal};
   --theme-footer-logo-filter: invert(1);
   --theme-footer-social-filter: brightness(1.36);
+  --theme-footer-bottom-bg: #{$color-white};
+  --theme-footer-bottom-text: #{$color-primary};
+  --theme-footer-bottom-social-filter: brightness(0);
+  --theme-footer-bottom-social-hover-filter: brightness(0);
   --theme-cursor-bg: #{$color-white};
 }
 

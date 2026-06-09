@@ -41,6 +41,8 @@ $color-border-light: #e2e8f0;   // footer internal dividers, input border
 $color-border-card:  #d5d5d5;   // card outlines and interior dividers
 $color-border-muted: #dddddd;   // subtle vertical rails and separators
 $color-border-dark:  #373737;   // dark section outlines
+$color-footer-bottom-bg:   $color-primary;
+$color-footer-bottom-text: $color-white;
 
 // ── Typography ────────────────────────────────────────────────────────────────
 $font-primary:        'Poppins', sans-serif;

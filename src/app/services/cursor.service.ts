@@ -53,12 +53,23 @@ export class CursorService {
     if (target) {
       this.cursorCircle?.classList.add('cursor-hover');
     }
+
+    const footerSocial = (event.target as HTMLElement)?.closest('.x-footer__social');
+    if (footerSocial) {
+      this.cursorCircle?.classList.add('cursor-footer-social');
+    }
   };
 
   private onDocumentMouseOut = (event: MouseEvent): void => {
     const target = (event.target as HTMLElement)?.closest('a, button, [role="button"], input, textarea, select');
     if (target) {
       this.cursorCircle?.classList.remove('cursor-hover');
+    }
+
+    const footerSocial = (event.target as HTMLElement)?.closest('.x-footer__social');
+    const nextTarget = event.relatedTarget as Node | null;
+    if (footerSocial && !footerSocial.contains(nextTarget)) {
+      this.cursorCircle?.classList.remove('cursor-footer-social');
     }
   };
 

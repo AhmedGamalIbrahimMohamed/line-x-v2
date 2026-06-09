@@ -146,6 +146,20 @@
   border-radius: 0;
 }
 
+:host ::ng-deep .leaflet-control-attribution {
+  max-width: calc(100vw - 24px);
+  padding: 3px 6px;
+  background: rgba($color-white, 0.82);
+  color: var(--theme-contact-text);
+  font-size: 11px;
+  line-height: 1.3;
+  white-space: normal;
+}
+
+:host ::ng-deep .leaflet-control-attribution a {
+  color: inherit;
+}
+
 :host ::ng-deep .leaflet-bar {
   border: 1px solid var(--theme-contact-border);
   border-radius: 0;
@@ -233,13 +247,30 @@
 
 @media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
   .contact-map {
-    height: 340px;
+    height: 360px;
+  }
+
+  :host ::ng-deep .contact-map__marker {
+    width: 140px !important;
+    height: 54px !important;
+    gap: 5px;
+  }
+
+  :host ::ng-deep .contact-map__marker-label {
+    max-width: 136px;
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  :host ::ng-deep .contact-map__marker-dot {
+    width: 22px;
+    height: 22px;
   }
 }
 
 @media (max-width: $bp-md) {
   .contact-map {
-    height: 260px;
+    height: clamp(280px, 72vw, 340px);
   }
 
   :host ::ng-deep .leaflet-top .leaflet-control {
@@ -259,24 +290,64 @@
   }
 
   :host ::ng-deep .leaflet-control-zoom a {
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  :host ::ng-deep .leaflet-bottom.leaflet-left,
+  :host ::ng-deep .leaflet-bottom.leaflet-right {
+    right: 8px;
+    left: 8px;
+  }
+
+  :host ::ng-deep .leaflet-control-attribution {
+    max-width: calc(100vw - 16px);
+    margin-right: 0;
+    margin-left: 0;
+    padding: 2px 5px;
+    font-size: 10px;
+    line-height: 1.25;
   }
 
   :host ::ng-deep .contact-map__marker {
-    width: 132px;
+    width: 112px !important;
+    height: 50px !important;
+    gap: 4px;
   }
 
   :host ::ng-deep .contact-map__marker-label {
-    max-width: 128px;
-    padding: 4px 7px;
+    max-width: 108px;
+    padding: 4px 6px;
+    font-size: 10px;
+    line-height: 1.1;
     white-space: normal;
+  }
+
+  :host ::ng-deep .contact-map__marker-dot {
+    width: 18px;
+    height: 18px;
+    border-width: 3px;
   }
 }
 
 @media (max-width: $bp-mobile-small) {
   .contact-map {
-    height: 240px;
+    height: 300px;
+  }
+
+  :host ::ng-deep .leaflet-control-attribution {
+    font-size: 9px;
+  }
+
+  :host ::ng-deep .contact-map__marker {
+    width: 100px !important;
+  }
+
+  :host ::ng-deep .contact-map__marker-label {
+    max-width: 96px;
+    padding: 3px 5px;
+    font-size: 9px;
   }
 }

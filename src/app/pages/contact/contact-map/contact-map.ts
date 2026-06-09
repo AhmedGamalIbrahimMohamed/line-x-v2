@@ -28,10 +28,22 @@ export class ContactMap implements AfterViewInit, OnDestroy {
         'https://www.google.com/maps/place/30%C2%B002%2741.8%22N+31%C2%B026%2732.0%22E/@30.044948998432716,31.44285873036098,19z',
     },
     {
-      label: 'Turkey Branch',
-      coordinates: [40.7583309, 29.853782],
+      label: 'Libya Branch',
+      coordinates: [32.1194242, 20.0867909],
       googleMapsUrl:
-        'https://www.google.com/maps/place/L%C4%B0NEX+ORMAN+%C3%9CR%C3%9CNLER%C4%B0+DER%C4%B0NCE+FABR%C4%B0KA/@40.7582496,29.8550568,19z/data=!4m6!3m5!1s0x14cb47703c74d871:0xdc41a15cd0eed0c1!8m2!3d40.7583309!4d29.853782!16s%2Fg%2F11vkbvgt0p?entry=ttu&g_ep=EgoyMDI2MDYwNy4wIKXMDSoASAFQAw%3D%3D',
+        'https://www.google.com/maps/place/%D8%A8%D9%86%D8%BA%D8%A7%D8%B2%D9%8A%D8%8C+%D9%84%D9%8A%D8%A8%D9%8A%D8%A7%E2%80%AD/@32.0812715,20.1350005,59129m/data=!3m2!1e3!4b1!4m6!3m5!1s0x13831c55479eee2b:0xe497dfce76d293e0!8m2!3d32.1194242!4d20.0867909!16zL20vMDFjenQ5?entry=ttu&g_ep=EgoyMDI2MDYwNy4wIKXMDSoASAFQAw%3D%3D',
+    },
+    {
+      label: 'UAE Branch',
+      coordinates: [25.197197, 55.2743764],
+      googleMapsUrl:
+        'https://www.google.com/maps/place/%D8%A8%D8%B1%D8%AC+%D8%AE%D9%84%D9%8A%D9%81%D8%A9%E2%80%AD/@25.197197,55.2743764,893m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3e5f43348a67e24b:0xff45e502e1ceb7e2!8m2!3d25.197197!4d55.2743764!16zL20vMDNjbjB2?entry=ttu&g_ep=EgoyMDI2MDYwNy4wIKXMDSoASAFQAw%3D%3D',
+    },
+    {
+      label: 'Oman Branch',
+      coordinates: [23.579303, 58.4117477],
+      googleMapsUrl:
+        'https://www.google.com/maps/place/%D8%A3%D8%AC%D9%86%D8%AD%D8%A9+%D9%81%D8%B1%D9%8A%D8%B2%D8%B1+%D9%85%D8%B3%D9%82%D8%B7%E2%80%AD/@23.5809812,58.3937194,3042m/data=!3m1!1e3!4m9!3m8!1s0x3e91ffab81a1b719:0x1a01ecd54c5d325!5m2!4m1!1i2!8m2!3d23.579303!4d58.4117477!16s%2Fg%2F11g0m57n3n?entry=ttu&g_ep=EgoyMDI2MDYwNy4wIKXMDSoASAFQAw%3D%3D',
     },
   ];
 
@@ -83,11 +95,7 @@ export class ContactMap implements AfterViewInit, OnDestroy {
         .addTo(this.map!);
     });
 
-    const bounds = L.latLngBounds(this.locationCoordinates);
-    this.map.fitBounds(bounds, {
-      padding: [60, 60],
-      maxZoom: 6,
-    });
+    this.fitLocations();
 
     window.setTimeout(() => {
       this.refreshMap(true);
@@ -99,7 +107,7 @@ export class ContactMap implements AfterViewInit, OnDestroy {
       return;
     }
 
-    this.resizeObserver = new ResizeObserver(() => this.refreshMap());
+    this.resizeObserver = new ResizeObserver(() => this.refreshMap(true));
     this.resizeObserver.observe(this.mapContainer.nativeElement);
   }
 
@@ -111,11 +119,24 @@ export class ContactMap implements AfterViewInit, OnDestroy {
     window.requestAnimationFrame(() => {
       this.map?.invalidateSize();
       if (fitBounds) {
-        this.map?.fitBounds(L.latLngBounds(this.locationCoordinates), {
-          padding: [60, 60],
-          maxZoom: 6,
-        });
+        this.fitLocations();
       }
+    });
+  }
+
+  private fitLocations(): void {
+    if (!this.map) {
+      return;
+    }
+
+    const width = this.mapContainer.nativeElement.clientWidth;
+    const isMobile = width <= 767;
+    const isTablet = width <= 1199;
+
+    this.map.fitBounds(L.latLngBounds(this.locationCoordinates), {
+      paddingTopLeft: isMobile ? [38, 18] : isTablet ? [52, 36] : [80, 60],
+      paddingBottomRight: isMobile ? [18, 40] : isTablet ? [36, 44] : [60, 60],
+      maxZoom: isMobile ? 4 : isTablet ? 5 : 6,
     });
   }
 

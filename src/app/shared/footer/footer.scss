@@ -115,17 +115,18 @@
   &__columns {
     height: 240px;
     flex: 1;
+    min-width: 0;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 48px;
-    flex-shrink: 0;
   }
 
   &__column {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    min-width: 0;
 
     &--contact {
       width: 266px;
@@ -307,19 +308,63 @@
   // Mobile: Figma node 1:3504
   @media (max-width: 767px) {
     &__top {
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
       gap: 24px;
       padding: 40px 0 24px;
     }
 
+    // Dissolve columns wrapper so children join the parent flex
+    &__columns {
+      display: contents;
+    }
+
+    // Row 1 — Contact Us (left, ~65%)
+    &__column--contact {
+      order: 1;
+      flex: 0 0 calc(65% - 12px);
+      width: auto;
+      height: auto;
+    }
+
+    // Row 1 — Sitemap (right, ~35%)
+    &__column--sitemap {
+      order: 2;
+      flex: 0 0 calc(35% - 12px);
+      width: auto;
+      height: auto;
+    }
+
+    // Row 2 — Our Branches (left, ~35%)
+    &__column--branches {
+      order: 3;
+      flex: 0 0 calc(35% - 12px);
+      width: auto;
+      height: auto;
+    }
+
+    // Row 2 — Logo (right, ~65%)
     &__brand {
-      width: 100%;
-      gap: 8px;
+      order: 4;
+      flex: 0 0 calc(65% - 12px);
+      width: auto;
+      align-self: stretch;
+      display: flex;
+      align-items: start;
+      justify-content: center;
     }
 
     &__logo-link {
-      width: 230px;
-      height: 124px;
+      width: 140px;
+      height: auto;
+      display: block;
+    }
+
+    &__logo {
+      width: 100%;
+      height: auto;
+      object-fit: unset;
     }
 
     &__desc {
@@ -331,29 +376,6 @@
     &__subscribe {
       width: 100%;
       height: 48px;
-    }
-
-    &__columns {
-      width: 100%;
-      height: 227px;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    &__column--contact {
-      width: 176px;
-      height: 240px;
-    }
-
-    &__column--sitemap {
-      width: 133px;
-    }
-
-    &__column--branches {
-      width: 130px;
     }
 
     &__text,
@@ -380,45 +402,55 @@
     }
   }
 
- @media (max-width: 390px) {
-  .x-footer {
+  @media (max-width: 390px) {
     &__top {
-      gap: 22px;
+      gap: 18px;
       padding: 36px 0 22px;
     }
 
+    &__columns {
+      display: contents;
+    }
+
+    &__column--contact {
+      order: 1;
+      flex: 0 0 calc(50% - 9px);
+      width: auto;
+      height: auto;
+    }
+
+    &__column--sitemap {
+      order: 2;
+      flex: 0 0 calc(50% - 9px);
+      width: auto;
+      height: auto;
+    }
+
     &__brand {
-      width: 100%;
-      gap: 10px;
+      order: 3;
+      flex: 0 0 calc(50% - 9px);
+      width: auto;
+      align-self: stretch;
+      display: flex;
+      align-items: start;
+      justify-content: center;
     }
 
     &__logo-link {
-      width: 190px;
-      height: 103px;
+      width: 120px;
+      height: auto;
+      display: block;
     }
 
-    &__desc {
-      width: 100%;
-      font-size: 12px;
-      line-height: 1.25;
-    }
-
-    &__subscribe {
-      width: 100%;
-      height: 48px;
-    }
-
-    &__columns {
+    &__logo {
       width: 100%;
       height: auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 118px;
-      gap: 18px;
+      object-fit: unset;
     }
 
-    &__column--contact,
-    &__column--sitemap,
     &__column--branches {
+      order: 4;
+      flex: 0 0 calc(50% - 9px);
       width: auto;
       height: auto;
     }
@@ -465,5 +497,4 @@
       height: 20px;
     }
   }
-}
 }

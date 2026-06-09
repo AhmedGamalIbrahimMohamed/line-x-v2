@@ -149,7 +149,7 @@
 :host ::ng-deep .leaflet-control-attribution {
   max-width: calc(100vw - 24px);
   padding: 3px 6px;
-  background: rgba($color-white, 0.82);
+  background: transparent;
   color: var(--theme-contact-text);
   font-size: 11px;
   line-height: 1.3;

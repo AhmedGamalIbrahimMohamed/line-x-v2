@@ -2,11 +2,14 @@
   <div class="x-footer__top">
     <div class="x-footer__brand">
       <a routerLink="/" class="x-footer__logo-link" aria-label="LINE-X Home">
-        <img
-          class="x-footer__logo"
-          src="assets/images/figma2/footer-logo.svg"
-          alt="LINE-X"
-        />
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/images/figma2/linexmobile.png" />
+          <img
+            class="x-footer__logo"
+            src="assets/images/figma2/footer-logo.svg"
+            alt="LINE-X"
+          />
+        </picture>
       </a>
     </div>
 
@@ -15,19 +18,21 @@
         <h3 class="x-footer__heading">{{ 'Footer.CONTACT US' | translate }}</h3>
 
         <div class="x-footer__links">
-          <p class="x-footer__text">{{ 'Footer.workingHours' | translate }}</p>
 
+          <a href="tel:+1123456789" class="x-footer__link x-footer__link--strong">
+            +(1) 123 456 789
+          </a>
+          <a href="tel:+1123456789" class="x-footer__link x-footer__link--strong">
+            +(1) 123 456 789
+          </a>
+          <a href="tel:+1123456789" class="x-footer__link x-footer__link--strong">
+            +(1) 123 456 789
+          </a>
           <a href="tel:+1123456789" class="x-footer__link x-footer__link--strong">
             +(1) 123 456 789
           </a>
 
           <div class="x-footer__space"></div>
-
-          <p class="x-footer__text">{{ 'Footer.Have a project in mind?' | translate }}</p>
-
-          <a href="mailto:X-line@example.com" class="x-footer__link x-footer__link--strong">
-            X-line@example.com
-          </a>
         </div>
       </div>
 

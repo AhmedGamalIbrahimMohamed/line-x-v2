@@ -8,37 +8,275 @@
 .contact-map {
   position: relative;
   width: 100%;
-  height: 451px;
+  height: clamp(360px, 31.32vw, 451px);
   overflow: hidden;
   background: var(--theme-contact-map-bg);
   transition: background 0.2s ease;
 }
 
-.contact-map__image {
+.contact-map::after {
   position: absolute;
-  top: -58.31%;
+  inset: 0;
+  z-index: 450;
+  pointer-events: none;
+  content: '';
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.contact-map__leaflet {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  isolation: isolate;
+}
+
+:host ::ng-deep .leaflet-container {
+  font-family: inherit;
+  background: var(--theme-contact-map-bg);
+  overflow: hidden;
+}
+
+:host ::ng-deep .leaflet-tile-pane {
+  opacity: 0.86;
+  filter: grayscale(1) contrast(1.06) brightness(1.03);
+}
+
+:host ::ng-deep .leaflet-pane,
+:host ::ng-deep .leaflet-tile,
+:host ::ng-deep .leaflet-marker-icon,
+:host ::ng-deep .leaflet-marker-shadow,
+:host ::ng-deep .leaflet-tile-container,
+:host ::ng-deep .leaflet-pane > svg,
+:host ::ng-deep .leaflet-pane > canvas,
+:host ::ng-deep .leaflet-zoom-box,
+:host ::ng-deep .leaflet-image-layer,
+:host ::ng-deep .leaflet-layer {
+  position: absolute;
+  top: 0;
   left: 0;
+}
+
+:host ::ng-deep .leaflet-tile {
+  width: 256px;
+  height: 256px;
+  max-width: none !important;
+  max-height: none !important;
+  user-select: none;
+}
+
+:host ::ng-deep .leaflet-control-container .leaflet-top,
+:host ::ng-deep .leaflet-control-container .leaflet-bottom {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+:host ::ng-deep .leaflet-control-container .leaflet-top {
+  top: 0;
+}
+
+:host ::ng-deep .leaflet-control-container .leaflet-bottom {
+  bottom: 0;
+}
+
+:host ::ng-deep .leaflet-control-container .leaflet-left {
+  left: 0;
+}
+
+:host ::ng-deep .leaflet-control-container .leaflet-right {
+  right: 0;
+}
+
+:host ::ng-deep .leaflet-control {
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto;
+  float: left;
+  clear: both;
+}
+
+:host ::ng-deep .leaflet-right .leaflet-control {
+  float: right;
+}
+
+:host ::ng-deep .leaflet-top .leaflet-control {
+  margin-top: 10px;
+}
+
+:host ::ng-deep .leaflet-left .leaflet-control {
+  margin-left: 10px;
+}
+
+:host ::ng-deep .leaflet-right .leaflet-control {
+  margin-right: 10px;
+}
+
+:host ::ng-deep .leaflet-bottom .leaflet-control {
+  margin-bottom: 10px;
+}
+
+:host ::ng-deep .leaflet-control-zoom a {
   display: block;
-  width: 101.86%;
-  height: 172.88%;
-  max-width: none;
+  width: 34px;
+  height: 34px;
+  border-bottom: 1px solid var(--theme-contact-border);
+  background: var(--theme-contact-card-bg);
+  color: var(--theme-contact-text);
+  font-size: 18px;
+  font-weight: $font-weight-medium;
+  line-height: 34px;
+  text-align: center;
+  text-decoration: none;
+}
+
+:host ::ng-deep .leaflet-control-zoom a:hover,
+:host ::ng-deep .leaflet-control-zoom a:focus-visible {
+  background: var(--theme-contact-button-bg);
+  color: var(--theme-contact-button-text);
+}
+
+:host ::ng-deep .leaflet-control-zoom-in {
+  border-radius: 0;
+}
+
+:host ::ng-deep .leaflet-control-zoom-out {
+  border-bottom: 0;
+  border-radius: 0;
+}
+
+:host ::ng-deep .leaflet-bar {
+  border: 1px solid var(--theme-contact-border);
+  border-radius: 0;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+:host ::ng-deep .contact-map__marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 164px;
+  height: 58px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+:host ::ng-deep .contact-map__marker-label {
+  display: block;
+  max-width: 160px;
+  padding: 5px 9px;
+  border: 1px solid var(--theme-contact-border);
+  background: var(--theme-contact-card-bg);
+  color: var(--theme-contact-text);
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+:host ::ng-deep .contact-map__marker-dot {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: 4px solid var(--theme-contact-card-bg);
+  border-radius: 50%;
+  background: var(--theme-contact-button-bg);
+  box-shadow:
+    0 0 0 1px var(--theme-contact-border),
+    0 8px 22px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+:host ::ng-deep .contact-map__marker:hover .contact-map__marker-dot,
+:host ::ng-deep .contact-map__marker:focus-visible .contact-map__marker-dot {
+  transform: scale(1.16);
+  background: var(--theme-contact-button-hover-bg);
+}
+
+:host-context(.theme-dark) ::ng-deep .leaflet-tile-pane {
+  opacity: 0.9;
+  filter: grayscale(1) invert(1) contrast(0.92) brightness(0.86);
+}
+
+:host-context(.theme-dark) .contact-map::after {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    radial-gradient(circle at 50% 50%, transparent 0, rgba(0, 0, 0, 0.18) 72%);
+}
+
+:host-context(.theme-dark) ::ng-deep .leaflet-bar {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.42);
+}
+
+:host-context(.theme-dark) ::ng-deep .contact-map__marker-dot {
+  border-color: $color-primary;
+  background: $color-white;
+  box-shadow:
+    0 0 0 1px rgba($color-white, 0.42),
+    0 10px 26px rgba($color-primary, 0.58);
+}
+
+:host-context(.theme-dark) ::ng-deep .contact-map__marker:hover .contact-map__marker-dot,
+:host-context(.theme-dark) ::ng-deep .contact-map__marker:focus-visible .contact-map__marker-dot {
+  background: $color-surface-soft;
+}
+
+:host-context(.theme-dark) ::ng-deep .contact-map__marker-label {
+  box-shadow: 0 10px 24px rgba($color-primary, 0.42);
 }
 
 @media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
   .contact-map {
-    height: 321px;
+    height: 340px;
   }
 }
 
 @media (max-width: $bp-md) {
   .contact-map {
-    height: 182px;
+    height: 260px;
   }
 
-  .contact-map__image {
-    top: -63.41%;
-    left: -20.37%;
-    width: 140.56%;
-    height: 179.58%;
+  :host ::ng-deep .leaflet-top .leaflet-control {
+    margin-top: $gap-xs;
+  }
+
+  :host ::ng-deep .leaflet-left .leaflet-control {
+    margin-left: $gap-xs;
+  }
+
+  :host ::ng-deep .leaflet-right .leaflet-control {
+    margin-right: $gap-xs;
+  }
+
+  :host ::ng-deep .leaflet-bottom .leaflet-control {
+    margin-bottom: $gap-xs;
+  }
+
+  :host ::ng-deep .leaflet-control-zoom a {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+  }
+
+  :host ::ng-deep .contact-map__marker {
+    width: 132px;
+  }
+
+  :host ::ng-deep .contact-map__marker-label {
+    max-width: 128px;
+    padding: 4px 7px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: $bp-mobile-small) {
+  .contact-map {
+    height: 240px;
   }
 }

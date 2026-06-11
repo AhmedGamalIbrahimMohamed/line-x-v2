@@ -246,21 +246,21 @@
   // Tablet: Figma node 1:5012
   @media (max-width: 1199px) and (min-width: 768px) {
     &__top {
-      gap: 24px;
+      gap: 16px;
       padding: 32px 0 24px;
     }
 
     &__brand {
-      width: 360px;
+      width: 280px;
     }
 
     &__logo-link {
-      width: 290px;
-      height: 157px;
+      width: 240px;
+      height: 130px;
     }
 
     &__columns {
-      gap: 32px;
+      gap: 20px;
     }
 
     &__bottom {
@@ -270,28 +270,39 @@
     }
 
     &__column--contact {
-      width: 235px;
+      width: 200px;
     }
 
     &__column--sitemap {
-      width: 133px;
+      width: 110px;
+    }
+
+    &__column--branches {
+      flex: 1;
+      min-width: 120px;
+      width: auto;
+
+      .x-footer__heading,
+      .x-footer__text {
+        white-space: normal;
+      }
     }
   }
 
   // Small tablet safety
   @media (max-width: 950px) and (min-width: 768px) {
     &__brand {
-      width: 300px;
+      width: 220px;
     }
 
     &__logo-link {
-      width: 260px;
-      height: 140px;
+      width: 200px;
+      height: 108px;
     }
 
     &__desc,
     &__subscribe {
-      width: 340px;
+      width: 100%;
     }
 
     &__bottom {
@@ -301,7 +312,18 @@
     }
 
     &__column--contact {
-      width: 220px;
+      width: 180px;
+    }
+
+    &__column--branches {
+      flex: 1;
+      min-width: 110px;
+      width: auto;
+
+      .x-footer__heading,
+      .x-footer__text {
+        white-space: normal;
+      }
     }
   }
 
@@ -336,18 +358,18 @@
       height: auto;
     }
 
-    // Row 2 — Our Branches (left, ~35%)
+    // Row 2 — Our Branches (left, 4/7)
     &__column--branches {
       order: 3;
-      flex: 0 0 calc(35% - 12px);
+      flex: 0 0 calc(57.143% - 12px);
       width: auto;
       height: auto;
     }
 
-    // Row 2 — Logo (right, ~65%)
+    // Row 2 — Logo (right, 3/7)
     &__brand {
       order: 4;
-      flex: 0 0 calc(65% - 12px);
+      flex: 0 0 calc(42.857% - 12px);
       width: auto;
       align-self: stretch;
       display: flex;
@@ -428,7 +450,7 @@
 
     &__brand {
       order: 3;
-      flex: 0 0 calc(50% - 9px);
+      flex: 0 0 calc(42.857% - 9px);
       width: auto;
       align-self: stretch;
       display: flex;
@@ -450,7 +472,7 @@
 
     &__column--branches {
       order: 4;
-      flex: 0 0 calc(50% - 9px);
+      flex: 0 0 calc(57.143% - 9px);
       width: auto;
       height: auto;
     }

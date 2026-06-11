@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, Input, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { ScrollAnimationService } from '../../../services/scroll-animation.service';
@@ -11,6 +11,14 @@ import { ScrollAnimationService } from '../../../services/scroll-animation.servi
   styleUrl: './cta-section.scss',
 })
 export class CtaSectionComponent implements AfterViewInit {
+  @Input() page: string = 'Home';
+  @Input() primaryRoute: string = '/contact';
+  @Input() secondaryRoute: string = '/projects';
+
+  isExternal(route: string): boolean {
+    return route.startsWith('tel:') || route.startsWith('mailto:') || route.startsWith('#');
+  }
+
   @ViewChild('sectionRef') private sectionRef!: ElementRef<HTMLElement>;
 
   private anim = inject(ScrollAnimationService);

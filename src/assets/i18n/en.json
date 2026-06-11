@@ -108,11 +108,11 @@
       }
     },
     "cta": {
-      "titleLight": "Let's Build Something",
-      "titleBold": "Exceptional",
+      "titleLine1": "Let's Build Something",
+      "titleLine2": "Exceptional",
       "description": "Ready to transform your vision into a landmark? We are looking for partners who want to redefine their industry through architecture.",
-      "Explore Projects": "Explore Projects",
-      "Contact Us": "Contact Us"
+      "primaryCta": "Explore Projects",
+      "secondaryCta": "Contact Us"
     }
   },
   "About": {
@@ -217,6 +217,13 @@
         "title": "Long-Term Partnership",
         "text": "We view our clients as true partners. Our commitment extends beyond the ribbon-cutting, ensuring that our buildings perform flawlessly and adapt gracefully to future needs over their lifespan."
       }
+    },
+    "cta": {
+      "titleLine1": "We Don't Just Design —",
+      "titleLine2": "We Leave a Legacy",
+      "description": "Behind every X-Line project is a commitment that outlasts trends. If your vision deserves that kind of permanence, we'd love to hear about it.",
+      "primaryCta": "Let's Work Together",
+      "secondaryCta": "See Our Portfolio"
     }
   },
   "Services": {
@@ -283,6 +290,13 @@
         "4": "Delivery",
         "5": "Maintenance"
       }
+    },
+    "cta": {
+      "titleLine1": "The Right Partner for",
+      "titleLine2": "Your Next Milestone",
+      "description": "You know what we do. Now tell us about your project — and we'll show you exactly how we make it extraordinary.",
+      "primaryCta": "Request a Consultation",
+      "secondaryCta": "Explore Our Projects"
     }
   },
   "Projects": {
@@ -307,6 +321,13 @@
       "Landscape": "Landscape",
       "Residential": "Residential",
       "Load More": "Load More"
+    },
+    "cta": {
+      "titleLine1": "Your Project Could Be",
+      "titleLine2": "Next",
+      "description": "Every landmark starts with a conversation. If our work speaks to what you're envisioning — let's talk about bringing your project to life.",
+      "primaryCta": "Start Your Project",
+      "secondaryCta": "See Our Services"
     }
   },
   "Contact": {
@@ -344,10 +365,11 @@
       "Saudi Arabia": "Saudi Arabia"
     },
     "cta": {
-      "titleLine1": "We're Ready",
-      "titleLine2": "When You Are.",
-      "text": "Let's turn your vision into a built reality.",
-      "Chat With Us": "Chat With Us"
+      "titleLine1": "A Great Project Starts With",
+      "titleLine2": "One Conversation",
+      "description": "Whether you have a complete brief or just a vision — we respond within 24 hours. No commitment required, just a conversation.",
+      "primaryCta": "Call Us Now",
+      "secondaryCta": "Send a Message"
     }
   },
   "SelectedProject": {
@@ -393,6 +415,13 @@
     },
     "visualJourney": {
       "label": "Visual Journey"
+    },
+    "cta": {
+      "titleLine1": "Inspired by What",
+      "titleLine2": "You Just Experienced?",
+      "description": "This is what happens when bold vision meets precision execution. If your project deserves the same standard — let's start the conversation today.",
+      "primaryCta": "Discuss Your Project",
+      "secondaryCta": "View All Projects"
     }
   },
   "Footer": {

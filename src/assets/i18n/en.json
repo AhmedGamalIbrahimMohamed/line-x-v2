@@ -49,7 +49,7 @@
       }
     },
     "projects": {
-      "eyebrow": "Selected Projects",
+      "eyebrow": "Featured Projects",
       "headlineBold": "Architectural",
       "headlineItalic": "Excellence",
       "View all Projects": "View all Projects"
@@ -117,7 +117,7 @@
   },
   "About": {
     "hero": {
-      "eyebrow": "About The Studio",
+      "eyebrow": "About The Firm",
       "titleItalic": "Shaping",
       "titleBold": "Architecture Through Expertise & Integration",
       "description": "A multidisciplinary team delivering design and construction excellence under one unified vision."
@@ -302,13 +302,13 @@
   "Projects": {
     "hero": {
       "eyebrow": "Modern Landmarks",
-      "titleItalic": "Selected",
+      "titleItalic": "Featured",
       "titleBold": "Projects",
       "description": "A curated exhibition of our architectural endeavors, showcasing the intersection of form, function, and futuristic design across diverse landscapes."
     },
     "cover": {
       "Projects Completed": "Projects Completed",
-      "Global Awards": "Global Awards",
+      "Global Awards": "Global Offices",
       "Countries": "Countries",
       "Sustainable Focus": "Sustainable Focus"
     },

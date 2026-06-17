@@ -49,7 +49,7 @@
       }
     },
     "projects": {
-      "eyebrow": "مشاريع مختارة",
+      "eyebrow": "مشاريع مميزة",
       "headlineBold": "تميز",
       "headlineItalic": "معماري",
       "View all Projects": "عرض جميع المشاريع"
@@ -117,7 +117,7 @@
   },
   "About": {
     "hero": {
-      "eyebrow": "عن الاستوديو",
+      "eyebrow": "عن المكتب",
       "titleItalic": "تشكيل",
       "titleBold": "العمارة من خلال الخبرة والتكامل",
       "description": "فريق متعدد التخصصات يقدم تميزاً في التصميم والبناء تحت رؤية موحدة واحدة."
@@ -303,12 +303,12 @@
     "hero": {
       "eyebrow": "معالم حديثة",
       "titleItalic": "مشاريع",
-      "titleBold": "مختارة",
+      "titleBold": "مميزة",
       "description": "معرض مختار لمساعينا المعمارية، يعرض تقاطع الشكل والوظيفة والتصميم المستقبلي عبر مناظر طبيعية متنوعة."
     },
     "cover": {
       "Projects Completed": "مشروع مكتمل",
-      "Global Awards": "جائزة عالمية",
+      "Global Awards": "مكاتب عالمية",
       "Countries": "دولة",
       "Sustainable Focus": "تركيز على الاستدامة"
     },

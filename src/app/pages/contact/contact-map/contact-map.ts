@@ -48,6 +48,12 @@ export class ContactMap implements AfterViewInit, OnDestroy {
       googleMapsUrl:
         'https://www.google.com/maps/place/%D8%A3%D8%AC%D9%86%D8%AD%D8%A9+%D9%81%D8%B1%D9%8A%D8%B2%D8%B1+%D9%85%D8%B3%D9%82%D8%B7%E2%80%AD/@23.5809812,58.3937194,3042m/data=!3m1!1e3!4m9!3m8!1s0x3e91ffab81a1b719:0x1a01ecd54c5d325!5m2!4m1!1i2!8m2!3d23.579303!4d58.4117477!16s%2Fg%2F11g0m57n3n?entry=ttu&g_ep=EgoyMDI2MDYwNy4wIKXMDSoASAFQAw%3D%3D',
     },
+    {
+      labelKey: 'Footer.Syria Branch',
+      coordinates: [33.51349314356842, 36.29006444469783],
+      googleMapsUrl:
+        'https://www.google.com/maps/place/Line+X+Development/@33.51349314356842,36.29006444469783,20z/data=!4m6!3m5!1s0x3e2ee50035ef9eaf:0x97238a1002ed132b!8m2!3d33.51349314356842!4d36.29006444469783!16s%2Fg%2F11y2pdt0dr',
+    },
   ];
 
   constructor(private readonly ngZone: NgZone) {}

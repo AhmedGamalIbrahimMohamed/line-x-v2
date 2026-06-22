@@ -53,9 +53,7 @@
 :host ::ng-deep .leaflet-zoom-box,
 :host ::ng-deep .leaflet-image-layer,
 :host ::ng-deep .leaflet-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
 }
 
 :host ::ng-deep .leaflet-tile {
@@ -74,19 +72,19 @@
 }
 
 :host ::ng-deep .leaflet-control-container .leaflet-top {
-  top: 0;
+  inset: 0 auto auto 0;
 }
 
 :host ::ng-deep .leaflet-control-container .leaflet-bottom {
-  bottom: 0;
+  inset: auto 0 0 0;
 }
 
 :host ::ng-deep .leaflet-control-container .leaflet-left {
-  left: 0;
+  inset: 0 auto 0 0;
 }
 
 :host ::ng-deep .leaflet-control-container .leaflet-right {
-  right: 0;
+  inset: 0 0 0 auto;
 }
 
 :host ::ng-deep .leaflet-control {
@@ -102,19 +100,19 @@
 }
 
 :host ::ng-deep .leaflet-top .leaflet-control {
-  margin-top: 10px;
+  margin: 10px 0 0 0;
 }
 
 :host ::ng-deep .leaflet-left .leaflet-control {
-  margin-left: 10px;
+  margin: 0 0 0 10px;
 }
 
 :host ::ng-deep .leaflet-right .leaflet-control {
-  margin-right: 10px;
+  margin: 0 10px 0 0;
 }
 
 :host ::ng-deep .leaflet-bottom .leaflet-control {
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
 }
 
 :host ::ng-deep .leaflet-control-zoom a {
@@ -175,8 +173,7 @@
   gap: 6px;
   width: 164px;
   height: 58px;
-  border: 0;
-  background: transparent;
+  border: none;
   cursor: pointer;
 }
 
@@ -188,9 +185,7 @@
   background: var(--theme-contact-card-bg);
   color: var(--theme-contact-text);
   font-size: $font-size-xs;
-  font-weight: $font-weight-medium;
-  line-height: 1.2;
-  text-align: center;
+  font: $font-weight-medium $font-size-xs/1.2 inheriter;
   white-space: nowrap;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
 }
@@ -199,16 +194,13 @@
   display: block;
   width: 24px;
   height: 24px;
+  width: 24px;
+  height: 24px;
   border: 4px solid var(--theme-contact-card-bg);
   border-radius: 50%;
   background: var(--theme-contact-button-bg);
-  box-shadow:
-    0 0 0 1px var(--theme-contact-border),
-    0 8px 22px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
-}
-
-:host ::ng-deep .contact-map__marker--view-only {
+  box-shadow:0 0 0 1px var(--theme-contact-border),0 8px 22px rgba(0, 0, 0, 0.3);
+  transition: transform map__marker--view-only {
   cursor: default;
   pointer-events: none;
 }

@@ -11,7 +11,6 @@
   height: clamp(360px, 31.32vw, 451px);
   overflow: hidden;
   background: var(--theme-contact-map-bg);
-  transition: background 0.2s ease;
 }
 
 .contact-map::after {
@@ -61,7 +60,6 @@
   height: 256px;
   max-width: none !important;
   max-height: none !important;
-  user-select: none;
 }
 
 :host ::ng-deep .leaflet-control-container .leaflet-top,
@@ -116,17 +114,13 @@
 }
 
 :host ::ng-deep .leaflet-control-zoom a {
-  display: block;
   width: 34px;
   height: 34px;
   border-bottom: 1px solid var(--theme-contact-border);
   background: var(--theme-contact-card-bg);
   color: var(--theme-contact-text);
-  font-size: 18px;
-  font-weight: $font-weight-medium;
+  font: 18px $font-weight-medium;
   line-height: 34px;
-  text-align: center;
-  text-decoration: none;
 }
 
 :host ::ng-deep .leaflet-control-zoom a:hover,
@@ -147,7 +141,6 @@
 :host ::ng-deep .leaflet-control-attribution {
   max-width: calc(100vw - 24px);
   padding: 3px 6px;
-  background: transparent;
   color: var(--theme-contact-text);
   font-size: 11px;
   line-height: 1.3;
@@ -173,7 +166,6 @@
   gap: 6px;
   width: 164px;
   height: 58px;
-  border: none;
   cursor: pointer;
 }
 
@@ -185,22 +177,24 @@
   background: var(--theme-contact-card-bg);
   color: var(--theme-contact-text);
   font-size: $font-size-xs;
-  font: $font-weight-medium $font-size-xs/1.2 inheriter;
+  font-weight: $font-weight-medium;
+  line-height: 1.2;
+  text-align: center;
   white-space: nowrap;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
 }
 
 :host ::ng-deep .contact-map__marker-dot {
-  display: block;
-  width: 24px;
-  height: 24px;
   width: 24px;
   height: 24px;
   border: 4px solid var(--theme-contact-card-bg);
   border-radius: 50%;
   background: var(--theme-contact-button-bg);
-  box-shadow:0 0 0 1px var(--theme-contact-border),0 8px 22px rgba(0, 0, 0, 0.3);
-  transition: transform map__marker--view-only {
+  box-shadow: 0 0 0 1px var(--theme-contact-border), 0 8px 22px rgba(0, 0, 0, 0.3);
+  transition: transform .2s ease;
+}
+
+:host ::ng-deep .contact-map__marker--view-only {
   cursor: default;
   pointer-events: none;
 }
@@ -239,47 +233,9 @@
   background: $color-primary;
 }
 
-@keyframes contact-map-pulse {
-  0% {
-    box-shadow:
-      0 0 0 1px var(--theme-contact-border),
-      0 0 0 0 rgba($color-primary, 0.45),
-      0 10px 26px rgba($color-primary, 0.5);
-  }
-  70% {
-    box-shadow:
-      0 0 0 1px var(--theme-contact-border),
-      0 0 0 14px rgba($color-primary, 0),
-      0 10px 26px rgba($color-primary, 0.5);
-  }
-  100% {
-    box-shadow:
-      0 0 0 1px var(--theme-contact-border),
-      0 0 0 0 rgba($color-primary, 0),
-      0 10px 26px rgba($color-primary, 0.5);
-  }
-}
+@keyframes contact-map-pulse{0%,100%{box-shadow:0 0 0 1px var(--theme-contact-border),0 0 0 0 rgba($color-primary,.45),0 10px 26px rgba($color-primary,.5)}70%{box-shadow:0 0 0 1px var(--theme-contact-border),0 0 0 14px rgba($color-primary,0),0 10px 26px rgba($color-primary,.5)}}
 
-@keyframes contact-map-pulse-dark {
-  0% {
-    box-shadow:
-      0 0 0 1px rgba($color-white, 0.42),
-      0 0 0 0 rgba($color-white, 0.4),
-      0 8px 22px rgba($color-primary, 0.58);
-  }
-  70% {
-    box-shadow:
-      0 0 0 1px rgba($color-white, 0.42),
-      0 0 0 14px rgba($color-white, 0),
-      0 8px 22px rgba($color-primary, 0.58);
-  }
-  100% {
-    box-shadow:
-      0 0 0 1px rgba($color-white, 0.42),
-      0 0 0 0 rgba($color-white, 0),
-      0 8px 22px rgba($color-primary, 0.58);
-  }
-}
+@keyframes contact-map-pulse-dark{0%,100%{box-shadow:0 0 0 1px rgba($color-white,.42),0 0 0 0 rgba($color-white,.4),0 8px 22px rgba($color-primary,.58)}70%{box-shadow:0 0 0 1px rgba($color-white,.42),0 0 0 14px rgba($color-white,0),0 8px 22px rgba($color-primary,.58)}}
 
 :host-context(.theme-dark) ::ng-deep .leaflet-tile-pane {
   opacity: 0.9;

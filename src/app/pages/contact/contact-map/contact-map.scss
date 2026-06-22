@@ -167,6 +167,7 @@
 }
 
 :host ::ng-deep .contact-map__marker {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,10 +208,85 @@
   transition: transform 0.2s ease;
 }
 
-:host ::ng-deep .contact-map__marker:hover .contact-map__marker-dot,
-:host ::ng-deep .contact-map__marker:focus-visible .contact-map__marker-dot {
+:host ::ng-deep .contact-map__marker--view-only {
+  cursor: default;
+  pointer-events: none;
+}
+
+:host ::ng-deep .contact-map__marker--main {
+  z-index: 10;
+  cursor: pointer;
+}
+
+:host ::ng-deep .contact-map__marker:not(.contact-map__marker--view-only):hover .contact-map__marker-dot,
+:host ::ng-deep .contact-map__marker:not(.contact-map__marker--view-only):focus-visible .contact-map__marker-dot {
   transform: scale(1.16);
   background: var(--theme-contact-button-hover-bg);
+}
+
+:host ::ng-deep .contact-map__marker--main .contact-map__marker-label {
+  border-color: $color-primary;
+  background: $color-primary;
+  color: $color-white;
+  font-weight: $font-weight-medium;
+  box-shadow: 0 10px 26px rgba($color-primary, 0.45);
+}
+
+:host ::ng-deep .contact-map__marker--main .contact-map__marker-dot {
+  background: $color-primary;
+  box-shadow:
+    0 0 0 1px var(--theme-contact-border),
+    0 0 0 6px rgba($color-primary, 0.18),
+    0 8px 22px rgba($color-primary, 0.5);
+  animation: contact-map-pulse 2.4s ease-out infinite;
+}
+
+:host ::ng-deep .contact-map__marker--main:hover .contact-map__marker-dot,
+:host ::ng-deep .contact-map__marker--main:focus-visible .contact-map__marker-dot {
+  transform: scale(1.16);
+  background: $color-primary;
+}
+
+@keyframes contact-map-pulse {
+  0% {
+    box-shadow:
+      0 0 0 1px var(--theme-contact-border),
+      0 0 0 0 rgba($color-primary, 0.45),
+      0 10px 26px rgba($color-primary, 0.5);
+  }
+  70% {
+    box-shadow:
+      0 0 0 1px var(--theme-contact-border),
+      0 0 0 14px rgba($color-primary, 0),
+      0 10px 26px rgba($color-primary, 0.5);
+  }
+  100% {
+    box-shadow:
+      0 0 0 1px var(--theme-contact-border),
+      0 0 0 0 rgba($color-primary, 0),
+      0 10px 26px rgba($color-primary, 0.5);
+  }
+}
+
+@keyframes contact-map-pulse-dark {
+  0% {
+    box-shadow:
+      0 0 0 1px rgba($color-white, 0.42),
+      0 0 0 0 rgba($color-white, 0.4),
+      0 8px 22px rgba($color-primary, 0.58);
+  }
+  70% {
+    box-shadow:
+      0 0 0 1px rgba($color-white, 0.42),
+      0 0 0 14px rgba($color-white, 0),
+      0 8px 22px rgba($color-primary, 0.58);
+  }
+  100% {
+    box-shadow:
+      0 0 0 1px rgba($color-white, 0.42),
+      0 0 0 0 rgba($color-white, 0),
+      0 8px 22px rgba($color-primary, 0.58);
+  }
 }
 
 :host-context(.theme-dark) ::ng-deep .leaflet-tile-pane {
@@ -243,6 +319,27 @@
 
 :host-context(.theme-dark) ::ng-deep .contact-map__marker-label {
   box-shadow: 0 10px 24px rgba($color-primary, 0.42);
+}
+
+:host-context(.theme-dark) ::ng-deep .contact-map__marker--main .contact-map__marker-label {
+  border-color: $color-white;
+  background: $color-white;
+  color: $color-primary;
+  box-shadow: 0 10px 24px rgba($color-white, 0.32);
+}
+
+:host-context(.theme-dark) ::ng-deep .contact-map__marker--main .contact-map__marker-dot {
+  background: $color-white;
+  box-shadow:
+    0 0 0 1px rgba($color-white, 0.42),
+    0 0 0 6px rgba($color-white, 0.16),
+    0 8px 22px rgba($color-primary, 0.58);
+  animation-name: contact-map-pulse-dark;
+}
+
+:host-context(.theme-dark) ::ng-deep .contact-map__marker--main:hover .contact-map__marker-dot,
+:host-context(.theme-dark) ::ng-deep .contact-map__marker--main:focus-visible .contact-map__marker-dot {
+  background: $color-surface-soft;
 }
 
 @media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {

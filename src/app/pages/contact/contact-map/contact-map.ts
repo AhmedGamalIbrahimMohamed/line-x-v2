@@ -17,12 +17,13 @@ export class ContactMap implements AfterViewInit, OnDestroy {
 
   private readonly translate = inject(TranslateService);
 
-  private readonly locations: { labelKey: string; coordinates: [number, number]; googleMapsUrl: string }[] = [
+  private readonly locations: { labelKey: string; coordinates: [number, number]; googleMapsUrl: string; isMain?: boolean }[] = [
     {
       labelKey: 'Footer.Saudi Arabia Branch',
       coordinates: [24.807735, 46.617356],
       googleMapsUrl:
         'https://www.google.com/maps/place/Line+X+Development/@24.807793821860276,46.617458027345506,20z/data=!4m6!3m5!1s0x3e2ee50035ef9eaf:0x97238a1002ed132b!8m2!3d24.807793821860276!4d46.617458027345506!16s%2Fg%2F11y2pdt0dr',
+      isMain: true,
     },
     {
       labelKey: 'Footer.Egypt Branch',
@@ -93,19 +94,26 @@ export class ContactMap implements AfterViewInit, OnDestroy {
       subdomains: 'abcd',
     }).addTo(this.map);
 
-    this.locations.forEach(({ labelKey, coordinates, googleMapsUrl }) => {
+    this.locations.forEach(({ labelKey, coordinates, googleMapsUrl, isMain }) => {
+      const markerClass = isMain
+        ? 'contact-map__marker contact-map__marker--main'
+        : 'contact-map__marker contact-map__marker--view-only';
       const markerIcon = L.divIcon({
-        className: 'contact-map__marker',
+        className: markerClass,
         html: `<span class="contact-map__marker-label">${this.translate.instant(labelKey)}</span><span class="contact-map__marker-dot"></span>`,
         iconSize: [164, 58],
         iconAnchor: [82, 46],
       });
 
-      L.marker(coordinates, { icon: markerIcon })
-        .on('click', () => {
+      const marker = L.marker(coordinates, { icon: markerIcon });
+
+      if (isMain) {
+        marker.on('click', () => {
           window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
-        })
-        .addTo(this.map!);
+        });
+      }
+
+      marker.addTo(this.map!);
     });
 
     this.fitLocations();

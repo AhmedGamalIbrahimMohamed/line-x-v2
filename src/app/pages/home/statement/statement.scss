@@ -54,7 +54,7 @@ $breakpoint-small: 430px;
   min-width: 168px;
   min-height: 48px;
   padding: 12px 28px;
-  border: 1px solid transparent;
+  border: 1px solid var(--theme-home-statement-button-border);
   background: var(--theme-home-statement-button-bg);
   font-size: $font-size-sm;
   line-height: $line-height-action;

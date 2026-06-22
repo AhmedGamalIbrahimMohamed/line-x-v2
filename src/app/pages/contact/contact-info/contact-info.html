@@ -24,7 +24,32 @@
       </span>
       <h2>{{ 'Contact.info.Office Location' | translate }}</h2>
       <p>{{ 'Contact.info.locationDescription' | translate }}</p>
-      <strong>{{ 'Contact.info.Saudi Arabia' | translate }}</strong>
+
+      <div class="contact-method__branch-slider" aria-label="Our branches">
+        <div class="contact-method__branch-track">
+          @for (branch of branches; track branch) {
+            <strong
+              class="contact-method__branch-slide"
+              [class.contact-method__branch-slide--active]="$index === activeBranchIndex"
+              aria-live="polite"
+            >{{ branch | translate }}</strong>
+          }
+        </div>
+
+        <div class="contact-method__branch-dots" role="tablist" aria-label="Select branch">
+          @for (branch of branches; track branch) {
+            <button
+              type="button"
+              class="contact-method__branch-dot"
+              [class.contact-method__branch-dot--active]="$index === activeBranchIndex"
+              [attr.aria-label]="branch | translate"
+              [attr.aria-selected]="$index === activeBranchIndex"
+              role="tab"
+              (click)="goToBranch($index)"
+            ></button>
+          }
+        </div>
+      </div>
     </article>
   </div>
 </div>

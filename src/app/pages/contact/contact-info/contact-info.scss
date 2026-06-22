@@ -63,6 +63,56 @@
   text-decoration: none;
 }
 
+.contact-method__branch-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-method__branch-track {
+  position: relative;
+  min-height: 22px;
+}
+
+.contact-method__branch-slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.contact-method__branch-slide--active {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-method__branch-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.contact-method__branch-dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--theme-contact-muted);
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease, width 0.2s ease;
+}
+
+.contact-method__branch-dot--active {
+  width: 16px;
+  border-radius: 3px;
+  background: var(--theme-contact-text);
+  opacity: 1;
+}
+
 @media (max-width: ($bp-lg - 1px)) and (min-width: ($bp-md + 1px)) {
   .contact-info__inner {
     grid-template-columns: repeat(2, minmax(0, 392px));

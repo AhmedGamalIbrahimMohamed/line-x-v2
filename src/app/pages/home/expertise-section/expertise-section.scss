@@ -4,10 +4,10 @@
   display: block;
 }
 
-// ── Outer section: provides 4× scroll room ───────────────────────────────────
+// ── Outer section: scroll room for 4 slides, ~40vh of scroll per slide ───────
 .expertise-section {
   position: relative;
-  min-height: 400vh;
+  min-height: 260vh;
   background: var(--theme-home-section-bg);
   color: var(--theme-home-section-text);
   transition:

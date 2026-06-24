@@ -44,13 +44,6 @@ export interface StaggerOptions {
 @Injectable({ providedIn: 'root' })
 export class ScrollAnimationService {
 
-  constructor() {
-    // Custom fonts (e.g. the Arabic display font) load async; if a heading's
-    // size changes once the font swaps in, cached ScrollTrigger start/end
-    // offsets go stale and clip-reveal animations can stay stuck hidden.
-    document.fonts.ready.then(() => ScrollTrigger.refresh());
-  }
-
   fadeUp(
     elements: Element | Element[] | NodeListOf<Element> | string,
     trigger: Element,
@@ -80,7 +73,7 @@ export class ScrollAnimationService {
       elements as gsap.TweenTarget,
       { clipPath: 'inset(105% 0% -0.25em 0%)', y: yOffset },
       {
-        clipPath: 'inset(-0.25em 0% -0.25em 0%)',
+        clipPath: 'inset(0% 0% -0.25em 0%)',
         y: 0,
         duration,
         stagger,
@@ -217,7 +210,7 @@ export class ScrollAnimationService {
       tl.fromTo(
         titleLines,
         { clipPath: 'inset(105% 0% -0.25em 0%)', y: 20 },
-        { clipPath: 'inset(-0.25em 0% -0.25em 0%)', y: 0, duration: 1.4, stagger: 0.15 },
+        { clipPath: 'inset(0% 0% -0.25em 0%)', y: 0, duration: 1.4, stagger: 0.15 },
         eyebrow ? 0.35 : 0.1
       );
     }

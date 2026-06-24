@@ -1,9 +1,0 @@
-// ── Arabic display font ───────────────────────────────────────────────────────
-// Imported into styles.scss via `@use 'fonts';`
-
-@font-face {
-  font-family: 'GE SS Two Bold';
-  src: url('/assets/fonts/ArbFONTS-GE_SS_Two_Light-1.otf') format('opentype');
-  font-style: normal;
-  font-display: swap;
-}

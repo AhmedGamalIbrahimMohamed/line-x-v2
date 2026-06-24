@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'variables' as *;
 @use 'layout';
-@use 'fonts';
 
 /* Custom Cursor Effect */
 .cursor-circle {
@@ -300,12 +299,6 @@ body {
   transition:
     background 0.2s ease,
     color 0.2s ease;
-}
-
-html[lang='ar'] body,
-html[lang='ar'] body * {
-  font-family: 'GE SS Two Bold', 'Poppins', sans-serif !important;
-  font-style: normal !important;
 }
 
 body.intro-scroll-lock {

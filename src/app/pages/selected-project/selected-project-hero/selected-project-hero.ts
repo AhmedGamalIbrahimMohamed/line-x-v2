@@ -27,7 +27,7 @@ export class SelectedProjectHero implements AfterViewInit {
     tl.fromTo(layers, { scale: 1.1, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 1.1, stagger: 0.07 }, 0);
 
     if (eyebrow) tl.fromTo(eyebrow, { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7 }, 0.4);
-    if (title) tl.fromTo(title, { clipPath: 'inset(105% 0% -0.25em 0%)', y: 20 }, { clipPath: 'inset(0% 0% -0.25em 0%)', y: 0, duration: 1.0 }, '-=0.45');
+    if (title) tl.fromTo(title, { clipPath: 'inset(105% 0% -0.25em 0%)', y: 20 }, { clipPath: 'inset(-0.25em 0% -0.25em 0%)', y: 0, duration: 1.0 }, '-=0.45');
     if (subtitle) tl.fromTo(subtitle, { y: 25, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8 }, '-=0.5');
 
     if (details.length) {

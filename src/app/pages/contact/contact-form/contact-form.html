@@ -1,4 +1,4 @@
-<form class="contact-form" aria-label="Project inquiry form" #formRef>
+<form class="contact-form" aria-label="Project inquiry form" #formRef (submit)="onSubmit($event)">
   <p class="contact-form__eyebrow">{{ 'Contact.form.eyebrow' | translate }}</p>
   <p class="contact-form__intro">
     {{ 'Contact.form.intro' | translate }}
@@ -7,22 +7,22 @@
   <div class="contact-form__grid">
     <label class="field">
       <span>{{ 'Contact.form.Full Name' | translate }}</span>
-      <input type="text" name="fullName" [placeholder]="'Contact.form.Enter Full Name' | translate" autocomplete="name" />
+      <input type="text" name="fullName" [placeholder]="'Contact.form.Enter Full Name' | translate" autocomplete="name" required />
     </label>
 
     <label class="field">
       <span>{{ 'Contact.form.Company' | translate }}</span>
-      <input type="text" name="company" [placeholder]="'Contact.form.Enter Company' | translate" autocomplete="organization" />
+      <input type="text" name="company" [placeholder]="'Contact.form.Enter Company' | translate" autocomplete="organization" required />
     </label>
 
     <label class="field">
       <span>{{ 'Contact.form.Email Address' | translate }}</span>
-      <input type="email" name="email" [placeholder]="'Contact.form.Enter Email Address' | translate" autocomplete="email" />
+      <input type="email" name="email" [placeholder]="'Contact.form.Enter Email Address' | translate" autocomplete="email" required />
     </label>
 
     <label class="field">
       <span>{{ 'Contact.form.Phone Number' | translate }}</span>
-      <input type="tel" name="phone" [placeholder]="'Contact.form.Enter Phone Number' | translate" autocomplete="tel" />
+      <input type="tel" name="phone" [placeholder]="'Contact.form.Enter Phone Number' | translate" autocomplete="tel" required />
     </label>
 
     <label class="field field--full field--select">
@@ -45,5 +45,15 @@
     </label>
   </div>
 
-  <button class="contact-form__submit" type="submit">{{ 'Contact.form.Start a Conversation' | translate }}</button>
+  <button class="contact-form__submit" type="submit" [disabled]="isSubmitting()">
+    {{ (isSubmitting() ? 'Contact.form.Sending' : 'Contact.form.Start a Conversation') | translate }}
+  </button>
 </form>
+
+@if (toast()) {
+  <div class="contact-toast" [class.contact-toast--error]="toast()!.type === 'error'" role="status" aria-live="polite">
+    <span class="contact-toast__icon"></span>
+    <span class="contact-toast__message">{{ toast()!.message | translate }}</span>
+    <button class="contact-toast__close" type="button" (click)="dismissToast()" aria-label="Dismiss">&times;</button>
+  </div>
+}

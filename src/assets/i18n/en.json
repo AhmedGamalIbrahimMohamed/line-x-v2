@@ -353,7 +353,10 @@
       "Masterplan": "Masterplan",
       "Project Details": "Project Details",
       "Project Details Placeholder": "Tell Us About Your Vision, Timeline, Budget.....",
-      "Start a Conversation": "Start a Conversation"
+      "Start a Conversation": "Start a Conversation",
+      "Sending": "Sending...",
+      "Success": "Your message has been sent. We'll get back to you within 24 hours.",
+      "Error": "Something went wrong. Please try again later."
     },
     "info": {
       "Email Us": "Email Us",

@@ -155,6 +155,11 @@
   --theme-footer-bottom-social-filter: brightness(0) invert(1);
   --theme-footer-bottom-social-hover-filter: brightness(0) invert(1);
   --theme-cursor-bg: #{$color-primary};
+  --theme-toast-bg: #{$color-white};
+  --theme-toast-text: #{$color-primary};
+  --theme-toast-border: #{$color-border-card};
+  --theme-toast-success: #{$color-success};
+  --theme-toast-error: #{$color-error};
 }
 
 .theme-dark {
@@ -272,6 +277,11 @@
   --theme-footer-bottom-social-filter: brightness(0);
   --theme-footer-bottom-social-hover-filter: brightness(0);
   --theme-cursor-bg: #{$color-white};
+  --theme-toast-bg: #{$color-surface-charcoal};
+  --theme-toast-text: #{$color-white};
+  --theme-toast-border: #{$color-border-dark};
+  --theme-toast-success: #{$color-success};
+  --theme-toast-error: #{$color-error};
 }
 
 *,

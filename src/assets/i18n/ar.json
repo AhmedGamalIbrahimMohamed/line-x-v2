@@ -353,7 +353,10 @@
       "Masterplan": "مخطط رئيسي",
       "Project Details": "تفاصيل المشروع",
       "Project Details Placeholder": "أخبرنا عن رؤيتك، الجدول الزمني، الميزانية.....",
-      "Start a Conversation": "ابدأ محادثة"
+      "Start a Conversation": "ابدأ محادثة",
+      "Sending": "جارٍ الإرسال...",
+      "Success": "تم إرسال رسالتك. سيعود إليك فريقنا خلال 24 ساعة.",
+      "Error": "حدث خطأ ما. يرجى المحاولة مرة أخرى لاحقاً."
     },
     "info": {
       "Email Us": "راسلنا",

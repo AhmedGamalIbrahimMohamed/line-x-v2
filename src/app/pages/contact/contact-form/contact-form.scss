@@ -204,3 +204,72 @@
     font-size: 18px;
   }
 }
+
+@keyframes contact-toast-in {
+  from {
+    transform: translateY(-16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.contact-toast {
+  position: fixed;
+  inset-block-start: 24px;
+  inset-inline-end: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 380px;
+  padding: 14px 16px;
+  border: 1px solid var(--theme-toast-border);
+  border-radius: 10px;
+  background: var(--theme-toast-bg);
+  color: var(--theme-toast-text);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+  animation: contact-toast-in 0.3s ease;
+
+  &__icon {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--theme-toast-success);
+  }
+
+  &--error .contact-toast__icon {
+    background: var(--theme-toast-error);
+  }
+
+  &__message {
+    flex: 1;
+    font: 400 14px / 1.4 $font-primary;
+  }
+
+  &__close {
+    flex-shrink: 0;
+    border: 0;
+    background: none;
+    color: var(--theme-toast-text);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: $bp-md) {
+  .contact-toast {
+    inset-inline: 16px;
+    max-width: none;
+  }
+}

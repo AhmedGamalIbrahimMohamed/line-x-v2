@@ -21,11 +21,6 @@
 .visual-journey__canvas {
   position: relative;
   width: 100%;
-  margin: 0;
-}
-
-.visual-journey__canvas--desktop {
-  aspect-ratio: 1128 / 2328;
 }
 
 .visual-journey__canvas--tablet,
@@ -34,10 +29,7 @@
 }
 
 .visual-journey__label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
+  margin: 0 0 4.3441%;
   font-family: $font-primary;
   font-size: 14px;
   font-weight: $font-weight-medium;
@@ -45,6 +37,25 @@
   letter-spacing: $letter-spacing-base;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+/* Each group repeats one Figma cycle of 4 images: a tall "big" image, a stacked
+   pair beside it, and a full-width "band" below. The percentages below are the
+   same width/height ratios as the original design, just scoped to a single
+   cycle (aspect-ratio'd group) instead of the whole multi-cycle canvas, so any
+   number of groups can repeat without touching this file. */
+.visual-journey__group {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1128 / 1477;
+}
+
+.visual-journey__group--no-band {
+  aspect-ratio: 1128 / 778;
+}
+
+.visual-journey__group + .visual-journey__group {
+  margin-top: 2.1277%;
 }
 
 .visual-journey__image {
@@ -62,61 +73,50 @@
   object-fit: cover;
 }
 
-.visual-journey__image--desktop-tower-night {
-  top: 2.105%;
+.visual-journey__image--desktop-big {
+  top: 0;
   left: 0;
   width: 48.936%;
-  height: 33.419%;
+  height: 52.7414%;
 }
 
-.visual-journey__image--desktop-tower-day {
-  top: 66.581%;
-  left: 0;
-  width: 48.936%;
-  height: 33.419%;
-}
-
-.visual-journey__image--desktop-bed-tv {
-  top: 2.105%;
+.visual-journey__image--desktop-small-top {
+  top: 0;
   left: 51.064%;
   width: 48.936%;
-  height: 16.194%;
+  height: 25.5382%;
 }
 
-.visual-journey__image--desktop-interior {
-  top: 66.581%;
+.visual-journey__image--desktop-small-bottom {
+  top: 27.1497%;
   left: 51.064%;
   width: 48.936%;
-  height: 16.194%;
+  height: 25.5382%;
+  img {
+    object-position: center 18%;
+  }
 }
 
-.visual-journey__image--desktop-bedside-top {
-  top: 19.33%;
-  left: 51.064%;
-  width: 48.936%;
-  height: 16.194%;
-}
-
-.visual-journey__image--desktop-tower-crop {
-  top: 83.806%;
-  left: 51.064%;
-  width: 48.936%;
-  height: 16.194%;
-}
-
-.visual-journey__image--desktop-bedroom {
-  top: 36.555%;
+.visual-journey__image--desktop-band {
+  top: 54.3669%;
   left: 0;
   width: 100%;
-  height: 28.995%;
+  height: 45.7345%;
 }
 
-.visual-journey__image--desktop-bedside-top img {
-  object-position: center 18%;
-}
+.visual-journey__group--no-band {
+  .visual-journey__image--desktop-big {
+    height: 100%;
+  }
 
-.visual-journey__image--desktop-tower-crop img {
-  object-position: center 38%;
+  .visual-journey__image--desktop-small-top {
+    height: 48.4576%;
+  }
+
+  .visual-journey__image--desktop-small-bottom {
+    top: 51.5424%;
+    height: 48.4576%;
+  }
 }
 
 @media (max-width: 1199px) and (min-width: 768px) {
@@ -131,59 +131,68 @@
 
   .visual-journey__canvas--tablet {
     display: block;
-    aspect-ratio: 808 / 1915;
   }
 
-  .visual-journey__image--tablet-tower-a,
-  .visual-journey__image--tablet-tower-b {
+  .visual-journey__label {
+    margin-bottom: 5.0743%;
+  }
+
+  .visual-journey__group {
+    aspect-ratio: 808 / 1206;
+  }
+
+  .visual-journey__group--no-band {
+    aspect-ratio: 808 / 644;
+  }
+
+  .visual-journey__group + .visual-journey__group {
+    margin-top: 2.9703%;
+  }
+
+  .visual-journey__image--tablet-big {
+    top: 0;
     left: 0;
     width: 48.515%;
-    height: 33.629%;
+    height: 53.399%;
   }
 
-  .visual-journey__image--tablet-tower-a {
-    top: 2.141%;
-  }
-
-  .visual-journey__image--tablet-tower-b {
-    top: 66.371%;
-  }
-
-  .visual-journey__image--tablet-bed-tv-a,
-  .visual-journey__image--tablet-bed-tv-b,
-  .visual-journey__image--tablet-bedside-a,
-  .visual-journey__image--tablet-bedside-b {
+  .visual-journey__image--tablet-small-top {
+    top: 0;
     left: 51.485%;
     width: 48.515%;
-    height: 16.188%;
+    height: 25.704%;
   }
 
-  .visual-journey__image--tablet-bed-tv-a {
-    top: 2.141%;
+  .visual-journey__image--tablet-small-bottom {
+    top: 27.694%;
+    left: 51.485%;
+    width: 48.515%;
+    height: 25.704%;
+    img {
+      object-position: center 18%;
+    }
   }
 
-  .visual-journey__image--tablet-bed-tv-b {
-    top: 66.371%;
-  }
-
-  .visual-journey__image--tablet-bedside-a {
-    top: 19.582%;
-  }
-
-  .visual-journey__image--tablet-bedside-b {
-    top: 83.812%;
-  }
-
-  .visual-journey__image--tablet-bedroom {
-    top: 37.023%;
+  .visual-journey__image--tablet-band {
+    top: 55.398%;
     left: 0;
     width: 100%;
-    height: 28.094%;
+    height: 44.602%;
   }
 
-  .visual-journey__image--tablet-bedside-a img,
-  .visual-journey__image--tablet-bedside-b img {
-    object-position: center 18%;
+  .visual-journey__group--no-band {
+    .visual-journey__image--tablet-big {
+      height: 100%;
+    }
+
+    .visual-journey__image--tablet-small-top {
+      height: 48.137%;
+    }
+
+    .visual-journey__image--tablet-small-bottom {
+      top: 51.863%;
+      height: 48.137%;
+    }
   }
 }
 
@@ -206,58 +215,66 @@
 
   .visual-journey__canvas--mobile {
     display: block;
-    aspect-ratio: 368 / 1797;
   }
 
-  .visual-journey__image--mobile-tower {
-    top: 1.836%;
+  .visual-journey__label {
+    margin-bottom: 8.9674%;
+  }
+
+  .visual-journey__group {
+    aspect-ratio: 368 / 1092;
+  }
+
+  .visual-journey__group--no-band {
+    aspect-ratio: 368 / 656;
+  }
+
+  .visual-journey__group + .visual-journey__group {
+    margin-top: 4.3478%;
+  }
+
+  .visual-journey__image--mobile-big {
+    top: 0;
     left: 0;
     width: 100%;
-    height: 23.372%;
+    height: 38.4615%;
   }
 
-  .visual-journey__image--mobile-bed-tv-a,
-  .visual-journey__image--mobile-bed-tv-b {
-    left: 0;
+  .visual-journey__image--mobile-pair-a,
+  .visual-journey__image--mobile-pair-b {
+    top: 39.9267%;
     width: 47.826%;
-    height: 12.243%;
+    height: 20.1465%;
   }
 
-  .visual-journey__image--mobile-bedside-a,
-  .visual-journey__image--mobile-bedside-b {
+  .visual-journey__image--mobile-pair-a {
+    left: 0;
+  }
+
+  .visual-journey__image--mobile-pair-b {
     left: 52.174%;
-    width: 47.826%;
-    height: 12.243%;
+    img {
+      object-position: center 18%;
+    }
   }
 
-  .visual-journey__image--mobile-bed-tv-a,
-  .visual-journey__image--mobile-bedside-a {
-    top: 26.099%;
-  }
-
-  .visual-journey__image--mobile-bed-tv-b,
-  .visual-journey__image--mobile-bedside-b {
-    top: 63.495%;
-  }
-
-  .visual-journey__image--mobile-bedroom-a,
-  .visual-journey__image--mobile-bedroom-b {
+  .visual-journey__image--mobile-band {
+    top: 61.5385%;
     left: 0;
     width: 100%;
-    height: 23.372%;
+    height: 38.4615%;
   }
 
-  .visual-journey__image--mobile-bedroom-a {
-    top: 39.232%;
-  }
+  .visual-journey__group--no-band {
+    .visual-journey__image--mobile-big {
+      height: 64.0244%;
+    }
 
-  .visual-journey__image--mobile-bedroom-b {
-    top: 76.628%;
-  }
-
-  .visual-journey__image--mobile-bedside-a img,
-  .visual-journey__image--mobile-bedside-b img {
-    object-position: center 18%;
+    .visual-journey__image--mobile-pair-a,
+    .visual-journey__image--mobile-pair-b {
+      top: 66.4634%;
+      height: 33.5366%;
+    }
   }
 }
 
@@ -272,12 +289,39 @@
     direction: rtl;
   }
 
-  .visual-journey__label {
+  .visual-journey__image {
+    transform: scaleX(-1);
+  }
+
+  .visual-journey__image--desktop-big,
+  .visual-journey__image--mobile-pair-a {
     left: auto;
     right: 0;
   }
 
-  .visual-journey__image {
-    transform: scaleX(-1);
+  .visual-journey__image--desktop-small-top,
+  .visual-journey__image--desktop-small-bottom {
+    left: auto;
+    right: 51.064%;
+  }
+
+  .visual-journey__image--mobile-pair-b {
+    left: auto;
+    right: 52.174%;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  :host-context([dir='rtl']) {
+    .visual-journey__image--tablet-big {
+      left: auto;
+      right: 0;
+    }
+
+    .visual-journey__image--tablet-small-top,
+    .visual-journey__image--tablet-small-bottom {
+      left: auto;
+      right: 51.485%;
+    }
   }
 }

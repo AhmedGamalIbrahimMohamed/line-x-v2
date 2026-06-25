@@ -1,14 +1,17 @@
-import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, inject, ViewChild } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ScrollAnimationService } from '../../../services/scroll-animation.service';
+import { ProjectSolution } from '../../../models/project.model';
+import { LocalizePipe } from '../../../pipes/localize.pipe';
 
 @Component({
   selector: 'app-selected-project-solution',
-  imports: [TranslateModule],
+  imports: [TranslateModule, LocalizePipe],
   templateUrl: './selected-project-solution.html',
   styleUrl: './selected-project-solution.scss',
 })
 export class SelectedProjectSolution implements AfterViewInit {
+  @Input({ required: true }) solution!: ProjectSolution;
   @ViewChild('sectionRef') private sectionRef!: ElementRef<HTMLElement>;
 
   private anim = inject(ScrollAnimationService);

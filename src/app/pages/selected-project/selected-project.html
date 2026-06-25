@@ -1,7 +1,9 @@
-<app-selected-project-hero></app-selected-project-hero>
-<app-selected-project-overview></app-selected-project-overview>
-<app-selected-project-design-process></app-selected-project-design-process>
-<app-selected-project-visual-journey></app-selected-project-visual-journey>
-<app-selected-project-solution></app-selected-project-solution>
-<app-selected-project-solutions></app-selected-project-solutions>
-<app-cta-section page="SelectedProject" primaryRoute="/contact" secondaryRoute="/projects"></app-cta-section>
+@if (project) {
+  <app-selected-project-hero [hero]="project.hero"></app-selected-project-hero>
+  <app-selected-project-overview [overview]="project.overview"></app-selected-project-overview>
+  <app-selected-project-design-process [designProcess]="project.designProcess"></app-selected-project-design-process>
+  <app-selected-project-visual-journey [visualJourney]="project.visualJourney"></app-selected-project-visual-journey>
+  <app-selected-project-solution [solution]="project.solution"></app-selected-project-solution>
+  <app-selected-project-solutions [solutions]="project.solutions"></app-selected-project-solutions>
+  <app-cta-section page="SelectedProject" primaryRoute="/contact" secondaryRoute="/projects"></app-cta-section>
+}

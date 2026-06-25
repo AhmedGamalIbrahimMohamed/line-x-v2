@@ -22,7 +22,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/contact/contact').then((m) => m.Contact),
   },
   {
-    path: 'selected-project',
+    path: 'selected-project/:id',
     loadComponent: () => import('./pages/selected-project/selected-project').then((m) => m.SelectedProject),
   },
 ];

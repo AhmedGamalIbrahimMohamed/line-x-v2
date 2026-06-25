@@ -1,32 +1,13 @@
 <section class="selected-project" aria-labelledby="selected-project-title" #heroSection>
   <div class="selected-project__background" aria-hidden="true">
-    <img
-      class="selected-project__media selected-project__media--layer-1"
-      src="assets/images/figma2/selected-project/hero-layer-1.jpg"
-      alt=""
-    />
-    <img
-      class="selected-project__media selected-project__media--layer-2"
-      src="assets/images/figma2/selected-project/hero-layer-2.jpg"
-      alt=""
-    />
-    <img
-      class="selected-project__media selected-project__media--layer-3"
-      src="assets/images/figma2/selected-project/hero-layer-3.jpg"
-      alt=""
-    />
-    <img
-      class="selected-project__media selected-project__media--base"
-      src="assets/images/figma2/selected-project/hero-base.jpg"
-      alt=""
-    />
+    <img class="selected-project__media" [src]="hero.image" alt="" />
     <div class="selected-project__overlay"></div>
   </div>
 
   <div class="selected-project__hero">
-    <p class="selected-project__eyebrow">{{ 'SelectedProject.hero.eyebrow' | translate }}</p>
-    <h1 class="selected-project__title" id="selected-project-title">{{ 'SelectedProject.hero.title' | translate }}</h1>
-    <p class="selected-project__subtitle">{{ 'SelectedProject.hero.subtitle' | translate }}</p>
+    <p class="selected-project__eyebrow">{{ hero.eyebrow | localize }}</p>
+    <h1 class="selected-project__title" id="selected-project-title">{{ hero.title | localize }}</h1>
+    <p class="selected-project__subtitle">{{ hero.subtitle | localize }}</p>
   </div>
 
   <div class="selected-project__scroll" aria-hidden="true">
@@ -36,22 +17,22 @@
   <dl class="selected-project__details" aria-label="Project details">
     <div class="selected-project__detail">
       <dt>{{ 'SelectedProject.hero.Location' | translate }}</dt>
-      <dd>JEDDAH . KSA</dd>
+      <dd>{{ hero.details.location | localize }}</dd>
     </div>
     <div class="selected-project__detail">
       <dt>{{ 'SelectedProject.hero.Total Area' | translate }}</dt>
-      <dd>12,500 sq.ft.</dd>
+      <dd>{{ hero.details.totalArea | localize }}</dd>
     </div>
     <div class="selected-project__detail">
       <dt>
         <span class="selected-project__label-desktop">{{ 'SelectedProject.hero.Year' | translate }}</span>
-        <span class="selected-project__label-mobile">2024</span>
+        <span class="selected-project__label-mobile">{{ hero.details.year }}</span>
       </dt>
-      <dd>2024</dd>
+      <dd>{{ hero.details.year }}</dd>
     </div>
     <div class="selected-project__detail">
       <dt>{{ 'SelectedProject.hero.Scope' | translate }}</dt>
-      <dd>{{ 'SelectedProject.hero.scopeValue' | translate }}</dd>
+      <dd>{{ hero.details.scope | localize }}</dd>
     </div>
   </dl>
 </section>

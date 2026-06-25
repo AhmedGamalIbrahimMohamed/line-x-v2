@@ -1,25 +1,39 @@
 <section class="design-process" aria-label="Design process" #sectionRef>
-  <div class="design-process__inner">
-    <p class="design-process__label">{{ 'SelectedProject.designProcess.label' | translate }}</p>
+  <div class="design-process__inner" [style.--groups]="imageGroups.length">
+    <p class="design-process__label">{{ designProcess.label | localize }}</p>
 
-    <figure class="design-process__image design-process__image--main">
-      <img src="assets/images/figma2/selected-project/design-process/process-main.jpg" alt="" />
-    </figure>
+    @for (group of imageGroups; track $index) {
+      <div class="design-process__group" [style.--i]="$index">
+        @if (group[0]) {
+          <figure class="design-process__image design-process__image--main">
+            <img [src]="group[0]" alt="" />
+          </figure>
+        }
 
-    <figure class="design-process__image design-process__image--plan-a design-process__image--a1">
-      <img src="assets/images/figma2/selected-project/design-process/process-plan-a.jpg" alt="" />
-    </figure>
+        @if (group[1]) {
+          <figure class="design-process__image design-process__image--plan-a design-process__image--a1">
+            <img [src]="group[1]" alt="" />
+          </figure>
+        }
 
-    <figure class="design-process__image design-process__image--plan-a design-process__image--a2">
-      <img src="assets/images/figma2/selected-project/design-process/process-plan-a.jpg" alt="" />
-    </figure>
+        @if (group[2]) {
+          <figure class="design-process__image design-process__image--plan-a design-process__image--a2">
+            <img [src]="group[2]" alt="" />
+          </figure>
+        }
 
-    <figure class="design-process__image design-process__image--plan-b design-process__image--b1">
-      <img src="assets/images/figma2/selected-project/design-process/process-plan-b.jpg" alt="" />
-    </figure>
+        @if (group[3]) {
+          <figure class="design-process__image design-process__image--plan-b design-process__image--b1">
+            <img [src]="group[3]" alt="" />
+          </figure>
+        }
 
-    <figure class="design-process__image design-process__image--plan-b design-process__image--b2">
-      <img src="assets/images/figma2/selected-project/design-process/process-plan-b.jpg" alt="" />
-    </figure>
+        @if (group[4]) {
+          <figure class="design-process__image design-process__image--plan-b design-process__image--b2">
+            <img [src]="group[4]" alt="" />
+          </figure>
+        }
+      </div>
+    }
   </div>
 </section>

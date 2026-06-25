@@ -2,15 +2,15 @@
   <div class="solutions__stage" data-node-id="179:6668">
     <div class="solutions__media" aria-hidden="true">
       <img
-        src="assets/images/figma2/selected-project/spatial-experience.jpg"
+        [src]="solutions.image"
         alt=""
       />
     </div>
 
     <div class="solutions__copy">
-      <h2 class="solutions__title" id="selected-project-solutions-title">{{ 'SelectedProject.solutions.title' | translate }}</h2>
+      <h2 class="solutions__title" id="selected-project-solutions-title">{{ solutions.title | localize }}</h2>
       <p class="solutions__text">
-        {{ 'SelectedProject.solutions.text' | translate }}
+        {{ solutions.text | localize }}
       </p>
     </div>
   </div>

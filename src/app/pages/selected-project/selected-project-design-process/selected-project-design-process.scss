@@ -18,10 +18,11 @@
   --process-gap: 24px;
   --small-width: calc((var(--content-width) - (var(--process-gap) * 2)) / 4);
   --main-width: calc(var(--small-width) * 2);
+  --cycle: 676px;
 
   position: relative;
   width: 100%;
-  height: 701px;
+  height: calc(701px + (var(--groups, 1) - 1) * var(--cycle));
   padding: 0 var(--section-padding);
 }
 
@@ -53,29 +54,29 @@
 }
 
 .design-process__image--main {
-  top: 49px;
+  top: calc(49px + var(--i, 0) * var(--cycle));
   left: var(--section-padding);
   width: var(--main-width);
   height: 652px;
 }
 
 .design-process__image--a1 {
-  top: 49px;
+  top: calc(49px + var(--i, 0) * var(--cycle));
   left: calc(var(--section-padding) + var(--main-width) + var(--process-gap));
 }
 
 .design-process__image--a2 {
-  top: 387px;
+  top: calc(387px + var(--i, 0) * var(--cycle));
   left: calc(var(--section-padding) + var(--main-width) + var(--process-gap));
 }
 
 .design-process__image--b1 {
-  top: 49px;
+  top: calc(49px + var(--i, 0) * var(--cycle));
   left: calc(var(--section-padding) + var(--main-width) + var(--small-width) + (var(--process-gap) * 2));
 }
 
 .design-process__image--b2 {
-  top: 387px;
+  top: calc(387px + var(--i, 0) * var(--cycle));
   left: calc(var(--section-padding) + var(--main-width) + var(--small-width) + (var(--process-gap) * 2));
 }
 
@@ -88,8 +89,9 @@
 @media (max-width: 1199px) and (min-width: 768px) {
   .design-process__inner {
     --section-padding: #{$layout-padding-tablet};
+    --cycle: 524px;
 
-    height: 541px;
+    height: calc(541px + (var(--groups, 1) - 1) * var(--cycle));
     padding: 0 $layout-padding-tablet;
   }
 
@@ -98,7 +100,7 @@
   }
 
   .design-process__image--main {
-    top: 41px;
+    top: calc(41px + var(--i, 0) * var(--cycle));
     left: $layout-padding-tablet;
     width: 392px;
     height: 500px;
@@ -116,12 +118,12 @@
 
   .design-process__image--a1,
   .design-process__image--b1 {
-    top: 41px;
+    top: calc(41px + var(--i, 0) * var(--cycle));
   }
 
   .design-process__image--a2,
   .design-process__image--b2 {
-    top: 303px;
+    top: calc(303px + var(--i, 0) * var(--cycle));
   }
 
   .design-process__image--plan-a,
@@ -160,7 +162,9 @@
 
 @media (max-width: $bp-md) {
   .design-process__inner {
-    height: 925px;
+    --cycle: 908px;
+
+    height: calc(925px + (var(--groups, 1) - 1) * var(--cycle));
     padding: 0 $layout-padding-mobile;
   }
 
@@ -169,7 +173,7 @@
   }
 
   .design-process__image--main {
-    top: 33px;
+    top: calc(33px + var(--i, 0) * var(--cycle));
     left: $layout-padding-mobile;
     width: calc(100% - #{$layout-padding-mobile * 2});
     height: 420px;
@@ -187,12 +191,12 @@
 
   .design-process__image--a1,
   .design-process__image--b1 {
-    top: 469px;
+    top: calc(469px + var(--i, 0) * var(--cycle));
   }
 
   .design-process__image--a2,
   .design-process__image--b2 {
-    top: 705px;
+    top: calc(705px + var(--i, 0) * var(--cycle));
   }
 
   .design-process__image--plan-a,

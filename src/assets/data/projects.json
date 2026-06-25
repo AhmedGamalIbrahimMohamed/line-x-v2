@@ -1,0 +1,480 @@
+{
+  "projects": [
+    {
+      "id": "the-ramlah-hotel",
+      "category": "Residential",
+      "card": {
+        "image": "assets/images/figma2/projects-6b.jpg",
+        "title": { "en": "The Ramlah Hotel", "ar": "فندق الرملة" },
+        "location": { "en": "JEDDAH . KSA", "ar": "جدة . السعودية" },
+        "area": { "en": "899.99 M²", "ar": "899.99 م²" },
+        "size": "large"
+      },
+      "hero": {
+        "eyebrow": { "en": "Architecture Case study", "ar": "دراسة حالة معمارية" },
+        "title": { "en": "The Ramllah Hotel", "ar": "فندق الرملة" },
+        "subtitle": { "en": "Strategic Architecture for Modern Business", "ar": "عمارة استراتيجية للأعمال الحديثة" },
+        "image": "assets/images/figma2/selected-project/hero-base.jpg",
+        "details": {
+          "location": { "en": "JEDDAH . KSA", "ar": "جدة . السعودية" },
+          "totalArea": { "en": "12,500 sq.ft.", "ar": "12,500 قدم²" },
+          "year": "2024",
+          "scope": { "en": "Architecture & Interior", "ar": "العمارة والتصميم الداخلي" }
+        }
+      },
+      "overview": {
+        "challenge": {
+          "number": "01",
+          "title": { "en": "The Challenge", "ar": "التحدي" },
+          "quote": {
+            "en": "\"Designing a hospitality destination that balances modern luxury with the cultural identity of Jeddah's urban landscape.\"",
+            "ar": "\"تصميم وجهة ضيافة توازن بين الرفاهية الحديثة والهوية الثقافية للمشهد الحضري في جدة.\""
+          },
+          "paragraph1": {
+            "en": "The client envisioned The Ramllah Hotel as more than just a place to stay - it needed to function as a refined hospitality experience that reflects the character of Jeddah, Saudi Arabia, while meeting the expectations of modern travelers.",
+            "ar": "تصور العميل فندق الرملة كأكثر من مجرد مكان للإقامة - فقد كان يجب أن يعمل كتجربة ضيافة راقية تعكس طابع مدينة جدة بالمملكة العربية السعودية، مع تلبية توقعات المسافرين العصريين."
+          },
+          "paragraph2": {
+            "en": "The primary challenge was to create a cohesive architectural and interior design concept that maximizes spatial efficiency, natural light, and guest comfort, while delivering a distinctive visual identity. The project required integrating contemporary hospitality standards with elegant design elements that respond to the local climate, urban context, and the dynamic lifestyle of the city.",
+            "ar": "كان التحدي الأساسي هو إنشاء مفهوم معماري وتصميم داخلي متماسك يعزز الكفاءة المكانية والإضاءة الطبيعية وراحة النزلاء، مع تقديم هوية بصرية مميزة. تطلب المشروع دمج معايير الضيافة المعاصرة مع عناصر تصميم أنيقة تستجيب للمناخ المحلي والسياق العمراني وأسلوب الحياة الديناميكي للمدينة."
+          }
+        },
+        "concept": {
+          "number": "02",
+          "title": { "en": "The Concept", "ar": "المفهوم" },
+          "quote": {
+            "en": "\"A contemporary hospitality experience shaped by elegance, functionality, and the spirit of Jeddah.\"",
+            "ar": "\"تجربة ضيافة معاصرة تشكلت بالأناقة والوظيفية وروح مدينة جدة.\""
+          },
+          "paragraph1": {
+            "en": "The design concept for The Ramllah Hotel was developed around the idea of creating a refined urban retreat that reflects both modern architectural clarity and the cultural character of Jeddah. The vision focused on combining clean architectural lines with warm interior elements to create a welcoming and memorable guest experience.",
+            "ar": "تم تطوير مفهوم التصميم لفندق الرملة حول فكرة إنشاء ملاذ حضري راقٍ يعكس الوضوح المعماري الحديث والطابع الثقافي لجدة. ركزت الرؤية على الجمع بين الخطوط المعمارية النظيفة والعناصر الداخلية الدافئة لخلق تجربة ضيافة مرحبة وممتعة."
+          },
+          "paragraph2": {
+            "en": "The architectural approach emphasizes balanced proportions, natural light, and a strong visual identity, while the interior design introduces carefully selected materials, textures, and lighting to establish a sense of comfort and sophistication. Public spaces were designed to encourage social interaction and fluid movement, while guest rooms provide calm, private environments that prioritize relaxation and functionality.",
+            "ar": "يركز النهج المعماري على النسب المتوازنة والإضاءة الطبيعية وهوية بصرية قوية، بينما يقدم التصميم الداخلي مواد وملمسًا وإضاءة مختارة بعناية لترسيخ شعور بالراحة والرقي. صُممت المساحات العامة لتشجيع التفاعل الاجتماعي وحركة سلسة، بينما توفر غرف النزلاء بيئات هادئة وخاصة تعطي الأولوية للاسترخاء والوظيفية."
+          }
+        }
+      },
+      "designProcess": {
+        "label": { "en": "Design Process", "ar": "عملية التصميم" },
+        "images": [
+          "assets/images/figma2/selected-project/design-process/process-main.jpg",
+          "assets/images/figma2/selected-project/design-process/process-plan-a.jpg",
+          "assets/images/figma2/selected-project/design-process/process-plan-a.jpg",
+          "assets/images/figma2/selected-project/design-process/process-plan-b.jpg",
+          "assets/images/figma2/selected-project/visual-journey/tower-day.jpg",
+          "assets/images/figma2/selected-project/visual-journey/interior-detail.jpg",
+          "assets/images/figma2/selected-project/visual-journey/interior-detail.jpg",
+          "assets/images/figma2/selected-project/visual-journey/interior-detail.jpg",
+          "assets/images/figma2/selected-project/design-process/process-plan-b.jpg"
+        ]
+      },
+      "visualJourney": {
+        "label": { "en": "Visual Journey", "ar": "الرحلة البصرية" },
+        "images": [
+          "assets/images/figma2/selected-project/visual-journey/tower-night.jpg",
+          "assets/images/figma2/selected-project/visual-journey/bed-tv.jpg",
+          "assets/images/figma2/selected-project/visual-journey/bedside.jpg",
+          "assets/images/figma2/selected-project/visual-journey/bedroom-wide.jpg",
+          "assets/images/figma2/selected-project/visual-journey/tower-day.jpg",
+          "assets/images/figma2/selected-project/visual-journey/interior-detail.jpg",
+          "assets/images/figma2/selected-project/visual-journey/interior-detail.jpg",
+          "assets/images/figma2/selected-project/visual-journey/interior-detail.jpg",
+          "assets/images/figma2/selected-project/visual-journey/interior-detail.jpg",
+          "assets/images/figma2/selected-project/visual-journey/interior-detail.jpg",
+          "assets/images/figma2/selected-project/visual-journey/tower-crop.jpg"
+        ]
+      },
+      "solution": {
+        "number": "03",
+        "title": { "en": "The Solution", "ar": "الحل" },
+        "quote": {
+          "en": "\"A seamless integration of architecture and interior design that delivers a refined and memorable hospitality experience.\"",
+          "ar": "\"تكامل سلس بين العمارة والتصميم الداخلي يقدم تجربة ضيافة راقية لا تُنسى.\""
+        },
+        "paragraph1": {
+          "en": "The final design for The Ramllah Hotel brings together architecture and interior design in a cohesive approach that responds to both the functional demands of hospitality and the aesthetic expectations of modern travelers. The architectural layout was carefully planned to optimize circulation, natural light, and spatial efficiency, creating open and welcoming environments throughout the hotel.",
+          "ar": "يجمع التصميم النهائي لفندق الرملة بين العمارة والتصميم الداخلي في نهج متماسك يستجيب لمتطلبات الضيافة الوظيفية والتوقعات الجمالية للمسافرين العصريين. تم التخطيط للتصميم المعماري بعناية لتحسين الحركة والإضاءة الطبيعية والكفاءة المكانية، مما يخلق بيئات مفتوحة ومرحبة في جميع أجزاء الفندق."
+        },
+        "paragraph2": {
+          "en": "Inside, the interior design introduces a balanced palette of materials, textures, and lighting that enhances the overall atmosphere of comfort and elegance. Public areas such as the lobby and lounge spaces were designed to create strong first impressions while encouraging social interaction, while the guest rooms offer calm, thoughtfully designed environments that prioritize privacy and relaxation.",
+          "ar": "من الداخل، يقدم التصميم الداخلي لوحة متوازنة من المواد والملمس والإضاءة التي تعزز الجو العام من الراحة والأناقة. صُممت المناطق العامة مثل اللوبي وصالات الانتظار لخلق انطباعات أولى قوية مع تشجيع التفاعل الاجتماعي، بينما توفر غرف النزلاء بيئات هادئة ومصممة بعناية تعطي الأولوية للخصوصية والاسترخاء."
+        }
+      },
+      "solutions": {
+        "image": "assets/images/figma2/selected-project/spatial-experience.jpg",
+        "title": { "en": "Spatial Experience", "ar": "التجربة المكانية" },
+        "text": {
+          "en": "The interior volumes are sculpted to guide natural light deep into the core, creating dramatic shadow play that evolves throughout the day.",
+          "ar": "تم تشكيل الحجوم الداخلية لتوجيه الضوء الطبيعي إلى عمق المساحة، مما يخلق تأثيرات ظلية دراماتيكية تتغير على مدار اليوم."
+        }
+      }
+    },
+    {
+      "id": "madar-tower",
+      "category": "Commercial",
+      "card": {
+        "image": "assets/images/figma2/projects-4.jpg",
+        "title": { "en": "Madar Tower", "ar": "برج مدار" },
+        "location": { "en": "RIYADH . KSA", "ar": "الرياض . السعودية" },
+        "area": { "en": "", "ar": "" },
+        "size": "small"
+      },
+      "hero": {
+        "eyebrow": { "en": "PASTE EYEBROW LABEL HERE", "ar": "ضع عنوان الفئة هنا" },
+        "title": { "en": "Madar Tower", "ar": "برج مدار" },
+        "subtitle": { "en": "PASTE SUBTITLE HERE", "ar": "ضع العنوان الفرعي هنا" },
+        "image": "PASTE IMAGE LINK HERE",
+        "details": {
+          "location": { "en": "RIYADH . KSA", "ar": "الرياض . السعودية" },
+          "totalArea": { "en": "PASTE TOTAL AREA HERE", "ar": "ضع المساحة الإجمالية هنا" },
+          "year": "PASTE YEAR HERE",
+          "scope": { "en": "PASTE SCOPE HERE", "ar": "ضع نطاق العمل هنا" }
+        }
+      },
+      "overview": {
+        "challenge": {
+          "number": "01",
+          "title": { "en": "The Challenge", "ar": "التحدي" },
+          "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+          "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+          "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+        },
+        "concept": {
+          "number": "02",
+          "title": { "en": "The Concept", "ar": "المفهوم" },
+          "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+          "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+          "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+        }
+      },
+      "designProcess": {
+        "label": { "en": "Design Process", "ar": "عملية التصميم" },
+        "images": [
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE"
+        ]
+      },
+      "visualJourney": {
+        "label": { "en": "Visual Journey", "ar": "الرحلة البصرية" },
+        "images": [
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE"
+        ]
+      },
+      "solution": {
+        "number": "03",
+        "title": { "en": "The Solution", "ar": "الحل" },
+        "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+        "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+        "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+      },
+      "solutions": {
+        "image": "PASTE IMAGE LINK HERE",
+        "title": { "en": "PASTE TITLE HERE", "ar": "ضع العنوان هنا" },
+        "text": { "en": "PASTE TEXT HERE", "ar": "ضع النص هنا" }
+      }
+    },
+    {
+      "id": "masterplan-project",
+      "category": "Landscape",
+      "card": {
+        "image": "assets/images/figma2/projects-2.jpg",
+        "title": { "en": "Masterplan Project", "ar": "مشروع المخطط الرئيسي" },
+        "location": { "en": "JEDDAH . KSA", "ar": "جدة . السعودية" },
+        "area": { "en": "899.99 M²", "ar": "899.99 م²" },
+        "size": "full"
+      },
+      "hero": {
+        "eyebrow": { "en": "PASTE EYEBROW LABEL HERE", "ar": "ضع عنوان الفئة هنا" },
+        "title": { "en": "Masterplan Project", "ar": "مشروع المخطط الرئيسي" },
+        "subtitle": { "en": "PASTE SUBTITLE HERE", "ar": "ضع العنوان الفرعي هنا" },
+        "image": "PASTE IMAGE LINK HERE",
+        "details": {
+          "location": { "en": "JEDDAH . KSA", "ar": "جدة . السعودية" },
+          "totalArea": { "en": "PASTE TOTAL AREA HERE", "ar": "ضع المساحة الإجمالية هنا" },
+          "year": "PASTE YEAR HERE",
+          "scope": { "en": "PASTE SCOPE HERE", "ar": "ضع نطاق العمل هنا" }
+        }
+      },
+      "overview": {
+        "challenge": {
+          "number": "01",
+          "title": { "en": "The Challenge", "ar": "التحدي" },
+          "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+          "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+          "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+        },
+        "concept": {
+          "number": "02",
+          "title": { "en": "The Concept", "ar": "المفهوم" },
+          "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+          "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+          "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+        }
+      },
+      "designProcess": {
+        "label": { "en": "Design Process", "ar": "عملية التصميم" },
+        "images": [
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE"
+        ]
+      },
+      "visualJourney": {
+        "label": { "en": "Visual Journey", "ar": "الرحلة البصرية" },
+        "images": [
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE"
+        ]
+      },
+      "solution": {
+        "number": "03",
+        "title": { "en": "The Solution", "ar": "الحل" },
+        "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+        "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+        "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+      },
+      "solutions": {
+        "image": "PASTE IMAGE LINK HERE",
+        "title": { "en": "PASTE TITLE HERE", "ar": "ضع العنوان هنا" },
+        "text": { "en": "PASTE TEXT HERE", "ar": "ضع النص هنا" }
+      }
+    },
+    {
+      "id": "mali-tower",
+      "category": "Administrative",
+      "card": {
+        "image": "assets/images/figma2/projects-5.jpg",
+        "title": { "en": "Mali Tower", "ar": "برج مالي" },
+        "location": { "en": "JEDDAH . KSA", "ar": "جدة . السعودية" },
+        "area": { "en": "899.99 M²", "ar": "899.99 م²" },
+        "size": "large"
+      },
+      "hero": {
+        "eyebrow": { "en": "PASTE EYEBROW LABEL HERE", "ar": "ضع عنوان الفئة هنا" },
+        "title": { "en": "Mali Tower", "ar": "برج مالي" },
+        "subtitle": { "en": "PASTE SUBTITLE HERE", "ar": "ضع العنوان الفرعي هنا" },
+        "image": "PASTE IMAGE LINK HERE",
+        "details": {
+          "location": { "en": "JEDDAH . KSA", "ar": "جدة . السعودية" },
+          "totalArea": { "en": "PASTE TOTAL AREA HERE", "ar": "ضع المساحة الإجمالية هنا" },
+          "year": "PASTE YEAR HERE",
+          "scope": { "en": "PASTE SCOPE HERE", "ar": "ضع نطاق العمل هنا" }
+        }
+      },
+      "overview": {
+        "challenge": {
+          "number": "01",
+          "title": { "en": "The Challenge", "ar": "التحدي" },
+          "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+          "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+          "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+        },
+        "concept": {
+          "number": "02",
+          "title": { "en": "The Concept", "ar": "المفهوم" },
+          "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+          "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+          "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+        }
+      },
+      "designProcess": {
+        "label": { "en": "Design Process", "ar": "عملية التصميم" },
+        "images": [
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE"
+        ]
+      },
+      "visualJourney": {
+        "label": { "en": "Visual Journey", "ar": "الرحلة البصرية" },
+        "images": [
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE"
+        ]
+      },
+      "solution": {
+        "number": "03",
+        "title": { "en": "The Solution", "ar": "الحل" },
+        "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+        "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+        "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+      },
+      "solutions": {
+        "image": "PASTE IMAGE LINK HERE",
+        "title": { "en": "PASTE TITLE HERE", "ar": "ضع العنوان هنا" },
+        "text": { "en": "PASTE TEXT HERE", "ar": "ضع النص هنا" }
+      }
+    },
+    {
+      "id": "zara-branch",
+      "category": "Commercial",
+      "card": {
+        "image": "assets/images/figma2/projects-3.jpg",
+        "title": { "en": "Zara Branch", "ar": "فرع زارا" },
+        "location": { "en": "RIYADH . KSA", "ar": "الرياض . السعودية" },
+        "area": { "en": "", "ar": "" },
+        "size": "small"
+      },
+      "hero": {
+        "eyebrow": { "en": "PASTE EYEBROW LABEL HERE", "ar": "ضع عنوان الفئة هنا" },
+        "title": { "en": "Zara Branch", "ar": "فرع زارا" },
+        "subtitle": { "en": "PASTE SUBTITLE HERE", "ar": "ضع العنوان الفرعي هنا" },
+        "image": "PASTE IMAGE LINK HERE",
+        "details": {
+          "location": { "en": "RIYADH . KSA", "ar": "الرياض . السعودية" },
+          "totalArea": { "en": "PASTE TOTAL AREA HERE", "ar": "ضع المساحة الإجمالية هنا" },
+          "year": "PASTE YEAR HERE",
+          "scope": { "en": "PASTE SCOPE HERE", "ar": "ضع نطاق العمل هنا" }
+        }
+      },
+      "overview": {
+        "challenge": {
+          "number": "01",
+          "title": { "en": "The Challenge", "ar": "التحدي" },
+          "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+          "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+          "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+        },
+        "concept": {
+          "number": "02",
+          "title": { "en": "The Concept", "ar": "المفهوم" },
+          "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+          "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+          "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+        }
+      },
+      "designProcess": {
+        "label": { "en": "Design Process", "ar": "عملية التصميم" },
+        "images": [
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE"
+        ]
+      },
+      "visualJourney": {
+        "label": { "en": "Visual Journey", "ar": "الرحلة البصرية" },
+        "images": [
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE"
+        ]
+      },
+      "solution": {
+        "number": "03",
+        "title": { "en": "The Solution", "ar": "الحل" },
+        "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+        "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+        "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+      },
+      "solutions": {
+        "image": "PASTE IMAGE LINK HERE",
+        "title": { "en": "PASTE TITLE HERE", "ar": "ضع العنوان هنا" },
+        "text": { "en": "PASTE TEXT HERE", "ar": "ضع النص هنا" }
+      }
+    },
+    {
+      "id": "modern-villa",
+      "category": "Residential",
+      "card": {
+        "image": "assets/images/figma2/projects-1.jpg",
+        "title": { "en": "Modern Villa", "ar": "فيلا حديثة" },
+        "location": { "en": "JEDDAH . KSA", "ar": "جدة . السعودية" },
+        "area": { "en": "899.99 M²", "ar": "899.99 م²" },
+        "size": "full"
+      },
+      "hero": {
+        "eyebrow": { "en": "PASTE EYEBROW LABEL HERE", "ar": "ضع عنوان الفئة هنا" },
+        "title": { "en": "Modern Villa", "ar": "فيلا حديثة" },
+        "subtitle": { "en": "PASTE SUBTITLE HERE", "ar": "ضع العنوان الفرعي هنا" },
+        "image": "PASTE IMAGE LINK HERE",
+        "details": {
+          "location": { "en": "JEDDAH . KSA", "ar": "جدة . السعودية" },
+          "totalArea": { "en": "PASTE TOTAL AREA HERE", "ar": "ضع المساحة الإجمالية هنا" },
+          "year": "PASTE YEAR HERE",
+          "scope": { "en": "PASTE SCOPE HERE", "ar": "ضع نطاق العمل هنا" }
+        }
+      },
+      "overview": {
+        "challenge": {
+          "number": "01",
+          "title": { "en": "The Challenge", "ar": "التحدي" },
+          "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+          "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+          "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+        },
+        "concept": {
+          "number": "02",
+          "title": { "en": "The Concept", "ar": "المفهوم" },
+          "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+          "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+          "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+        }
+      },
+      "designProcess": {
+        "label": { "en": "Design Process", "ar": "عملية التصميم" },
+        "images": [
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE"
+        ]
+      },
+      "visualJourney": {
+        "label": { "en": "Visual Journey", "ar": "الرحلة البصرية" },
+        "images": [
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE",
+          "PASTE IMAGE LINK HERE"
+        ]
+      },
+      "solution": {
+        "number": "03",
+        "title": { "en": "The Solution", "ar": "الحل" },
+        "quote": { "en": "PASTE QUOTE HERE", "ar": "ضع الاقتباس هنا" },
+        "paragraph1": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" },
+        "paragraph2": { "en": "PASTE PARAGRAPH HERE", "ar": "ضع الفقرة هنا" }
+      },
+      "solutions": {
+        "image": "PASTE IMAGE LINK HERE",
+        "title": { "en": "PASTE TITLE HERE", "ar": "ضع العنوان هنا" },
+        "text": { "en": "PASTE TEXT HERE", "ar": "ضع النص هنا" }
+      }
+    }
+  ]
+}

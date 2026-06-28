@@ -25,6 +25,10 @@ export const routes: Routes = [
     path: 'selected-project/:id',
     loadComponent: () => import('./pages/selected-project/selected-project').then((m) => m.SelectedProject),
   },
+  {
+    path: 'projects-admin',
+    loadComponent: () => import('./pages/projects-admin/projects-admin').then((m) => m.ProjectsAdminComponent),
+  },
 ];
 
 

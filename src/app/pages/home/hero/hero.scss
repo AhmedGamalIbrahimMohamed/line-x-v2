@@ -30,9 +30,29 @@
 }
 
 .hero-overlay {
+  /* Stronger scrim behind the text column, plus a light shadow across the
+     whole frame so the video stays visible but never washed out. */
   background-image:
-    linear-gradient(270deg, $color-overlay-dark-soft 50%, $color-overlay-dark-deep 70%),
-    linear-gradient(270deg, $color-overlay-dark-panel 40%, $color-overlay-dark-heavy 100%);
+    linear-gradient(
+      90deg,
+      $color-overlay-dark-strong 0%,
+      $color-overlay-dark-tint 30%,
+      $color-overlay-dark-mid 58%,
+      transparent 80%
+    ),
+    linear-gradient($color-overlay-dark-soft, $color-overlay-dark-soft);
+}
+
+:host-context([dir='rtl']) .hero-overlay {
+  background-image:
+    linear-gradient(
+      270deg,
+      $color-overlay-dark-strong 0%,
+      $color-overlay-dark-tint 30%,
+      $color-overlay-dark-mid 58%,
+      transparent 80%
+    ),
+    linear-gradient($color-overlay-dark-soft, $color-overlay-dark-soft);
 }
 
 .hero-inner {
@@ -192,6 +212,30 @@
     transform: none;
   }
 
+  .hero-overlay {
+    background-image:
+      linear-gradient(
+        90deg,
+        $color-overlay-dark-strong 0%,
+        $color-overlay-dark-tint 42%,
+        $color-overlay-dark-mid 70%,
+        transparent 92%
+      ),
+      linear-gradient($color-overlay-dark-soft, $color-overlay-dark-soft);
+  }
+
+  :host-context([dir='rtl']) .hero-overlay {
+    background-image:
+      linear-gradient(
+        270deg,
+        $color-overlay-dark-strong 0%,
+        $color-overlay-dark-tint 42%,
+        $color-overlay-dark-mid 70%,
+        transparent 92%
+      ),
+      linear-gradient($color-overlay-dark-soft, $color-overlay-dark-soft);
+  }
+
   .hero-inner {
     height: 100%;
     display: flex;
@@ -248,10 +292,15 @@
     transform: none;
   }
 
-  .hero-overlay {
-    background-image:
-      linear-gradient(270deg, $color-overlay-dark-soft 50%, $color-overlay-dark-deep 70%),
-      linear-gradient(270deg, $color-overlay-dark-panel 8%, $color-overlay-dark-heavy 22%);
+  .hero-overlay,
+  :host-context([dir='rtl']) .hero-overlay {
+    /* Text spans the full width here, so fade vertically instead of sideways. */
+    background-image: linear-gradient(
+      180deg,
+      $color-overlay-dark-tint 0%,
+      $color-overlay-dark-shade 55%,
+      $color-overlay-dark-strong 100%
+    );
   }
 
   .hero-inner {

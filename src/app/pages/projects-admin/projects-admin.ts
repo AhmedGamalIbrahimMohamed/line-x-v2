@@ -20,8 +20,17 @@ export class ProjectsAdminComponent implements OnInit {
   selectedProject: Project | null = null;
   selectedIndex = 0;
   isSaving = false;
+  isSidebarOpen = false;
   message = '';
   messageType: 'success' | 'error' = 'success';
+
+  openSidebar(): void {
+    this.isSidebarOpen = true;
+  }
+
+  closeSidebar(): void {
+    this.isSidebarOpen = false;
+  }
 
   ngOnInit(): void {
     this.projectsService.getAll().subscribe((projects) => {
@@ -34,6 +43,7 @@ export class ProjectsAdminComponent implements OnInit {
   selectProject(index: number): void {
     this.selectedIndex = index;
     this.selectedProject = this.projects[index] ?? null;
+    this.closeSidebar();
   }
 
   addProject(): void {
@@ -100,6 +110,7 @@ export class ProjectsAdminComponent implements OnInit {
     this.projects = [newProject, ...this.projects];
     this.selectedProject = newProject;
     this.selectedIndex = 0;
+    this.closeSidebar();
   }
 
   saveProject(): void {

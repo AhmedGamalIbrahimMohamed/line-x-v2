@@ -18,79 +18,24 @@
 
     <!-- GRID -->
     <div class="projects-grid">
-
-      <a href="#" class="project-card project-card-large">
-        <img src="assets/images/figma2/projects-6b.jpg" />
+      <a
+        *ngFor="let project of projects"
+        [routerLink]="['/selected-project', project.id]"
+        class="project-card"
+        [class.project-card-large]="project.card.size === 'large'"
+        [class.project-card-small]="project.card.size === 'small'"
+        [class.project-card-full]="project.card.size === 'full'"
+      >
+        <img [src]="project.card.image" [alt]="project.card.title | localize" />
         <div class="project-overlay"></div>
         <div class="project-content">
           <span class="project-line"></span>
           <div>
-            <h3 class="project-title">The Ramlah Hotel</h3>
-            <p class="project-meta">JEDDAH . KSA . 899.99 M²</p>
+            <h3 class="project-title">{{ project.card.title | localize }}</h3>
+            <p class="project-meta">{{ project.card.location | localize }}{{ (project.card.area | localize) ? ' . ' + (project.card.area | localize) : '' }}</p>
           </div>
         </div>
       </a>
-
-      <a href="#" class="project-card project-card-small">
-        <img src="assets/images/figma2/projects-4.jpg" />
-        <div class="project-overlay"></div>
-        <div class="project-content">
-          <span class="project-line"></span>
-          <div>
-            <h3 class="project-title">Madar Tower</h3>
-            <p class="project-meta">RIYADH . KSA</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="project-card project-card-full">
-        <img src="assets/images/figma2/projects-2.jpg" />
-        <div class="project-overlay"></div>
-        <div class="project-content">
-          <span class="project-line"></span>
-          <div>
-            <h3 class="project-title">Masterplan Project</h3>
-            <p class="project-meta">JEDDAH . KSA . 899.99 M²</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="project-card project-card-large">
-        <img src="assets/images/figma2/projects-5.jpg" />
-        <div class="project-overlay"></div>
-        <div class="project-content">
-          <span class="project-line"></span>
-          <div>
-            <h3 class="project-title">Mali Tower</h3>
-            <p class="project-meta">JEDDAH . KSA . 899.99 M²</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="project-card project-card-small">
-        <img src="assets/images/figma2/projects-3.jpg" />
-        <div class="project-overlay"></div>
-        <div class="project-content">
-          <span class="project-line"></span>
-          <div>
-            <h3 class="project-title">Zara Branch</h3>
-            <p class="project-meta">RIYADH . KSA</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="project-card project-card-full">
-        <img src="assets/images/figma2/projects-1.jpg" />
-        <div class="project-overlay"></div>
-        <div class="project-content">
-          <span class="project-line"></span>
-          <div>
-            <h3 class="project-title">Modern Villa</h3>
-            <p class="project-meta">JEDDAH . KSA . 899.99 M²</p>
-          </div>
-        </div>
-      </a>
-
     </div>
 
     <!-- Mobile button -->

@@ -1,9 +1,16 @@
 <section class="hero" #heroSection>
   <div class="hero-media" aria-hidden="true">
-    <div class="hero-layer hero-layer-1"></div>
-    <div class="hero-layer hero-layer-2"></div>
-    <div class="hero-layer hero-layer-3"></div>
-    <div class="hero-layer hero-layer-4"></div>
+    <video
+      #heroVideo
+      class="hero-video"
+      src="assets/videos/MicrosoftTeams-video.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      disablePictureInPicture
+    ></video>
     <div class="hero-overlay"></div>
   </div>
 

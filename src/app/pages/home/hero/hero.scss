@@ -13,42 +13,20 @@
 }
 
 .hero-media,
-.hero-layer,
+.hero-video,
 .hero-overlay {
   position: absolute;
   inset: 0;
 }
 
-.hero-layer {
-  background-repeat: no-repeat;
-  background-size: cover;
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
   pointer-events: none;
   will-change: transform;
-}
-
-.hero-layer-1 {
-  background-image: url('../../../../assets/images/figma2/projects-6b.jpg');
-  background-position: center center;
   transform: scale(1.02);
-}
-
-.hero-layer-2 {
-  background-image: url('../../../../assets/images/figma2/projects-6b.jpg');
-  background-position: center top;
-  mix-blend-mode: screen;
-  opacity: 0.72;
-}
-
-.hero-layer-3 {
-  background-image: url('../../../../assets/images/figma2/projects-6b.jpg');
-  background-position: center center;
-  opacity: 0.52;
-}
-
-.hero-layer-4 {
-  background-image: url('../../../../assets/images/figma2/projects-6b.jpg');
-  background-position: right center;
-  opacity: 0.88;
 }
 
 .hero-overlay {
@@ -210,17 +188,8 @@
     min-height: 0;
   }
 
-  .hero-layer-1 {
-    background-image: url('https://www.figma.com/api/mcp/asset/2c73f0bc-781d-4261-9706-edaee08f71d5');
-    background-size: cover;
-    background-position: center center;
+  .hero-video {
     transform: none;
-  }
-
-  .hero-layer-2,
-  .hero-layer-3,
-  .hero-layer-4 {
-    display: none;
   }
 
   .hero-inner {
@@ -275,32 +244,8 @@
     min-height: 0;
   }
 
-  .hero-layer-1 {
-    background-image: url('https://www.figma.com/api/mcp/asset/569467cb-affa-481f-b4dc-22a79d169504');
-    background-size: cover;
-    background-position: center center;
+  .hero-video {
     transform: none;
-  }
-
-  .hero-layer-2 {
-    background-image: url('https://www.figma.com/api/mcp/asset/765362e6-c164-415b-a4d6-32bbdf40c813');
-    background-size: cover;
-    background-position: center center;
-    opacity: 0.72;
-  }
-
-  .hero-layer-3 {
-    background-image: url('https://www.figma.com/api/mcp/asset/1cca7b75-fc32-47ba-b56f-db51ae1922f6');
-    background-size: cover;
-    background-position: center center;
-    opacity: 0.52;
-  }
-
-  .hero-layer-4 {
-    background-image: url('https://www.figma.com/api/mcp/asset/9dd9539d-e90f-4d1e-a1c6-58ae54d194ed');
-    background-size: cover;
-    background-position: center center;
-    opacity: 0.88;
   }
 
   .hero-overlay {

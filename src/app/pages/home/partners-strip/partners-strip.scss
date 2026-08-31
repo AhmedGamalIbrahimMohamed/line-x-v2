@@ -20,7 +20,7 @@ $breakpoint-small: 390px;
     align-items: center;
     width: max-content;
     will-change: transform;
-    animation: partners-marquee 65s linear infinite;
+    animation: partners-marquee 287s linear infinite;
   }
 
   &__group {
@@ -65,7 +65,7 @@ $breakpoint-small: 390px;
     height: 110px;
 
     &__track {
-      animation-duration: 55s;
+      animation-duration: 243s;
     }
 
     &__item {
@@ -86,7 +86,7 @@ $breakpoint-small: 390px;
     height: 86px;
 
     &__track {
-      animation-duration: 34s;
+      animation-duration: 150s;
     }
 
     &__item {

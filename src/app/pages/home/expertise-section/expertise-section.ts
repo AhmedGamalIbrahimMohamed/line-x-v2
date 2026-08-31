@@ -35,22 +35,22 @@ export class ExpertiseSectionComponent implements AfterViewInit, OnDestroy {
     {
       subtitle: 'Home.expertise.slides.0.subtitle',
       description: 'Home.expertise.slides.0.description',
-      image: 'assets/images/figma2/expertise-1.jpg',
+      image: 'assets/images/home/expertise/expertise-1.jpg',
     },
     {
       subtitle: 'Home.expertise.slides.1.subtitle',
       description: 'Home.expertise.slides.1.description',
-      image: 'assets/images/figma2/expertise-2.jpg',
+      image: 'assets/images/home/expertise/expertise-2.jpg',
     },
     {
       subtitle: 'Home.expertise.slides.2.subtitle',
       description: 'Home.expertise.slides.2.description',
-      image: 'assets/images/figma2/expertise-3.jpg',
+      image: 'assets/images/home/expertise/expertise-3.jpg',
     },
     {
       subtitle: 'Home.expertise.slides.3.subtitle',
       description: 'Home.expertise.slides.3.description',
-      image: 'assets/images/figma2/expertise-4.jpg',
+      image: 'assets/images/home/expertise/expertise-4.jpg',
     },
   ];
  

@@ -10,6 +10,9 @@ import { ScrollAnimationService } from '../../../services/scroll-animation.servi
 export class PartnersStripComponent implements AfterViewInit {
   @ViewChild('sectionRef') private sectionRef!: ElementRef<HTMLElement>;
 
+  /** assets/images/partners/{n}.svg — 1 through 53 */
+  readonly logos = Array.from({ length: 53 }, (_, i) => i + 1);
+
   private anim = inject(ScrollAnimationService);
 
   ngAfterViewInit(): void {

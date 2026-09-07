@@ -1,32 +1,22 @@
 <section class="projects-list" aria-label="Projects gallery" #sectionRef>
   <div class="projects-list__inner layout-container">
     <div class="projects-tabs" role="tablist" aria-label="Project categories">
-      <button class="projects-tabs__item projects-tabs__item--active" type="button" role="tab" aria-selected="true">
-        {{ 'Projects.section.All Projects' | translate }}
-      </button>
-      <button class="projects-tabs__item" type="button" role="tab" aria-selected="false">
-        {{ 'Projects.section.Administrative' | translate }}
-      </button>
-      <button class="projects-tabs__item" type="button" role="tab" aria-selected="false">
-        {{ 'Projects.section.Commercial' | translate }}
-      </button>
-      <button class="projects-tabs__item" type="button" role="tab" aria-selected="false">
-        {{ 'Projects.section.Interior Design' | translate }}
-      </button>
-      <button class="projects-tabs__item" type="button" role="tab" aria-selected="false">
-        {{ 'Projects.section.Entertainment' | translate }}
-      </button>
-      <button class="projects-tabs__item" type="button" role="tab" aria-selected="false">
-        {{ 'Projects.section.Landscape' | translate }}
-      </button>
-      <button class="projects-tabs__item" type="button" role="tab" aria-selected="false">
-        {{ 'Projects.section.Residential' | translate }}
+      <button
+        *ngFor="let category of categories"
+        class="projects-tabs__item"
+        [class.projects-tabs__item--active]="category === activeCategory"
+        type="button"
+        role="tab"
+        [attr.aria-selected]="category === activeCategory"
+        (click)="selectCategory(category)"
+      >
+        {{ 'Projects.section.' + category | translate }}
       </button>
     </div>
 
     <div class="projects-list__grid">
       <a
-        *ngFor="let project of projects"
+        *ngFor="let project of filteredProjects; trackBy: trackById"
         [routerLink]="['/selected-project', project.id]"
         class="project-card"
         [class.project-card-large]="project.card.size === 'large'"
@@ -45,6 +35,8 @@
       </a>
     </div>
 
-    <button class="projects-list__load-more" type="button">{{ 'Projects.section.Load More' | translate }}</button>
+    <p class="projects-list__empty" *ngIf="!filteredProjects.length">{{ 'Projects.section.Empty' | translate }}</p>
+
+    <button class="projects-list__load-more" type="button" *ngIf="filteredProjects.length">{{ 'Projects.section.Load More' | translate }}</button>
   </div>
 </section>

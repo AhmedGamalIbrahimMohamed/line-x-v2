@@ -320,6 +320,7 @@
       "Entertainment": "Entertainment",
       "Landscape": "Landscape",
       "Residential": "Residential",
+      "Empty": "No projects in this category yet.",
       "Load More": "Load More"
     },
     "cta": {

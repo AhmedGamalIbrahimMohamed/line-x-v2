@@ -92,6 +92,18 @@
   gap: $gap-md;
 }
 
+.projects-list__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // Keeps the page from collapsing when a category has no projects.
+  min-height: 320px;
+  margin: 0;
+  color: var(--theme-projects-list-muted);
+  font: 400 16px / 28px $font-primary;
+  text-align: center;
+}
+
 .projects-list__load-more {
   display: flex;
   align-items: center;

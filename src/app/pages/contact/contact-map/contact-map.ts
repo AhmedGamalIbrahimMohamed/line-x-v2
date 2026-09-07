@@ -1,6 +1,14 @@
 import { AfterViewInit, Component, ElementRef, NgZone, OnDestroy, ViewChild, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import * as L from 'leaflet';
+import { environment } from '../../../../environments/environment';
+
+interface BasemapSource {
+  url: string;
+  attribution: string;
+  subdomains?: string;
+  maxNativeZoom: number;
+}
 
 @Component({
   selector: 'app-contact-map',
@@ -14,8 +22,40 @@ export class ContactMap implements AfterViewInit, OnDestroy {
   private map?: L.Map;
   private resizeObserver?: ResizeObserver;
   private resizeFrame?: number;
+  private basemapLayer?: L.TileLayer;
+  private basemapIndex = 0;
+  private basemapErrors = 0;
 
   private readonly translate = inject(TranslateService);
+
+  /**
+   * Ordered basemap fallbacks. CARTO is only used when an API key is configured —
+   * without one its CDN answers with an "API KEY REQUIRED" watermark tile served as
+   * HTTP 200, so Leaflet never reports an error. The remaining sources need no key.
+   * The tile pane is desaturated in SCSS, so each one renders in the same grey style.
+   */
+  private readonly basemaps: BasemapSource[] = [
+    ...(environment.map?.cartoApiKey
+      ? [
+          {
+            url: `https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png?api_key=${environment.map.cartoApiKey}`,
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+            subdomains: 'abcd',
+            maxNativeZoom: 19,
+          },
+        ]
+      : []),
+    {
+      url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+      attribution: 'Tiles &copy; Esri',
+      maxNativeZoom: 16,
+    },
+    {
+      url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      attribution: '&copy; OpenStreetMap contributors',
+      maxNativeZoom: 19,
+    },
+  ];
 
   private readonly locations: { labelKey: string; coordinates: [number, number]; googleMapsUrl: string; isMain?: boolean }[] = [
     {
@@ -82,17 +122,15 @@ export class ContactMap implements AfterViewInit, OnDestroy {
 
   private initMap(): void {
     this.map?.remove();
+    this.basemapLayer = undefined;
 
     this.map = L.map(this.mapContainer.nativeElement, {
       scrollWheelZoom: false,
       zoomControl: true,
     });
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-      maxZoom: 19,
-      subdomains: 'abcd',
-    }).addTo(this.map);
+    this.basemapIndex = 0;
+    this.addBasemap();
 
     this.locations.forEach(({ labelKey, coordinates, googleMapsUrl, isMain }) => {
       const markerClass = isMain
@@ -121,6 +159,43 @@ export class ContactMap implements AfterViewInit, OnDestroy {
     window.setTimeout(() => {
       this.refreshMap(true);
     });
+  }
+
+  private addBasemap(): void {
+    const source = this.basemaps[this.basemapIndex];
+    if (!this.map || !source) {
+      return;
+    }
+
+    this.basemapErrors = 0;
+
+    if (this.basemapLayer) {
+      this.map.removeLayer(this.basemapLayer);
+    }
+
+    const layer = L.tileLayer(source.url, {
+      attribution: source.attribution,
+      maxZoom: 19,
+      maxNativeZoom: source.maxNativeZoom,
+      ...(source.subdomains ? { subdomains: source.subdomains } : {}),
+    });
+
+    // A provider that is down, rate-limited or key-gated fails a burst of tiles at
+    // once — switch to the next source instead of leaving the map blank.
+    layer.on('tileerror', () => {
+      if (layer !== this.basemapLayer) {
+        return;
+      }
+
+      this.basemapErrors += 1;
+      if (this.basemapErrors >= 4 && this.basemapIndex < this.basemaps.length - 1) {
+        this.basemapIndex += 1;
+        this.addBasemap();
+      }
+    });
+
+    this.basemapLayer = layer;
+    layer.addTo(this.map);
   }
 
   private observeMapSize(): void {

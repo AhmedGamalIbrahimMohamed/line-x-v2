@@ -16,7 +16,7 @@
 
     <div class="projects-list__grid">
       <a
-        *ngFor="let project of filteredProjects; let i = index; trackBy: trackById"
+        *ngFor="let project of visibleProjects; let i = index; trackBy: trackById"
         [routerLink]="['/selected-project', project.id]"
         class="project-card"
         [class.project-card-large]="cardSizes[i] === 'large'"
@@ -35,8 +35,8 @@
       </a>
     </div>
 
-    <p class="projects-list__empty" *ngIf="!filteredProjects.length">{{ 'Projects.section.Empty' | translate }}</p>
+    <p class="projects-list__empty" *ngIf="!visibleProjects.length">{{ 'Projects.section.Empty' | translate }}</p>
 
-    <button class="projects-list__load-more" type="button" *ngIf="filteredProjects.length">{{ 'Projects.section.Load More' | translate }}</button>
+    <button class="projects-list__load-more" type="button" *ngIf="hasMore" (click)="loadMore()">{{ 'Projects.section.Load More' | translate }}</button>
   </div>
 </section>

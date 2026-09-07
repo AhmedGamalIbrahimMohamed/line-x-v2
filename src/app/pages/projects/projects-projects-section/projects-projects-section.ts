@@ -10,7 +10,11 @@ import { LocalizePipe } from '../../../pipes/localize.pipe';
 /** Tab key that shows every project instead of filtering by `project.category`. */
 const ALL_CATEGORIES = 'All Projects';
 
+/** Cards shown before "Load More" is offered, and how many each click adds. */
+const PAGE_SIZE = 6;
+
 type CardSize = ProjectCard['size'];
+type CardTween = ReturnType<ScrollAnimationService['scaleIn']>;
 
 @Component({
   selector: 'app-projects-projects-section',
@@ -38,12 +42,21 @@ export class ProjectsProjectsSection implements OnInit, AfterViewInit {
 
   activeCategory = ALL_CATEGORIES;
   projects: Project[] = [];
+  /** Every project in the active category. */
   filteredProjects: Project[] = [];
-  /** Layout size per visible card, parallel to `filteredProjects`. */
+  /** The first `visibleCount` of `filteredProjects` — what the grid renders. */
+  visibleProjects: Project[] = [];
+  /** Layout size per rendered card, parallel to `visibleProjects`. */
   cardSizes: CardSize[] = [];
 
+  private visibleCount = PAGE_SIZE;
   private viewReady = false;
-  private cardsTween: ReturnType<ScrollAnimationService['scaleIn']> | null = null;
+  private cardTweens: CardTween[] = [];
+
+  /** Only offer "Load More" while the category still holds projects the grid is not showing. */
+  get hasMore(): boolean {
+    return this.filteredProjects.length > this.visibleProjects.length;
+  }
 
   ngOnInit(): void {
     this.projectsService.getAll().subscribe((projects) => {
@@ -62,8 +75,18 @@ export class ProjectsProjectsSection implements OnInit, AfterViewInit {
     if (category === this.activeCategory) return;
 
     this.activeCategory = category;
+    this.visibleCount = PAGE_SIZE;
     this.applyFilter();
     if (this.viewReady) setTimeout(() => this.animateCards());
+  }
+
+  loadMore(): void {
+    const shownBefore = this.visibleProjects.length;
+
+    this.visibleCount += PAGE_SIZE;
+    this.updateVisible();
+    // Only the appended cards animate; the ones already on screen keep their existing tween.
+    if (this.viewReady) setTimeout(() => this.animateCards(shownBefore));
   }
 
   trackById(_index: number, project: Project): string {
@@ -78,8 +101,14 @@ export class ProjectsProjectsSection implements OnInit, AfterViewInit {
       this.filteredProjects = this.projects.filter((project) => this.normalize(project.category) === active);
     }
 
-    const total = this.filteredProjects.length;
-    this.cardSizes = this.filteredProjects.map((_project, index) => this.sizeAt(index, total));
+    this.updateVisible();
+  }
+
+  private updateVisible(): void {
+    this.visibleProjects = this.filteredProjects.slice(0, this.visibleCount);
+
+    const total = this.visibleProjects.length;
+    this.cardSizes = this.visibleProjects.map((_project, index) => this.sizeAt(index, total));
   }
 
   /**
@@ -106,22 +135,35 @@ export class ProjectsProjectsSection implements OnInit, AfterViewInit {
     this.animateCards();
   }
 
-  /** Re-runs the card reveal after a filter change, discarding the previous tween's ScrollTrigger. */
-  private animateCards(): void {
-    this.cardsTween?.scrollTrigger?.kill();
-    this.cardsTween?.kill();
-    this.cardsTween = null;
+  /**
+   * Reveals the cards from `fromIndex` on. A full re-run (the default) first discards the previous
+   * tweens and their ScrollTriggers, which would otherwise stay bound to removed nodes.
+   */
+  private animateCards(fromIndex = 0): void {
+    if (fromIndex === 0) this.killCardTweens();
 
     const host = this.sectionRef.nativeElement;
-    const cards = host.querySelectorAll<HTMLElement>('.project-card');
     const grid = host.querySelector<HTMLElement>('.projects-list__grid');
+    const cards = Array.from(host.querySelectorAll<HTMLElement>('.project-card')).slice(fromIndex);
 
-    if (grid && cards.length) {
-      this.cardsTween = this.anim.scaleIn(cards, grid, { stagger: 0.08, start: 'top 88%', delay: 0.05 });
+    // A "load more" batch triggers off its own first card, so it reveals as the reader
+    // reaches it rather than off the grid top, which is long past by then.
+    const trigger = fromIndex === 0 ? grid : cards[0];
+
+    if (trigger && cards.length) {
+      this.cardTweens.push(this.anim.scaleIn(cards, trigger, { stagger: 0.08, start: 'top 88%', delay: 0.05 }));
     }
 
-    // Filtering changes the page height, so every ScrollTrigger below this section holds
-    // stale start/end positions and would never fire, leaving those sections invisible.
+    // Filtering and paging change the page height, so every ScrollTrigger below this section
+    // holds stale start/end positions and would never fire, leaving those sections invisible.
     requestAnimationFrame(() => this.anim.refresh());
+  }
+
+  private killCardTweens(): void {
+    this.cardTweens.forEach((tween) => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    });
+    this.cardTweens = [];
   }
 }

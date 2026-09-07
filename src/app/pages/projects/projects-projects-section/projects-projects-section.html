@@ -16,12 +16,12 @@
 
     <div class="projects-list__grid">
       <a
-        *ngFor="let project of filteredProjects; trackBy: trackById"
+        *ngFor="let project of filteredProjects; let i = index; trackBy: trackById"
         [routerLink]="['/selected-project', project.id]"
         class="project-card"
-        [class.project-card-large]="project.card.size === 'large'"
-        [class.project-card-small]="project.card.size === 'small'"
-        [class.project-card-full]="project.card.size === 'full'"
+        [class.project-card-large]="cardSizes[i] === 'large'"
+        [class.project-card-small]="cardSizes[i] === 'small'"
+        [class.project-card-full]="cardSizes[i] === 'full'"
       >
         <img [src]="project.card.image" [alt]="project.card.title | localize" />
         <div class="project-overlay"></div>

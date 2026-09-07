@@ -233,13 +233,15 @@
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 
-    // Swap the second large/small pair: large → right, small → left
-    .project-card:nth-child(4) {
+    // Swap the second large/small pair: large → right, small → left.
+    // Qualified by size class so a filtered list that ends on a full-width card at
+    // position 4 or 5 keeps its own row instead of being pulled into the swap.
+    .project-card-large:nth-child(4) {
       grid-column: 2 / 3;
       grid-row: 3 / 4;
     }
 
-    .project-card:nth-child(5) {
+    .project-card-large:nth-child(4) + .project-card-small:nth-child(5) {
       grid-column: 1 / 2;
       grid-row: 3 / 4;
     }

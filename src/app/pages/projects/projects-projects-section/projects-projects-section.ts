@@ -4,11 +4,13 @@ import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { ScrollAnimationService } from '../../../services/scroll-animation.service';
 import { ProjectsService } from '../../../services/projects.service';
-import { Project } from '../../../models/project.model';
+import { Project, ProjectCard } from '../../../models/project.model';
 import { LocalizePipe } from '../../../pipes/localize.pipe';
 
 /** Tab key that shows every project instead of filtering by `project.category`. */
 const ALL_CATEGORIES = 'All Projects';
+
+type CardSize = ProjectCard['size'];
 
 @Component({
   selector: 'app-projects-projects-section',
@@ -37,6 +39,8 @@ export class ProjectsProjectsSection implements OnInit, AfterViewInit {
   activeCategory = ALL_CATEGORIES;
   projects: Project[] = [];
   filteredProjects: Project[] = [];
+  /** Layout size per visible card, parallel to `filteredProjects`. */
+  cardSizes: CardSize[] = [];
 
   private viewReady = false;
   private cardsTween: ReturnType<ScrollAnimationService['scaleIn']> | null = null;
@@ -69,11 +73,25 @@ export class ProjectsProjectsSection implements OnInit, AfterViewInit {
   private applyFilter(): void {
     if (this.activeCategory === ALL_CATEGORIES) {
       this.filteredProjects = this.projects;
-      return;
+    } else {
+      const active = this.normalize(this.activeCategory);
+      this.filteredProjects = this.projects.filter((project) => this.normalize(project.category) === active);
     }
 
-    const active = this.normalize(this.activeCategory);
-    this.filteredProjects = this.projects.filter((project) => this.normalize(project.category) === active);
+    const total = this.filteredProjects.length;
+    this.cardSizes = this.filteredProjects.map((_project, index) => this.sizeAt(index, total));
+  }
+
+  /**
+   * Sizes follow the design's repeating large → small → full rhythm by position, so a filtered
+   * subset re-flows on its own instead of inheriting the sizes of the unfiltered list. A card that
+   * would otherwise sit alone on a row spans the full width instead.
+   */
+  private sizeAt(index: number, total: number): CardSize {
+    const slot = index % 3;
+    if (slot === 2) return 'full';
+    if (slot === 1) return 'small';
+    return index === total - 1 ? 'full' : 'large';
   }
 
   private normalize(value: string | undefined): string {

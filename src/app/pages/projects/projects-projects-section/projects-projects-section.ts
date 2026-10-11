@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { ScrollAnimationService } from '../../../services/scroll-animation.service';
 import { ProjectsService } from '../../../services/projects.service';
-import { Project, ProjectCard } from '../../../models/project.model';
+import { PROJECT_CATEGORIES, Project, ProjectCard } from '../../../models/project.model';
 import { LocalizePipe } from '../../../pipes/localize.pipe';
 
 /** Tab key that shows every project instead of filtering by `project.category`. */
@@ -30,15 +30,7 @@ export class ProjectsProjectsSection implements OnInit, AfterViewInit {
   private projectsService = inject(ProjectsService);
 
   /** Tab labels double as i18n keys under `Projects.section.*` and as `project.category` values. */
-  readonly categories = [
-    ALL_CATEGORIES,
-    'Administrative',
-    'Commercial',
-    'Interior Design',
-    'Entertainment',
-    'Landscape',
-    'Residential',
-  ];
+  readonly categories = [ALL_CATEGORIES, ...PROJECT_CATEGORIES];
 
   activeCategory = ALL_CATEGORIES;
   projects: Project[] = [];

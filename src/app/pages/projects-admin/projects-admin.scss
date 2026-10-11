@@ -566,7 +566,8 @@ $admin-sidebar-width: 320px;
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   min-width: 0;
   padding: 11px 14px;
@@ -597,6 +598,10 @@ textarea {
 textarea {
   resize: vertical;
   min-height: 76px;
+}
+
+select {
+  cursor: pointer;
 }
 
 // ── Uploaders & previews ─────────────────────────────────────────────────────

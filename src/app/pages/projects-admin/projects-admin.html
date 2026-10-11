@@ -91,7 +91,13 @@
           </div>
           <div class="field">
             <label class="field__label" for="project-category">Category</label>
-            <input id="project-category" [(ngModel)]="selectedProject.category" name="category" placeholder="Residential" />
+            <select id="project-category" [(ngModel)]="selectedProject.category" name="category">
+              <!-- Keeps a legacy value visible instead of rendering a blank select. -->
+              <option *ngIf="!categories.includes(selectedProject.category)" [value]="selectedProject.category">
+                {{ selectedProject.category || 'Select a category' }}
+              </option>
+              <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
           </div>
         </div>
       </section>
@@ -131,7 +137,11 @@
           </div>
           <div class="field">
             <label class="field__label">Card Size</label>
-            <input [(ngModel)]="selectedProject.card.size" name="cardSize" placeholder="large" />
+            <select [(ngModel)]="selectedProject.card.size" name="cardSize">
+              <option value="large">Large</option>
+              <option value="small">Small</option>
+              <option value="full">Full</option>
+            </select>
           </div>
           <div class="field field--full">
             <label class="field__label">Card Image</label>

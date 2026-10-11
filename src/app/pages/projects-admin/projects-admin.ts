@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ProjectsService } from '../../services/projects.service';
-import { Project } from '../../models/project.model';
+import { PROJECT_CATEGORIES, Project } from '../../models/project.model';
 
 @Component({
   selector: 'app-projects-admin',
@@ -15,6 +15,8 @@ import { Project } from '../../models/project.model';
 export class ProjectsAdminComponent implements OnInit {
   private projectsService = inject(ProjectsService);
   private http = inject(HttpClient);
+
+  readonly categories = PROJECT_CATEGORIES;
 
   projects: Project[] = [];
   selectedProject: Project | null = null;

@@ -1,5 +1,18 @@
 import { LocalizedText } from './localized-text.model';
 
+/**
+ * Values allowed for `Project.category`. Shared by the admin category dropdown and the projects
+ * page filter tabs, where each also serves as an i18n key under `Projects.section.*`.
+ */
+export const PROJECT_CATEGORIES: readonly string[] = [
+  'Administrative',
+  'Commercial',
+  'Interior Design',
+  'Entertainment',
+  'Landscape',
+  'Residential',
+];
+
 export interface ProjectCard {
   image: string;
   title: LocalizedText;

@@ -1,0 +1,49 @@
+// X-Line — data model (MySQL + Prisma)
+//
+// A project is a deeply nested bilingual document (card, hero, overview, galleries…)
+// that the public site renders as-is. It is stored as one JSON column; only the
+// fields the API filters or sorts on are real columns.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  password  String // bcrypt hash — never selected into API responses
+  name      String
+  role      Role      @default(EDITOR)
+  isActive  Boolean   @default(true)
+  lastLogin DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("users")
+}
+
+model Project {
+  /// URL slug, e.g. "the-ramlah-hotel". Used in /selected-project/:id.
+  id          String   @id
+  category    String
+  isPublished Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  /// Full project document (card, hero, overview, designProcess, …) minus id/category.
+  data        Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category])
+  @@index([isPublished, sortOrder])
+  @@map("projects")
+}

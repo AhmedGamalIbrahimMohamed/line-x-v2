@@ -1,0 +1,41 @@
+<div class="admin admin-layout">
+  <header class="admin-topbar">
+    <button type="button" class="admin-topbar__menu" aria-label="Toggle navigation" (click)="toggleMenu()">
+      <span></span>
+    </button>
+    <span class="admin-topbar__brand">X-Line Admin</span>
+  </header>
+
+  <button type="button" class="admin-backdrop" *ngIf="isMenuOpen()" aria-label="Close navigation" (click)="toggleMenu()"></button>
+
+  <aside class="admin-sidebar" [class.is-open]="isMenuOpen()">
+    <div class="admin-sidebar__brand">
+      <span class="admin-sidebar__logo">X-Line</span>
+      <span class="admin-sidebar__badge">Admin</span>
+    </div>
+
+    <nav class="admin-nav" aria-label="Admin">
+      <a class="admin-nav__link" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+      <a class="admin-nav__link" routerLink="/admin/projects" routerLinkActive="active">Projects</a>
+      <a class="admin-nav__link" routerLink="/admin/account" routerLinkActive="active">Account</a>
+    </nav>
+
+    <div class="admin-sidebar__footer">
+      <div class="admin-user" *ngIf="auth.user() as user">
+        <span class="admin-user__name">{{ user.name }}</span>
+        <span class="admin-user__email">{{ user.email }}</span>
+      </div>
+      <div class="admin-sidebar__actions">
+        <a class="button on-dark small" routerLink="/" target="_blank">View site</a>
+        <button type="button" class="button on-dark small" (click)="theme.toggleTheme()">
+          {{ theme.isDark() ? 'Light' : 'Dark' }}
+        </button>
+        <button type="button" class="button on-dark danger small" (click)="logout()">Sign out</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <router-outlet />
+  </main>
+</div>

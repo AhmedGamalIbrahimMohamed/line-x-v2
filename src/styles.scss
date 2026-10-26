@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'variables' as *;
 @use 'layout';
+@use 'admin';
 
 /* Custom Cursor Effect */
 .cursor-circle {
@@ -439,4 +440,27 @@ body.intro-scroll-lock {
     transform: translateY(-6px);
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
   }
+}
+
+/* Skip link: invisible until it receives keyboard focus. */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  inset-inline-start: 8px;
+  z-index: 10000;
+  padding: 10px 18px;
+  background: var(--theme-text);
+  color: var(--theme-page-bg);
+  font-size: 14px;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+#main-content:focus {
+  outline: none;
 }

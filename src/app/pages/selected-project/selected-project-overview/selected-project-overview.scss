@@ -268,3 +268,16 @@
     }
   }
 }
+
+// Only one of Challenge / Concept is shown: drop the empty half of the canvas and align the
+// remaining block to the top. Mobile (<= md) is already a static flow, so it is left alone.
+@media (min-width: 768px) {
+  .project-overview__inner--single {
+    height: 520px;
+
+    .project-overview__heading,
+    .project-overview__content {
+      top: 100px;
+    }
+  }
+}

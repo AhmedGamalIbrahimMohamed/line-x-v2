@@ -15,7 +15,7 @@
 
 		<div class="our-team__spotlight">
 			<figure class="our-team__main-photo">
-				<img src="assets/images/figma2/pic.png" alt="Eng. Ahmed ElShiekh" />
+				<img src="assets/images/figma2/pic.png" alt="Eng. Ahmed ElShiekh" loading="lazy" decoding="async" />
 			</figure>
 
 			<div class="our-team__bio">
@@ -36,7 +36,7 @@
 		<div class="our-team__members">
 			@for (card of teamCards; track $index) {
 				<figure class="our-team__member-card">
-					<img [src]="card.image" [alt]="card.name" />
+					<img [src]="card.image" [alt]="card.name" loading="lazy" decoding="async" />
 
 					<div class="our-team__member-overlay">
 						<p class="our-team__member-name">{{ card.name }}</p>

@@ -43,6 +43,32 @@ export interface StaggerOptions {
 
 @Injectable({ providedIn: 'root' })
 export class ScrollAnimationService {
+  /** ScrollTriggers that belong to shared layout (the footer) and must outlive page navigations. */
+  private readonly persistent = new Set<ScrollTrigger>();
+
+  constructor() {
+    // Visitors who ask the OS for reduced motion still get every end state, just without the movement.
+    if (typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      gsap.globalTimeline.timeScale(100);
+    }
+  }
+
+  /** Runs `setup` and keeps the ScrollTriggers it creates alive across navigations (footer-level animations). */
+  keepAcrossPages(setup: () => void): void {
+    const before = new Set(ScrollTrigger.getAll());
+    setup();
+    ScrollTrigger.getAll()
+      .filter((trigger) => !before.has(trigger))
+      .forEach((trigger) => this.persistent.add(trigger));
+  }
+
+  /** Kills the ScrollTriggers of the page being left, so they do not pile up on removed elements. */
+  killPageTriggers(): void {
+    ScrollTrigger.getAll()
+      .filter((trigger) => !this.persistent.has(trigger))
+      .forEach((trigger) => trigger.kill());
+  }
+
 
   fadeUp(
     elements: Element | Element[] | NodeListOf<Element> | string,

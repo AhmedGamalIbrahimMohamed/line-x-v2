@@ -1,0 +1,42 @@
+<div class="page-head">
+  <div>
+    <h1 class="page-title">Account</h1>
+    <p class="page-subtitle">Your sign-in details and password.</p>
+  </div>
+</div>
+
+<section class="panel" *ngIf="auth.user() as user">
+  <h2 class="panel__title">Profile</h2>
+  <dl class="profile">
+    <div><dt>Name</dt><dd>{{ user.name }}</dd></div>
+    <div><dt>Email</dt><dd>{{ user.email }}</dd></div>
+    <div><dt>Role</dt><dd>{{ user.role }}</dd></div>
+  </dl>
+</section>
+
+<form class="panel account-form" (ngSubmit)="submit()" #passwordForm="ngForm">
+  <h2 class="panel__title">Change password</h2>
+
+  <div class="message" role="status" *ngIf="message()" [class.success]="messageType() === 'success'" [class.error]="messageType() === 'error'">
+    {{ message() }}
+  </div>
+
+  <div class="field">
+    <label class="field__label" for="current-password">Current password</label>
+    <input id="current-password" type="password" name="currentPassword" autocomplete="current-password" required [(ngModel)]="currentPassword" />
+  </div>
+  <div class="field">
+    <label class="field__label" for="new-password">New password (at least 12 characters)</label>
+    <input id="new-password" type="password" name="newPassword" autocomplete="new-password" required minlength="12" [(ngModel)]="newPassword" />
+  </div>
+  <div class="field">
+    <label class="field__label" for="confirm-password">Confirm new password</label>
+    <input id="confirm-password" type="password" name="confirmPassword" autocomplete="new-password" required [(ngModel)]="confirmPassword" />
+  </div>
+
+  <div>
+    <button type="submit" class="button primary" [disabled]="isSaving() || passwordForm.invalid">
+      {{ isSaving() ? 'Saving…' : 'Update password' }}
+    </button>
+  </div>
+</form>

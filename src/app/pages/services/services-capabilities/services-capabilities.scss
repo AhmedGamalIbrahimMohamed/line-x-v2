@@ -5,6 +5,8 @@
 }
 
 .services-capabilities {
+  // Cards wait ~60px off to the side until their slide-in plays; without this they widen the page.
+  overflow-x: clip;
   background: var(--theme-services-capabilities-bg);
   color: var(--theme-services-capabilities-text);
   font-family: $font-primary;

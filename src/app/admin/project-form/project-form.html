@@ -1,0 +1,422 @@
+<div class="page-head page-head--sticky">
+  <div>
+    <a class="back-link" routerLink="/admin/projects">&larr; All projects</a>
+    <h1 class="page-title">{{ isNew ? 'New project' : (project.card.title.en || 'Untitled project') }}</h1>
+    <p class="page-subtitle" *ngIf="!isNew">/selected-project/{{ project.id }}</p>
+  </div>
+  <div class="page-head__actions">
+    <a *ngIf="!isNew" class="button secondary" [routerLink]="['/selected-project', project.id]" target="_blank">View on site</a>
+    <button type="button" class="button primary" (click)="save()" [disabled]="isSaving || uploadsInFlight > 0">
+      {{ isSaving ? 'Saving…' : uploadsInFlight > 0 ? 'Uploading…' : isNew ? 'Create project' : 'Save changes' }}
+    </button>
+  </div>
+</div>
+
+<div class="message" *ngIf="message" role="status" [class.success]="messageType === 'success'" [class.error]="messageType === 'error'">
+  {{ message }}
+</div>
+
+<div class="message warning" role="status" *ngIf="missingRequiredImages">
+  This project is published but has no card image or hero image yet. Both are required before it can be saved as published: add them below, or untick Published to keep it as a draft.
+</div>
+
+<p class="muted" *ngIf="isLoading">Loading project…</p>
+
+<ng-container *ngIf="!isLoading">
+    <div class="form-stack">
+      <!-- ── Identity ───────────────────────────────────────────────────── -->
+      <section class="form-section">
+        <div class="form-section__header">
+          <div>
+            <h2 class="form-section__title">Identity</h2>
+            <p class="form-section__hint">Slug and category used across the site.</p>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="field">
+            <label class="field__label" for="project-id">Project ID</label>
+            <input id="project-id" [(ngModel)]="project.id" (input)="slugTouched = true" name="id" placeholder="auto-filled from the English title" [readonly]="!isNew" />
+          </div>
+          <div class="field">
+            <label class="field__label" for="project-category">Category</label>
+            <select id="project-category" [(ngModel)]="project.category" name="category">
+              <!-- Keeps a legacy value visible instead of rendering a blank select. -->
+              <option *ngIf="!categories.includes(project.category)" [value]="project.category">
+                {{ project.category || 'Select a category' }}
+              </option>
+              <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
+          </div>
+          <div class="field">
+            <span class="field__label">Visibility</span>
+            <label class="check">
+              <input type="checkbox" [(ngModel)]="project.isPublished" name="isPublished" />
+              <span>Published (visible on the public site)</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Card ───────────────────────────────────────────────────────── -->
+      <section class="form-section">
+        <div class="form-section__header">
+          <div>
+            <h2 class="form-section__title">Card</h2>
+            <p class="form-section__hint">How the project appears in the projects grid.</p>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="field">
+            <label class="field__label">Card Title (EN)</label>
+            <input [(ngModel)]="project.card.title.en" (ngModelChange)="onTitleChange($event)" name="cardTitleEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Card Title (AR)</label>
+            <input [(ngModel)]="project.card.title.ar" name="cardTitleAr" dir="rtl" />
+          </div>
+          <div class="field">
+            <label class="field__label">Location (EN)</label>
+            <input [(ngModel)]="project.card.location.en" name="cardLocationEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Location (AR)</label>
+            <input [(ngModel)]="project.card.location.ar" name="cardLocationAr" dir="rtl" />
+          </div>
+          <div class="field">
+            <label class="field__label">Area (EN)</label>
+            <input [(ngModel)]="project.card.area.en" name="cardAreaEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Area (AR)</label>
+            <input [(ngModel)]="project.card.area.ar" name="cardAreaAr" dir="rtl" />
+          </div>
+          <div class="field">
+            <label class="field__label">Card Size</label>
+            <select [(ngModel)]="project.card.size" name="cardSize">
+              <option value="large">Large</option>
+              <option value="small">Small</option>
+              <option value="full">Full</option>
+            </select>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Card Image</label>
+            <div class="media-field">
+              <div class="image-uploader">
+                <p>Click to upload card image</p>
+                <input type="file" accept="image/*" aria-label="Upload card image" (change)="handleImageUpload($event, 'card')" />
+              </div>
+              <div class="preview-container" *ngIf="project.card.image">
+                <img [src]="project.card.image" class="img-preview" alt="Card preview" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Hero ───────────────────────────────────────────────────────── -->
+      <section class="form-section">
+        <div class="form-section__header">
+          <div>
+            <h2 class="form-section__title">Hero</h2>
+            <p class="form-section__hint">Top section of the selected-project page.</p>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="field">
+            <label class="field__label">Eyebrow (EN)</label>
+            <input [(ngModel)]="project.hero.eyebrow.en" name="heroEyebrowEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Eyebrow (AR)</label>
+            <input [(ngModel)]="project.hero.eyebrow.ar" name="heroEyebrowAr" dir="rtl" />
+          </div>
+          <div class="field">
+            <label class="field__label">Hero Title (EN)</label>
+            <input [(ngModel)]="project.hero.title.en" name="heroTitleEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Hero Title (AR)</label>
+            <input [(ngModel)]="project.hero.title.ar" name="heroTitleAr" dir="rtl" />
+          </div>
+          <div class="field">
+            <label class="field__label">Hero Year</label>
+            <input [(ngModel)]="project.hero.details.year" name="heroYear" />
+          </div>
+          <div class="field">
+            <label class="field__label">Location (EN)</label>
+            <input [(ngModel)]="project.hero.details.location.en" name="heroLocationEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Location (AR)</label>
+            <input [(ngModel)]="project.hero.details.location.ar" name="heroLocationAr" dir="rtl" />
+          </div>
+          <div class="field">
+            <label class="field__label">Total Area (EN)</label>
+            <input [(ngModel)]="project.hero.details.totalArea.en" name="heroTotalAreaEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Total Area (AR)</label>
+            <input [(ngModel)]="project.hero.details.totalArea.ar" name="heroTotalAreaAr" dir="rtl" />
+          </div>
+          <div class="field">
+            <label class="field__label">Scope (EN)</label>
+            <input [(ngModel)]="project.hero.details.scope.en" name="heroScopeEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Scope (AR)</label>
+            <input [(ngModel)]="project.hero.details.scope.ar" name="heroScopeAr" dir="rtl" />
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Hero Image</label>
+            <div class="media-field">
+              <div class="image-uploader">
+                <p>Click to upload hero image</p>
+                <input type="file" accept="image/*" aria-label="Upload hero image" (change)="handleImageUpload($event, 'hero')" />
+              </div>
+              <div class="preview-container" *ngIf="project.hero.image">
+                <img [src]="project.hero.image" class="img-preview" alt="Hero preview" />
+              </div>
+            </div>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Hero Subtitle (EN)</label>
+            <textarea rows="2" [(ngModel)]="project.hero.subtitle.en" name="heroSubtitleEn"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Hero Subtitle (AR)</label>
+            <textarea rows="2" [(ngModel)]="project.hero.subtitle.ar" name="heroSubtitleAr" dir="rtl"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Narrative ──────────────────────────────────────────────────── -->
+      <section class="form-section">
+        <div class="form-section__header">
+          <div>
+            <h2 class="form-section__title">Narrative</h2>
+            <p class="form-section__hint">Challenge, concept and solution copy.</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection__header">
+            <h3 class="subsection__title">Challenge</h3>
+<label class="check check--compact"><input type="checkbox" [(ngModel)]="project.overview.challenge.showcase" name="challengeShowcase" /><span>Show on project page</span></label>
+          </div>
+          <div class="field">
+            <label class="field__label">Title (EN)</label>
+            <input [(ngModel)]="project.overview.challenge.title.en" name="challengeTitleEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Title (AR)</label>
+            <input [(ngModel)]="project.overview.challenge.title.ar" name="challengeTitleAr" dir="rtl" />
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Quote (EN)</label>
+            <textarea rows="2" [(ngModel)]="project.overview.challenge.quote.en" name="challengeQuoteEn"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Quote (AR)</label>
+            <textarea rows="2" [(ngModel)]="project.overview.challenge.quote.ar" name="challengeQuoteAr" dir="rtl"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 1 (EN)</label>
+            <textarea rows="3" [(ngModel)]="project.overview.challenge.paragraph1.en" name="challengeP1En"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 1 (AR)</label>
+            <textarea rows="3" [(ngModel)]="project.overview.challenge.paragraph1.ar" name="challengeP1Ar" dir="rtl"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 2 (EN)</label>
+            <textarea rows="3" [(ngModel)]="project.overview.challenge.paragraph2.en" name="challengeP2En"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 2 (AR)</label>
+            <textarea rows="3" [(ngModel)]="project.overview.challenge.paragraph2.ar" name="challengeP2Ar" dir="rtl"></textarea>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection__header">
+            <h3 class="subsection__title">Concept</h3>
+<label class="check check--compact"><input type="checkbox" [(ngModel)]="project.overview.concept.showcase" name="conceptShowcase" /><span>Show on project page</span></label>
+          </div>
+          <div class="field">
+            <label class="field__label">Title (EN)</label>
+            <input [(ngModel)]="project.overview.concept.title.en" name="conceptTitleEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Title (AR)</label>
+            <input [(ngModel)]="project.overview.concept.title.ar" name="conceptTitleAr" dir="rtl" />
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Quote (EN)</label>
+            <textarea rows="2" [(ngModel)]="project.overview.concept.quote.en" name="conceptQuoteEn"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Quote (AR)</label>
+            <textarea rows="2" [(ngModel)]="project.overview.concept.quote.ar" name="conceptQuoteAr" dir="rtl"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 1 (EN)</label>
+            <textarea rows="3" [(ngModel)]="project.overview.concept.paragraph1.en" name="conceptP1En"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 1 (AR)</label>
+            <textarea rows="3" [(ngModel)]="project.overview.concept.paragraph1.ar" name="conceptP1Ar" dir="rtl"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 2 (EN)</label>
+            <textarea rows="3" [(ngModel)]="project.overview.concept.paragraph2.en" name="conceptP2En"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 2 (AR)</label>
+            <textarea rows="3" [(ngModel)]="project.overview.concept.paragraph2.ar" name="conceptP2Ar" dir="rtl"></textarea>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection__header">
+            <h3 class="subsection__title">Solution</h3>
+<label class="check check--compact"><input type="checkbox" [(ngModel)]="project.solution.showcase" name="solutionShowcase" /><span>Show on project page</span></label>
+          </div>
+          <div class="field">
+            <label class="field__label">Title (EN)</label>
+            <input [(ngModel)]="project.solution.title.en" name="solutionTitleEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Title (AR)</label>
+            <input [(ngModel)]="project.solution.title.ar" name="solutionTitleAr" dir="rtl" />
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Quote (EN)</label>
+            <textarea rows="2" [(ngModel)]="project.solution.quote.en" name="solutionQuoteEn"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Quote (AR)</label>
+            <textarea rows="2" [(ngModel)]="project.solution.quote.ar" name="solutionQuoteAr" dir="rtl"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 1 (EN)</label>
+            <textarea rows="3" [(ngModel)]="project.solution.paragraph1.en" name="solutionP1En"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 1 (AR)</label>
+            <textarea rows="3" [(ngModel)]="project.solution.paragraph1.ar" name="solutionP1Ar" dir="rtl"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 2 (EN)</label>
+            <textarea rows="3" [(ngModel)]="project.solution.paragraph2.en" name="solutionP2En"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Paragraph 2 (AR)</label>
+            <textarea rows="3" [(ngModel)]="project.solution.paragraph2.ar" name="solutionP2Ar" dir="rtl"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Media ──────────────────────────────────────────────────────── -->
+      <section class="form-section">
+        <div class="form-section__header">
+          <div>
+            <h2 class="form-section__title">Media</h2>
+            <p class="form-section__hint">Galleries and the spatial-experience block.</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection__header">
+            <h3 class="subsection__title">Design Process</h3>
+<label class="check check--compact"><input type="checkbox" [(ngModel)]="project.designProcess.showcase" name="designProcessShowcase" /><span>Show on project page</span></label>
+            <button type="button" class="button secondary small" (click)="addDesignProcessImage()">+ Add Image</button>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Label (EN)</label>
+            <input [(ngModel)]="project.designProcess.label.en" name="designProcessLabelEn" />
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Label (AR)</label>
+            <input [(ngModel)]="project.designProcess.label.ar" name="designProcessLabelAr" dir="rtl" />
+          </div>
+          <div class="image-list" *ngFor="let image of project.designProcess.images; let i = index">
+            <span class="image-list__index">#{{ i + 1 }}</span>
+            <div class="upload-tile">
+              <div class="image-uploader compact">
+                <p>Upload image</p>
+                <input type="file" accept="image/*" aria-label="Upload design process image" (change)="handleArrayImageUpload($event, 'designProcess', i)" />
+              </div>
+              <div class="preview-container" *ngIf="project.designProcess.images[i]">
+                <img [src]="project.designProcess.images[i]" class="img-preview" alt="Design process preview" />
+              </div>
+            </div>
+            <button type="button" class="button danger small" (click)="removeDesignProcessImage(i)">Remove</button>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection__header">
+            <h3 class="subsection__title">Visual Journey</h3>
+<label class="check check--compact"><input type="checkbox" [(ngModel)]="project.visualJourney.showcase" name="visualJourneyShowcase" /><span>Show on project page</span></label>
+            <button type="button" class="button secondary small" (click)="addVisualJourneyImage()">+ Add Image</button>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Label (EN)</label>
+            <input [(ngModel)]="project.visualJourney.label.en" name="visualJourneyLabelEn" />
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Label (AR)</label>
+            <input [(ngModel)]="project.visualJourney.label.ar" name="visualJourneyLabelAr" dir="rtl" />
+          </div>
+          <div class="image-list" *ngFor="let image of project.visualJourney.images; let i = index">
+            <span class="image-list__index">#{{ i + 1 }}</span>
+            <div class="upload-tile">
+              <div class="image-uploader compact">
+                <p>Upload image</p>
+                <input type="file" accept="image/*" aria-label="Upload visual journey image" (change)="handleArrayImageUpload($event, 'visualJourney', i)" />
+              </div>
+              <div class="preview-container" *ngIf="project.visualJourney.images[i]">
+                <img [src]="project.visualJourney.images[i]" class="img-preview" alt="Visual journey preview" />
+              </div>
+            </div>
+            <button type="button" class="button danger small" (click)="removeVisualJourneyImage(i)">Remove</button>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection__header">
+            <h3 class="subsection__title">Spatial Experience</h3>
+            <label class="check check--compact"><input type="checkbox" [(ngModel)]="project.spatialExperience.showcase" name="spatialExperienceShowcase" /><span>Show on project page</span></label>
+          </div>
+          <div class="field">
+            <label class="field__label">Title (EN)</label>
+            <input [(ngModel)]="project.spatialExperience.title.en" name="spatialExperienceTitleEn" />
+          </div>
+          <div class="field">
+            <label class="field__label">Title (AR)</label>
+            <input [(ngModel)]="project.spatialExperience.title.ar" name="spatialExperienceTitleAr" dir="rtl" />
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Image</label>
+            <div class="media-field">
+              <div class="image-uploader">
+                <p>Click to upload spatial image</p>
+                <input type="file" accept="image/*" aria-label="Upload spatial image" (change)="handleImageUpload($event, 'spatialExperience')" />
+              </div>
+              <div class="preview-container" *ngIf="project.spatialExperience.image">
+                <img [src]="project.spatialExperience.image" class="img-preview" alt="Spatial experience preview" />
+              </div>
+            </div>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Text (EN)</label>
+            <textarea rows="3" [(ngModel)]="project.spatialExperience.text.en" name="spatialExperienceTextEn"></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="field__label">Text (AR)</label>
+            <textarea rows="3" [(ngModel)]="project.spatialExperience.text.ar" name="spatialExperienceTextAr" dir="rtl"></textarea>
+          </div>
+        </div>
+      </section>
+    </div>
+</ng-container>

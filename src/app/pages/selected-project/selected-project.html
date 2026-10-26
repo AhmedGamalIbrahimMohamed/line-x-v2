@@ -1,9 +1,24 @@
 @if (project) {
+  @if (project.isPublished === false) {
+    <p class="draft-banner" role="status">{{ 'Preview.draft' | translate }}</p>
+  }
   <app-selected-project-hero [hero]="project.hero"></app-selected-project-hero>
-  <app-selected-project-overview [overview]="project.overview"></app-selected-project-overview>
-  <app-selected-project-design-process [designProcess]="project.designProcess"></app-selected-project-design-process>
-  <app-selected-project-visual-journey [visualJourney]="project.visualJourney"></app-selected-project-visual-journey>
-  <app-selected-project-solution [solution]="project.solution"></app-selected-project-solution>
-  <app-selected-project-solutions [solutions]="project.solutions"></app-selected-project-solutions>
+  @if (project.overview.challenge.showcase !== false || project.overview.concept.showcase !== false) {
+    <app-selected-project-overview [overview]="project.overview"></app-selected-project-overview>
+  }
+  @if (project.designProcess.showcase !== false) {
+    <app-selected-project-design-process [designProcess]="project.designProcess"></app-selected-project-design-process>
+  }
+  @if (project.visualJourney.showcase !== false) {
+    <app-selected-project-visual-journey [visualJourney]="project.visualJourney"></app-selected-project-visual-journey>
+  }
+  @if (project.solution.showcase !== false) {
+    <app-selected-project-solution [solution]="project.solution"></app-selected-project-solution>
+  }
+  @if (project.spatialExperience && project.spatialExperience.showcase !== false) {
+    <app-selected-project-spatial-experience [spatialExperience]="project.spatialExperience"></app-selected-project-spatial-experience>
+  }
   <app-cta-section page="SelectedProject" primaryRoute="/contact" secondaryRoute="/projects"></app-cta-section>
+} @else if (notFound) {
+  <app-not-found></app-not-found>
 }

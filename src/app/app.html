@@ -1,9 +1,15 @@
-<app-intro-overlay></app-intro-overlay>
-
-<app-navbar (languageChange)="switchLanguage($event)"></app-navbar>
-
-<main class="app-main">
+@if (isAdminRoute()) {
 	<router-outlet />
-</main>
+} @else {
+	<a class="skip-link" href="#main-content" (click)="skipToContent($event)">{{ 'A11y.skipToContent' | translate }}</a>
 
-<app-footer></app-footer>
+	<app-intro-overlay></app-intro-overlay>
+
+	<app-navbar (languageChange)="switchLanguage($event)"></app-navbar>
+
+	<main class="app-main" id="main-content" tabindex="-1">
+		<router-outlet />
+	</main>
+
+	<app-footer></app-footer>
+}

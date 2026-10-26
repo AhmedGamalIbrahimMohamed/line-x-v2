@@ -19,6 +19,12 @@ export class Footer implements AfterViewInit {
     const credit = this.poweredCredit?.nativeElement;
     if (!credit) return;
 
+    // The footer is shared by every page, so its animations must survive navigation.
+    this.anim.keepAcrossPages(() => this.animateCredit(credit));
+  }
+
+  private animateCredit(credit: HTMLElement): void {
+
     const label = credit.querySelector<HTMLElement>('.x-footer__powered-label');
 
     if (label) this.anim.fadeUp(label, credit, { y: 12, stagger: 0, start: 'top bottom', once: true });

@@ -23,7 +23,9 @@
         [class.project-card-small]="cardSizes[i] === 'small'"
         [class.project-card-full]="cardSizes[i] === 'full'"
       >
-        <img [src]="project.card.image" [alt]="project.card.title | localize" />
+        @if (project.card.image) {
+          <img [src]="project.card.image" [alt]="project.card.title | localize" loading="lazy" decoding="async" />
+        }
         <div class="project-overlay"></div>
         <div class="project-content">
           <span class="project-line"></span>

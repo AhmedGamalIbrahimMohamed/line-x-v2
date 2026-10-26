@@ -1,5 +1,6 @@
 <section class="project-overview" aria-label="Project overview" #sectionRef>
-  <div class="project-overview__inner">
+  <div class="project-overview__inner" [class.project-overview__inner--single]="isSingle">
+    @if (overview.challenge.showcase !== false) {
     <article class="project-overview__item project-overview__item--challenge">
       <header class="project-overview__heading">
         <span>{{ overview.challenge.number }}</span>
@@ -18,7 +19,9 @@
         </p>
       </div>
     </article>
+    }
 
+    @if (overview.concept.showcase !== false) {
     <article class="project-overview__item project-overview__item--concept">
       <header class="project-overview__heading">
         <span>{{ overview.concept.number }}</span>
@@ -37,5 +40,6 @@
         </p>
       </div>
     </article>
+    }
   </div>
 </section>

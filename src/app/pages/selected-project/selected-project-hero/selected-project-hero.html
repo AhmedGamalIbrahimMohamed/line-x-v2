@@ -1,6 +1,8 @@
 <section class="selected-project" aria-labelledby="selected-project-title" #heroSection>
   <div class="selected-project__background" aria-hidden="true">
-    <img class="selected-project__media" [src]="hero.image" alt="" />
+    @if (hero.image) {
+      <img class="selected-project__media" [src]="hero.image" alt="" />
+    }
     <div class="selected-project__overlay"></div>
   </div>
 

@@ -357,7 +357,8 @@
       "Start a Conversation": "Start a Conversation",
       "Sending": "Sending...",
       "Success": "Your message has been sent. We'll get back to you within 24 hours.",
-      "Error": "Something went wrong. Please try again later."
+      "Error": "Something went wrong. Please try again later.",
+      "Wait": "Please wait a moment before sending another message."
     },
     "info": {
       "Email Us": "Email Us",
@@ -448,5 +449,18 @@
     "Contact": "Contact",
     "copyright": "@ 2026 X-Line. All rights reserved.",
     "poweredBy": "Powered by"
+  },
+  "NotFound": {
+    "eyebrow": "Error 404",
+    "title": "Page not found",
+    "text": "The page you are looking for does not exist or has been moved.",
+    "home": "Back to home",
+    "projects": "View projects"
+  },
+  "Preview": {
+    "draft": "Draft preview. This project is not visible to visitors yet."
+  },
+  "A11y": {
+    "skipToContent": "Skip to main content"
   }
 }

@@ -2,7 +2,7 @@
   <div class="services-hero__inner layout-container">
     <p class="services-hero__eyebrow">{{ 'Services.hero.eyebrow' | translate }}</p>
 
-    <h1 id="services-title" class="services-hero__title">
+    <h1 id="services-title" class="services-hero__title" [attr.aria-label]="('Services.hero.titleItalic' | translate) + ' ' + ('Services.hero.titleBold' | translate)">
       <span class="services-hero__title-italic">{{ 'Services.hero.titleItalic' | translate }}</span>
       <span class="services-hero__title-bold">
         {{ 'Services.hero.titleBold' | translate }}

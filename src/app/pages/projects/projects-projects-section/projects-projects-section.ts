@@ -29,8 +29,11 @@ export class ProjectsProjectsSection implements OnInit, AfterViewInit {
   private anim = inject(ScrollAnimationService);
   private projectsService = inject(ProjectsService);
 
-  /** Tab labels double as i18n keys under `Projects.section.*` and as `project.category` values. */
-  readonly categories = [ALL_CATEGORIES, ...PROJECT_CATEGORIES];
+  /**
+   * Tab labels double as i18n keys under `Projects.section.*` and as `project.category` values. Only
+   * categories that currently have a project get a tab, so no tab leads to an empty page.
+   */
+  categories: string[] = [ALL_CATEGORIES];
 
   activeCategory = ALL_CATEGORIES;
   projects: Project[] = [];
@@ -53,6 +56,13 @@ export class ProjectsProjectsSection implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.projectsService.getAll().subscribe((projects) => {
       this.projects = projects;
+      this.categories = [
+        ALL_CATEGORIES,
+        ...PROJECT_CATEGORIES.filter((category) =>
+          projects.some((project) => this.normalize(project.category) === this.normalize(category)),
+        ),
+      ];
+      if (!this.categories.includes(this.activeCategory)) this.activeCategory = ALL_CATEGORIES;
       this.applyFilter();
       if (this.viewReady) setTimeout(() => this.setupAnimations());
     });

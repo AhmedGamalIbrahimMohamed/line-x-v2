@@ -1,0 +1,22 @@
+<div class="admin login">
+  <form class="login__card" (ngSubmit)="submit()" #loginForm="ngForm">
+    <div class="login__brand">X-Line</div>
+    <h1 class="login__title">Admin sign in</h1>
+    <p class="login__hint">Manage the projects shown on the website.</p>
+
+    <div class="message error" role="alert" *ngIf="error()">{{ error() }}</div>
+
+    <div class="field">
+      <label class="field__label" for="login-email">Email</label>
+      <input id="login-email" type="email" name="email" autocomplete="username" required [(ngModel)]="email" />
+    </div>
+    <div class="field">
+      <label class="field__label" for="login-password">Password</label>
+      <input id="login-password" type="password" name="password" autocomplete="current-password" required [(ngModel)]="password" />
+    </div>
+
+    <button type="submit" class="button primary login__submit" [disabled]="isSubmitting() || loginForm.invalid">
+      {{ isSubmitting() ? 'Signing in…' : 'Sign in' }}
+    </button>
+  </form>
+</div>

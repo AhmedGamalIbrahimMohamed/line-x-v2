@@ -1,16 +1,15 @@
-<section class="solutions" aria-labelledby="selected-project-solutions-title" #sectionRef>
-  <div class="solutions__stage" data-node-id="179:6668">
-    <div class="solutions__media" aria-hidden="true">
-      <img
-        [src]="solutions.image"
-        alt=""
-      />
+<section class="spatial-experience" aria-labelledby="selected-project-spatial-experience-title" #sectionRef>
+  <div class="spatial-experience__stage" data-node-id="179:6668">
+    <div class="spatial-experience__media" aria-hidden="true">
+      @if (spatialExperience.image) {
+        <img [src]="spatialExperience.image" alt="" loading="lazy" decoding="async" />
+      }
     </div>
 
-    <div class="solutions__copy">
-      <h2 class="solutions__title" id="selected-project-solutions-title">{{ solutions.title | localize }}</h2>
-      <p class="solutions__text">
-        {{ solutions.text | localize }}
+    <div class="spatial-experience__copy">
+      <h2 class="spatial-experience__title" id="selected-project-spatial-experience-title">{{ spatialExperience.title | localize }}</h2>
+      <p class="spatial-experience__text">
+        {{ spatialExperience.text | localize }}
       </p>
     </div>
   </div>

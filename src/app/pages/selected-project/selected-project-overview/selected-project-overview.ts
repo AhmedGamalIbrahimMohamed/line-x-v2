@@ -16,6 +16,11 @@ export class SelectedProjectOverview implements AfterViewInit {
 
   private anim = inject(ScrollAnimationService);
 
+  /** True when only one of Challenge / Concept is shown, so the layout can close the empty half. */
+  get isSingle(): boolean {
+    return (this.overview.challenge.showcase !== false) !== (this.overview.concept.showcase !== false);
+  }
+
   ngAfterViewInit(): void {
     const host = this.sectionRef.nativeElement;
     const items = host.querySelectorAll<HTMLElement>('.project-overview__item');

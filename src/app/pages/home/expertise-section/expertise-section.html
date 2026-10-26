@@ -6,7 +6,7 @@
         <img
           [src]="slide.image"
           [alt]="slide.subtitle | translate"
-          [class.is-active]="$index === activeIndex"
+          [class.is-active]="$index === activeIndex" loading="lazy" decoding="async"
         />
       }
     </div>

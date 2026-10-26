@@ -1,0 +1,84 @@
+<div class="page-head">
+  <div>
+    <h1 class="page-title">Projects</h1>
+    <p class="page-subtitle">{{ filtered().length }} of {{ projects().length }} project(s)</p>
+  </div>
+  <div class="page-head__actions">
+    <a class="button primary" routerLink="/admin/projects/new">+ New project</a>
+  </div>
+</div>
+
+<div class="message error" role="alert" *ngIf="error()">{{ error() }}</div>
+
+<div class="filters">
+  <input type="search" placeholder="Search by title or ID" aria-label="Search projects" [ngModel]="search()" (ngModelChange)="search.set($event)" />
+  <select aria-label="Filter by category" [ngModel]="category()" (ngModelChange)="category.set($event)">
+    <option value="">All categories</option>
+    <option *ngFor="let item of categories" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<p class="muted" *ngIf="isLoading()">Loading projects…</p>
+
+<div class="table-wrap" *ngIf="!isLoading() && filtered().length">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th class="data-table__order">Order</th>
+        <th>Project</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th class="data-table__actions">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of filtered(); let i = index">
+        <td class="data-table__order">
+          <button type="button" class="button secondary small icon-only" aria-label="Move up" [disabled]="!canReorder() || isReordering() || i === 0" (click)="move(project, -1)">&uarr;</button>
+          <button type="button" class="button secondary small icon-only" aria-label="Move down" [disabled]="!canReorder() || isReordering() || i === filtered().length - 1" (click)="move(project, 1)">&darr;</button>
+        </td>
+        <td>
+          <div class="project-cell">
+            <img *ngIf="project.card.image" class="project-cell__thumb" [src]="project.card.image" alt="" loading="lazy" />
+            <div class="project-cell__thumb project-cell__thumb--empty" *ngIf="!project.card.image"></div>
+            <div class="project-cell__text">
+              <a class="project-cell__title" [routerLink]="['/admin/projects', project.id]">{{ project.card.title.en || 'Untitled project' }}</a>
+              <span class="project-cell__id">{{ project.id }}</span>
+            </div>
+          </div>
+        </td>
+        <td>{{ project.category }}</td>
+        <td>
+          <span class="badge" [class.badge--live]="project.isPublished !== false">
+            {{ project.isPublished !== false ? 'Published' : 'Draft' }}
+          </span>
+        </td>
+        <td class="data-table__actions">
+          <a class="button secondary small" [routerLink]="['/admin/projects', project.id]">Edit</a>
+          <button type="button" class="button danger small" (click)="confirmDelete(project)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel empty-panel" *ngIf="!isLoading() && !filtered().length && !error()">
+  <h2 class="panel__title">No projects found</h2>
+  <p class="muted">{{ projects().length ? 'Try a different search or category.' : 'Create your first project to get started.' }}</p>
+  <a class="button primary" routerLink="/admin/projects/new" *ngIf="!projects().length">+ New project</a>
+</div>
+
+<div class="dialog-backdrop" *ngIf="pendingDelete() as project" (click)="cancelDelete()">
+  <div class="dialog" role="alertdialog" aria-modal="true" aria-labelledby="delete-title" (click)="$event.stopPropagation()">
+    <h2 class="dialog__title" id="delete-title">Delete project?</h2>
+    <p class="dialog__text">
+      "{{ project.card.title.en || project.id }}" will be removed from the website. This cannot be undone.
+    </p>
+    <div class="dialog__actions">
+      <button type="button" class="button secondary" (click)="cancelDelete()" [disabled]="isDeleting()">Cancel</button>
+      <button type="button" class="button danger" (click)="delete()" [disabled]="isDeleting()">
+        {{ isDeleting() ? 'Deleting…' : 'Delete' }}
+      </button>
+    </div>
+  </div>
+</div>

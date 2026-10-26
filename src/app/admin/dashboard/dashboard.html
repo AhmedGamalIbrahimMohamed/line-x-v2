@@ -1,0 +1,36 @@
+<div class="page-head">
+  <div>
+    <h1 class="page-title">Welcome back{{ auth.user() ? ', ' + auth.user()!.name : '' }}</h1>
+    <p class="page-subtitle">An overview of the projects on the website.</p>
+  </div>
+  <div class="page-head__actions">
+    <a class="button primary" routerLink="/admin/projects/new">+ New project</a>
+  </div>
+</div>
+
+<div class="message error" role="alert" *ngIf="error()">{{ error() }}</div>
+
+<div class="stat-grid">
+  <div class="stat">
+    <span class="stat__value">{{ isLoading() ? '–' : total() }}</span>
+    <span class="stat__label">Total projects</span>
+  </div>
+  <div class="stat">
+    <span class="stat__value">{{ isLoading() ? '–' : published() }}</span>
+    <span class="stat__label">Published</span>
+  </div>
+  <div class="stat">
+    <span class="stat__value">{{ isLoading() ? '–' : drafts() }}</span>
+    <span class="stat__label">Drafts</span>
+  </div>
+</div>
+
+<section class="panel" *ngIf="byCategory().length">
+  <h2 class="panel__title">Projects by category</h2>
+  <ul class="category-list">
+    <li *ngFor="let item of byCategory()">
+      <span>{{ item.category }}</span>
+      <strong>{{ item.count }}</strong>
+    </li>
+  </ul>
+</section>

@@ -2,6 +2,12 @@ import { NgIf } from '@angular/common';
 import { AfterViewChecked, Component, ElementRef, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { gsap } from 'gsap';
 
+/** Set once the intro has played, so it shows once per browser session instead of on every full page load. */
+const INTRO_SEEN_KEY = 'x-line-intro-seen';
+
+/** Upper bound on how long the intro blocks the page, even if the video is longer. */
+const INTRO_MAX_MS = 4000;
+
 @Component({
   selector: 'app-intro-overlay',
   standalone: true,
@@ -20,6 +26,7 @@ export class IntroOverlay implements OnInit, AfterViewChecked, OnDestroy {
   private timeline?: gsap.core.Timeline;
   private hasPlayed = false;
   private pendingAnimation = false;
+  private maxDurationTimer?: ReturnType<typeof setTimeout>;
 
   ngOnInit(): void {
     queueMicrotask(() => this.playIntro());
@@ -35,6 +42,7 @@ export class IntroOverlay implements OnInit, AfterViewChecked, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    clearTimeout(this.maxDurationTimer);
     this.timeline?.kill();
     document.body.classList.remove('intro-scroll-lock');
   }
@@ -45,9 +53,36 @@ export class IntroOverlay implements OnInit, AfterViewChecked, OnDestroy {
     }
 
     this.hasPlayed = true;
+
+    if (this.shouldSkipIntro()) {
+      return;
+    }
+
+    this.rememberIntroSeen();
     this.visible = true;
     this.pendingAnimation = true;
     document.body.classList.add('intro-scroll-lock');
+  }
+
+  /** Skip for returning visitors in the same session and for visitors who prefer reduced motion. */
+  private shouldSkipIntro(): boolean {
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      return true;
+    }
+
+    try {
+      return sessionStorage.getItem(INTRO_SEEN_KEY) === '1';
+    } catch {
+      return false;
+    }
+  }
+
+  private rememberIntroSeen(): void {
+    try {
+      sessionStorage.setItem(INTRO_SEEN_KEY, '1');
+    } catch {
+      // Without storage the intro simply plays again on the next load.
+    }
   }
 
   skipIntro(): void {
@@ -55,6 +90,7 @@ export class IntroOverlay implements OnInit, AfterViewChecked, OnDestroy {
       return;
     }
 
+    clearTimeout(this.maxDurationTimer);
     this.timeline?.kill();
     this.closeIntro(0.5);
   }
@@ -64,6 +100,7 @@ export class IntroOverlay implements OnInit, AfterViewChecked, OnDestroy {
       return;
     }
 
+    clearTimeout(this.maxDurationTimer);
     this.timeline?.kill();
     this.closeIntro(0.8);
   }
@@ -79,6 +116,7 @@ export class IntroOverlay implements OnInit, AfterViewChecked, OnDestroy {
     activeVideo.muted = true;
     activeVideo.loop = false;
     void activeVideo.play().catch(() => undefined);
+    this.maxDurationTimer = setTimeout(() => this.finishIntro(), INTRO_MAX_MS);
 
     this.timeline?.kill();
     this.timeline = gsap.timeline({

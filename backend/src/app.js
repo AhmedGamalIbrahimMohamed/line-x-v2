@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 import compression from 'compression';
 import cors from 'cors';
@@ -58,9 +59,20 @@ export function createApp() {
 
   app.use(env.apiPrefix, apiLimiter, apiRouter);
 
-  app.get('/', (_req, res) => {
-    res.json({ success: true, data: { name: 'X-Line API', docs: `${env.apiPrefix}/health` } });
-  });
+  // On hosting plans that route the whole domain to this process, serve the Angular build too
+  // (with SPA fallback) instead of just an API welcome message at every non-API path.
+  const indexHtml = env.frontendDir && path.join(env.frontendDir, 'index.html');
+  if (indexHtml && fs.existsSync(indexHtml)) {
+    app.use(express.static(env.frontendDir, { index: false }));
+    app.get('*', (req, res, next) => {
+      if (req.path.startsWith(env.apiPrefix) || req.path.startsWith(env.storage.route)) return next();
+      res.sendFile(indexHtml);
+    });
+  } else {
+    app.get('/', (_req, res) => {
+      res.json({ success: true, data: { name: 'X-Line API', docs: `${env.apiPrefix}/health` } });
+    });
+  }
 
   app.use(notFoundHandler);
   app.use(errorHandler);

@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /admin
+
+Sitemap: https://sandybrown-heron-851794.hostingersite.com/sitemap.xml

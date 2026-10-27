@@ -21,6 +21,10 @@ export const env = {
 
   databaseUrl: process.env.DATABASE_URL,
 
+  // Set when this process must also serve the built Angular site (single-app hosting plans that
+  // route the whole domain to this Node process, leaving no separate static host for the SPA).
+  frontendDir: process.env.FRONTEND_DIR || null,
+
   jwt: {
     secret: process.env.JWT_SECRET,
     expiresIn: process.env.JWT_EXPIRES_IN || '7d',
